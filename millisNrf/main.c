@@ -1,6 +1,6 @@
 // Пример millis для NRF24LE1
 // http://homes-smart.ru/index.php/oborudovanie/bez-provodov-2-4-ggts/nrf24le1-nrf24l01-mikrokontroller
-// Автор MaksMS 13.02.13
+// Автор MaksMS 13.02.14
 // Используется таймер № 0
 
 

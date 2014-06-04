@@ -23,6 +23,11 @@
 *.lk
 *.map
 *.mem
+*.lst
+*.rel
+*.asm
+*.rst
+
 .directory
 test*
 ds18b20
