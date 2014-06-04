@@ -11,7 +11,7 @@ NRF24LE1 wireless client relay, humidity and temperature sensor
 ADC_demo - чтение АЦП входа.<br>
 dht - чтение датчика DHT11,DHT22<br>
 pwm_demo - pwm (ШИМ) пример<br>
-RTC_sleep_demo - пример просыпания микроконтроллера по RTC часам через заданый промежуток времени
+RTC_sleep_demo - пример просыпания микроконтроллера по RTC часам через заданый промежуток времени<br>
 <B>sdk code:</B><br>
 include<br>
 src
