@@ -159,6 +159,8 @@ void main()
 {
 unsigned int count; //counter for for loop
 
+CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний кварц.
+
 int state=0;
 #if 0
 unsigned int crcdata;  
@@ -218,7 +220,7 @@ pwm_configure(PWM_CONFIG_OPTION_PRESCALER_VAL_10 || PWM_CONFIG_OPTION_WIDTH_8_BI
 
 	  
 count++;
-if (count>1){
+if (count>5){
 #if 0
 dhtread ();
 
