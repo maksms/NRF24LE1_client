@@ -11,7 +11,7 @@ NRF24LE1 wireless client relay, humidity and temperature sensor
 ADC_demo - чтение АЦП входа.<br>
 dht - чтение датчика DHT11,DHT22<br>
 pwm_demo - pwm (ШИМ) пример
-
+RTC_sleep_demo - пример просыпания микроконтроллера по RTC часам через заданый промежуток времени
 <B>sdk code:</B><br>
 include<br>
 src
@@ -24,4 +24,5 @@ millisNrf - Вариант реализации millis()
 
 
 <B>wireless client relay, humidity and temperature sensor:</B><br>
-nRF_TIMER - готовый рабочий пример беспроводного датчика и управления реле.
+nRF_TIMER - готовый рабочий пример беспроводного датчика и управления реле. Используется таймер на основе millis().<br>
+nRF_RTC_sleep - готовый рабочий пример беспроводного датчика и управления реле. Используется спящий режим . Просыпается по RTC.
