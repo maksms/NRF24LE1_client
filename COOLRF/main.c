@@ -33,7 +33,7 @@ nf1 clientnf;
 // в будущем возможно будет задействовано для экономии ресурсов - чтобы не пересчитывать при каждом прерывании
 uint16_t valuepwm=0;
 void setdimmer(uint8_t value){
-  valuepwm=65535-DIMSTART*(DIMMERSTEP-clientnf.countPWM);
+  valuepwm=65535-DIMSTART*(DIMMERSTEP-value);
 if(value ==0) {
   interrupt_control_ifp_disable();
   gpio_pin_val_clear(DIMMPIN);
