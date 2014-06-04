@@ -1,0 +1,5 @@
+Пример "мигаем светодиодом"
+
+Светодиод необходимо подключить к пину P0.0
+
+http://homes-smart.ru/index.php/oborudovanie/bez-provodov-2-4-ggts/53-nrf24le1-nrf24l01-mikrokontroller

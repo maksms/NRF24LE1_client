@@ -46,17 +46,17 @@ C:   00000003  l_GSFINAL
 C:   00000003  l_GSINIT0                       
 C:   00000008  l_REG_BANK_0                    
 C:   00000008  s_REG_BANK_1                    
+C:   00000009  l_HOME                          
+C:   00000009  s_GSINIT0                       
 C:   0000000A  l_GSINIT2                       
+C:   0000000C  s_GSINIT1                       
+C:   0000000C  s_GSINIT2                       
 C:   00000010  s_REG_BANK_2                    
+C:   00000016  s_GSINIT3                       
 C:   00000018  s_REG_BANK_3                    
 C:   0000001A  s_OSEG                          
 C:   00000020  s_BSEG_BYTES                    
 C:   00000020  s__CODE                         
-C:   00000021  l_HOME                          
-C:   00000021  s_BIT_BANK                      
-C:   00000021  s_GSINIT0                       
-C:   00000022  l_GSINIT3                       
-C:   00000022  s_SSEG                          
 ASxxxx Linker V03.00 + NoICE + sdld,  page 2.
 Hexadecimal  [32-Bits]
 
@@ -66,23 +66,23 @@ CABS                                00000000    00000000 =           0. bytes (A
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000024  s_GSINIT1                       
-C:   00000024  s_GSINIT2                       
+C:   00000021  s_BIT_BANK                      
+C:   00000022  l_GSINIT3                       
+C:   00000022  s_SSEG                          
 C:   0000002A  l_GSINIT4                       
-C:   0000002E  s_GSINIT3                       
-C:   00000050  s_GSINIT4                       
-C:   0000007A  s_GSFINAL                       
-C:   0000007A  s_GSINIT                        
-C:   0000007A  s_GSINIT5                       
+C:   00000038  s_GSINIT4                       
+C:   00000062  s_GSFINAL                       
+C:   00000062  s_GSINIT                        
+C:   00000062  s_GSINIT5                       
+C:   00000065  s_CSEG                          
 C:   0000007B  l_DSEG                          
-C:   0000007D  s_CSEG                          
-C:   000000CF  l_XSEG                          
-C:   000000CF  s_XISEG                         
+C:   000000A3  l_XSEG                          
+C:   000000A3  s_XISEG                         
 C:   000000DE  l_SSEG                          
 C:   00000100  l_IRAM                          
-C:   000018BE  l_CSEG                          
-C:   0000193B  s_CONST                         
-C:   0000193B  s_XINIT                         
+C:   000016EB  l_CSEG                          
+C:   00001750  s_CONST                         
+C:   00001750  s_XINIT                         
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 3.
 Hexadecimal  [32-Bits]
@@ -412,7 +412,7 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-XSEG                                00000000    000000CF =         207. bytes (REL,CON,XDATA)
+XSEG                                00000000    000000A3 =         163. bytes (REL,CON,XDATA)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -435,51 +435,50 @@ D:   00000031  _rf_set_rx_addr_PARM_3             main
 D:   00000038  _gpio_pin_configure_PARM_2         main
 D:   0000003E  _gpio_pin_val_write_PARM_2         main
 D:   00000047  _pwm_start_PARM_2                  main
-D:   00000056  _interrupt_configure_ifp_PARM_2    main
-D:   0000005D  _timer0_configure_PARM_2           main
-D:   00000060  _timer1_configure_PARM_2           main
-D:   00000063  _uart_configure_manual_baud_calc   main
-D:   00000066  _uart_calc_actual_baud_rate_from   main
-D:   00000069  _uart_calc_actual_baud_rate_from   main
-D:   0000006B  _uart_calc_s0rel_value_PARM_2      main
-D:   00000070  _uart_calc_th1_value_PARM_2        main
-D:   00000075  _uart_configure_auto_baud_calc_P   main
-D:   00000089  _clientnf                          main
-D:   0000009B  _stdimm                            main
-D:   0000009C  _servernf                          main
-D:   000000BC  __divulong_PARM_2                  _divulong
-D:   000000C8  __gptrput_PARM_2                   _gptrput
-D:   000000C9  __mulint_PARM_2                    _mulint
-D:   000000CB  __mullong_PARM_2                   _mullong
+D:   0000004E  _pwr_clk_mgmt_wakeup_configure_P   main
+D:   0000005A  _interrupt_configure_ifp_PARM_2    main
+D:   00000061  _timer0_configure_PARM_2           main
+D:   00000064  _timer1_configure_PARM_2           main
+D:   00000067  _uart_configure_manual_baud_calc   main
+D:   0000006A  _uart_calc_actual_baud_rate_from   main
+D:   0000006D  _uart_calc_actual_baud_rate_from   main
+D:   0000006F  _uart_calc_s0rel_value_PARM_2      main
+D:   00000074  _uart_calc_th1_value_PARM_2        main
+D:   00000079  _uart_configure_auto_baud_calc_P   main
+D:   0000007E  _rtc2_configure_PARM_2             main
+D:   00000090  __divulong_PARM_2                  _divulong
+D:   0000009C  __gptrput_PARM_2                   _gptrput
+D:   0000009D  __mulint_PARM_2                    _mulint
+D:   0000009F  __mullong_PARM_2                   _mullong
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 15.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-HOME                                00000000    00000021 =          33. bytes (REL,CON,CODE)
+HOME                                00000000    00000009 =           9. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000001E  __sdcc_program_startup             main
+C:   00000006  __sdcc_program_startup             main
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 16.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT0                             00000021    00000003 =           3. bytes (REL,CON,CODE)
+GSINIT0                             00000009    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000021  __sdcc_gsinit_startup              
+C:   00000009  __sdcc_gsinit_startup              
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 17.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT2                             00000024    0000000A =          10. bytes (REL,CON,CODE)
+GSINIT2                             0000000C    0000000A =          10. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -488,30 +487,30 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT3                             0000002E    00000022 =          34. bytes (REL,CON,CODE)
+GSINIT3                             00000016    00000022 =          34. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000002E  __mcs51_genXINIT                   
+C:   00000016  __mcs51_genXINIT                   
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 19.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSINIT4                             00000050    0000002A =          42. bytes (REL,CON,CODE)
+GSINIT4                             00000038    0000002A =          42. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00000050  __mcs51_genRAMCLEAR                
-C:   00000056  __mcs51_genXRAMCLEAR               
+C:   00000038  __mcs51_genRAMCLEAR                
+C:   0000003E  __mcs51_genXRAMCLEAR               
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 20.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-GSFINAL                             0000007A    00000003 =           3. bytes (REL,CON,CODE)
+GSFINAL                             00000062    00000003 =           3. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
@@ -520,81 +519,82 @@ Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                0000007D    000018BE =        6334. bytes (REL,CON,CODE)
+CSEG                                00000065    000016EB =        5867. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   0000007D  _rf_read_rx_payload                main
-C:   000000D2  _rf_configure_debug_lite           main
-C:   00000139  _rf_write_register                 main
-C:   00000176  _rf_spi_configure_enable           main
-C:   0000017D  _rf_write_tx_payload               main
-C:   000001D2  _rf_transmit                       main
-C:   000001E3  _rf_set_as_rx                      main
-C:   00000243  _rf_irq_clear_all                  main
-C:   00000268  _rf_set_as_tx                      main
-C:   000002B2  _rf_spi_execute_command            main
-C:   0000030E  _rf_spi_send_read                  main
-C:   000003A1  _rf_power_up_param                 main
-C:   000003ED  _rf_read_register                  main
-C:   00000428  _rf_spi_send_read_byte             main
-C:   0000043B  _rf_set_rx_addr                    main
-C:   00000484  _rf_power_down                     main
-C:   000004CE  _rf_power_up                       main
-C:   0000053F  _gpio_pin_configure                main
-C:   0000073A  _gpio_pin_val_read                 main
-C:   000007CE  _gpio_pin_val_clear                main
-C:   00000839  _gpio_pin_val_set                  main
-C:   000008A0  _gpio_pin_val_write                main
-C:   000008BF  _delay_us                          main
-C:   00000900  _delay_s                           main
-C:   0000093C  _delay_ms                          main
-C:   00000978  _pwm_configure                     main
-C:   0000098D  _pwm_start                         main
-C:   000009AA  _pwr_clk_mgmt_clklf_configure      main
-C:   000009BF  _pwr_clk_mgmt_get_cclk_freq_in_h   main
-C:   00000A18  _watchdog_set_wdsv_count           main
-C:   00000A30  _watchdog_start_and_set_timeout_   main
-C:   00000AEB  _interrupt_configure_ifp           main
-C:   00000B5D  _adc_configure                     main
-C:   00000B7D  _adc_set_input_channel             main
-C:   00000B9C  _adc_start_single_conversion       main
-C:   00000BAF  _adc_start_single_conversion_get   main
-C:   00000BCB  _timer0_configure                  main
-C:   00000BFE  _timer1_configure                  main
-C:   00000C31  _uart_configure_manual_baud_calc   main
-C:   00000C8F  _uart_calc_actual_baud_rate_from   main
-C:   00000D48  _uart_calc_actual_baud_rate_from   main
-C:   00000E0C  _uart_calc_s0rel_value             main
-C:   00000EEF  _uart_calc_th1_value               main
-C:   00000FCB  _uart_configure_auto_baud_calc     main
-C:   0000127D  _radiobegin                        main
-C:   000012A2  _setChannel                        main
-C:   000012C4  _setDataRate                       main
-C:   00001326  _setAutoAck                        main
-C:   00001359  _setCRCLength                      main
-C:   000013C2  _setPALevel                        main
+C:   00000065  _rf_read_rx_payload                main
+C:   000000BA  _rf_configure_debug_lite           main
+C:   00000121  _rf_write_register                 main
+C:   0000015E  _rf_spi_configure_enable           main
+C:   00000165  _rf_write_tx_payload               main
+C:   000001BA  _rf_transmit                       main
+C:   000001CB  _rf_set_as_rx                      main
+C:   0000022B  _rf_irq_clear_all                  main
+C:   00000250  _rf_set_as_tx                      main
+C:   0000029A  _rf_spi_execute_command            main
+C:   000002F6  _rf_spi_send_read                  main
+C:   00000389  _rf_power_up_param                 main
+C:   000003D5  _rf_read_register                  main
+C:   00000410  _rf_spi_send_read_byte             main
+C:   00000423  _rf_set_rx_addr                    main
+C:   0000046C  _rf_power_down                     main
+C:   000004B6  _rf_power_up                       main
+C:   00000527  _gpio_pin_configure                main
+C:   00000722  _gpio_pin_val_read                 main
+C:   000007B6  _gpio_pin_val_clear                main
+C:   00000821  _gpio_pin_val_set                  main
+C:   00000888  _gpio_pin_val_write                main
+C:   000008A7  _delay_us                          main
+C:   000008E8  _delay_s                           main
+C:   00000924  _delay_ms                          main
+C:   00000960  _pwm_configure                     main
+C:   00000975  _pwm_start                         main
+C:   00000992  _pwr_clk_mgmt_clklf_configure      main
+C:   000009A7  _pwr_clk_mgmt_get_cclk_freq_in_h   main
+C:   00000A00  _pwr_clk_mgmt_wakeup_configure     main
+C:   00000A19  _pwr_clk_mgmt_cclk_configure       main
+C:   00000A22  _watchdog_set_wdsv_count           main
+C:   00000A3A  _watchdog_start_and_set_timeout_   main
+C:   00000AF5  _interrupt_configure_ifp           main
+C:   00000B67  _adc_configure                     main
+C:   00000B87  _adc_set_input_channel             main
+C:   00000BA6  _adc_start_single_conversion       main
+C:   00000BB9  _adc_start_single_conversion_get   main
+C:   00000BD5  _timer0_configure                  main
+C:   00000C08  _timer1_configure                  main
+C:   00000C3B  _uart_configure_manual_baud_calc   main
+C:   00000C99  _uart_calc_actual_baud_rate_from   main
+C:   00000D52  _uart_calc_actual_baud_rate_from   main
+C:   00000E16  _uart_calc_s0rel_value             main
+C:   00000EF9  _uart_calc_th1_value               main
+C:   00000FD5  _uart_configure_auto_baud_calc     main
+C:   00001287  _rtc2_configure                    main
+C:   000012B7  _radiobegin                        main
+C:   000012DC  _setChannel                        main
+C:   000012FE  _setDataRate                       main
 ASxxxx Linker V03.00 + NoICE + sdld,  page 22.
 Hexadecimal  [32-Bits]
 
 Area                                    Addr        Size        Decimal Bytes (Attributes)
 --------------------------------        ----        ----        ------- ----- ------------
-CSEG                                0000007D    000018BE =        6334. bytes (REL,CON,CODE)
+CSEG                                00000065    000016EB =        5867. bytes (REL,CON,CODE)
 
       Value  Global                              Global Defined In Module
       -----  --------------------------------   ------------------------
-C:   00001401  _openAllPipe                       main
-C:   000014BD  _isr_ifp                           main
-C:   00001551  _isr_t1                            main
-C:   000015AD  _main                              main
-C:   00001766  __divulong                         _divulong
-C:   00001874  __gptrput                          _gptrput
-C:   0000188F  __mulint                           _mulint
-C:   000018AF  __mullong                          _mullong
-C:   000018AF  __mullong_dummy                    _mullong
-C:   0000191B  __gptrget                          _gptrget
-C:   00001937  __sdcc_external_startup            _startup
-
+C:   00001360  _setAutoAck                        main
+C:   00001393  _setCRCLength                      main
+C:   000013FC  _setPALevel                        main
+C:   0000143B  _openAllPipe                       main
+C:   000014F7  _isr_ifp                           main
+C:   00001545  _main                              main
+C:   0000157B  __divulong                         _divulong
+C:   00001689  __gptrput                          _gptrput
+C:   000016A4  __mulint                           _mulint
+C:   000016C4  __mullong                          _mullong
+C:   000016C4  __mullong_dummy                    _mullong
+C:   00001730  __gptrget                          _gptrget
+C:   0000174C  __sdcc_external_startup            _startup
 ASxxxx Linker V03.00 + NoICE + sdld,  page 23.
 
 Files Linked                              [ module(s) ]
@@ -604,25 +604,25 @@ main.rel                                  [  ]
 
 Libraries Linked                          [ object file ]
 
-/usr/local/bin/../share/sdcc/lib/large/liblong.lib
+/usr/bin/../share/sdcc/lib/large/liblong.lib
                                           [ _divulong.rel ]
-/usr/local/bin/../share/sdcc/lib/large/mcs51.lib
+/usr/bin/../share/sdcc/lib/large/mcs51.lib
                                           [ crtclear.rel ]
-/usr/local/bin/../share/sdcc/lib/large/mcs51.lib
+/usr/bin/../share/sdcc/lib/large/mcs51.lib
                                           [ crtxinit.rel ]
-/usr/local/bin/../share/sdcc/lib/large/libsdcc.lib
+/usr/bin/../share/sdcc/lib/large/libsdcc.lib
                                           [ _gptrput.rel ]
-/usr/local/bin/../share/sdcc/lib/large/libint.lib
+/usr/bin/../share/sdcc/lib/large/libint.lib
                                           [ _mulint.rel ]
-/usr/local/bin/../share/sdcc/lib/large/liblong.lib
+/usr/bin/../share/sdcc/lib/large/liblong.lib
                                           [ _mullong.rel ]
-/usr/local/bin/../share/sdcc/lib/large/mcs51.lib
+/usr/bin/../share/sdcc/lib/large/mcs51.lib
                                           [ crtxclear.rel ]
-/usr/local/bin/../share/sdcc/lib/large/mcs51.lib
+/usr/bin/../share/sdcc/lib/large/mcs51.lib
                                           [ crtstart.rel ]
-/usr/local/bin/../share/sdcc/lib/large/libsdcc.lib
+/usr/bin/../share/sdcc/lib/large/libsdcc.lib
                                           [ _gptrget.rel ]
-/usr/local/bin/../share/sdcc/lib/large/libsdcc.lib
+/usr/bin/../share/sdcc/lib/large/libsdcc.lib
                                           [ _startup.rel ]
 
 ASxxxx Linker V03.00 + NoICE + sdld,  page 24.

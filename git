@@ -1,0 +1,8 @@
+ 
+
+ 
+ git add README.md
+ 
+git commit -m "readme"
+
+git push git@github.com:maksms/NRF24LE1_client.git

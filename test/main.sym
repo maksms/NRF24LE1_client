@@ -431,179 +431,131 @@ Symbol Table
     __divulong_PARM_2                                              **** GX
     __gptrget                                                      **** GX
     __gptrput                                                      **** GX
-  F __interrupt_vect                                               0000 R
+  E __interrupt_vect                                               0000 R
     __mcs51_genRAMCLEAR                                            **** GX
     __mcs51_genXINIT                                               **** GX
     __mcs51_genXRAMCLEAR                                           **** GX
-    __mulint                                                       **** GX
-    __mulint_PARM_2                                                **** GX
-    __mullong                                                      **** GX
-    __mullong_PARM_2                                               **** GX
     __sdcc_gsinit_startup                                          **** GX
-  F __sdcc_program_startup                                         001E GR
-  7 __start__stack                                                 0000 GR
- 18 _adc_configure                                                 0AE0 GR
-  C _adc_configure_adc_config_options_1_179                        0058 R
- 18 _adc_set_input_channel                                         0B00 GR
-  C _adc_set_input_channel_adc_channel_1_181                       005A R
- 18 _adc_start_single_conversion                                   0B1F GR
-  C _adc_start_single_conversion_adc_channel_1_183                 005B R
- 18 _adc_start_single_conversion_get_value                         0B32 GR
-  C _adc_start_single_conversion_get_value_adc_channel_1_185       005C R
-  C _clientnf                                                      0089 GR
- 18 _delay_ms                                                      08BF GR
-  C _delay_ms_milliseconds_1_138                                   0044 R
- 18 _delay_s                                                       0883 GR
-  C _delay_s_seconds_1_135                                         0042 R
- 18 _delay_us                                                      0842 GR
-  C _delay_us_microseconds_1_132                                   0040 R
- 18 _gpio_pin_configure                                            04C2 GR
-  C _gpio_pin_configure_PARM_2                                     0038 GR
-  C _gpio_pin_configure_gpio_pin_id_1_86                           0039 R
- 18 _gpio_pin_val_clear                                            0751 GR
-  C _gpio_pin_val_clear_gpio_pin_id_1_116                          003C R
- 18 _gpio_pin_val_read                                             06BD GR
-  C _gpio_pin_val_read_gpio_pin_id_1_108                           003A R
-  C _gpio_pin_val_read_value_1_109                                 003B R
- 18 _gpio_pin_val_set                                              07BC GR
-  C _gpio_pin_val_set_gpio_pin_id_1_122                            003D R
- 18 _gpio_pin_val_write                                            0823 GR
-  C _gpio_pin_val_write_PARM_2                                     003E GR
-  C _gpio_pin_val_write_gpio_pin_id_1_128                          003F R
- 18 _interrupt_configure_ifp                                       0A6E GR
-  C _interrupt_configure_ifp_PARM_2                                0056 GR
-  C _interrupt_configure_ifp_interrupt_ifp_input_1_165             0057 R
- 18 _isr_ifp                                                       1440 GR
- 18 _isr_t1                                                        14D4 GR
- 18 _main                                                          1530 GR
- 18 _openAllPipe                                                   1384 GR
-  C _openAllPipe_buffer_1_238                                      0083 R
+  E __sdcc_program_startup                                         0003 GR
+  6 __start__stack                                                 0000 GR
+ 18 __str_0                                                        0000 R
+ 17 _adc_configure                                                 0A25 GR
+  B _adc_configure_adc_config_options_1_176                        0055 R
+ 17 _adc_set_input_channel                                         0A45 GR
+  B _adc_set_input_channel_adc_channel_1_178                       0057 R
+ 17 _adc_start_single_conversion                                   0A64 GR
+  B _adc_start_single_conversion_adc_channel_1_180                 0058 R
+ 17 _adc_start_single_conversion_get_value                         0A77 GR
+  B _adc_start_single_conversion_get_value_adc_channel_1_182       0059 R
+ 17 _delay_ms                                                      0804 GR
+  B _delay_ms_milliseconds_1_135                                   0041 R
+ 17 _delay_s                                                       07C8 GR
+  B _delay_s_seconds_1_132                                         003F R
+ 17 _delay_us                                                      0787 GR
+  B _delay_us_microseconds_1_129                                   003D R
+ 17 _getchar                                                       0C32 GR
+  B _getchar_retchar_1_202                                         0062 R
+ 17 _gpio_pin_configure                                            0407 GR
+  B _gpio_pin_configure_PARM_2                                     0035 GR
+  B _gpio_pin_configure_gpio_pin_id_1_83                           0036 R
+ 17 _gpio_pin_val_clear                                            0696 GR
+  B _gpio_pin_val_clear_gpio_pin_id_1_113                          0039 R
+ 17 _gpio_pin_val_read                                             0602 GR
+  B _gpio_pin_val_read_gpio_pin_id_1_105                           0037 R
+  B _gpio_pin_val_read_value_1_106                                 0038 R
+ 17 _gpio_pin_val_set                                              0701 GR
+  B _gpio_pin_val_set_gpio_pin_id_1_119                            003A R
+ 17 _gpio_pin_val_write                                            0768 GR
+  B _gpio_pin_val_write_PARM_2                                     003B GR
+  B _gpio_pin_val_write_gpio_pin_id_1_125                          003C R
+ 17 _initialize                                                    0BDF GR
+ 17 _interrupt_configure_ifp                                       09B3 GR
+  B _interrupt_configure_ifp_PARM_2                                0053 GR
+  B _interrupt_configure_ifp_interrupt_ifp_input_1_162             0054 R
+ 17 _main                                                          0AF9 GR
+  B _main_datavar_1_195                                            0060 R
+    _printf                                                        **** GX
+ 17 _putchar                                                       0C24 GR
+  B _putchar_c_1_200                                               0061 R
+ 17 _pwm_configure                                                 0840 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
 
 Symbol Table
 
-  C _openAllPipe_setup_1_238                                       0088 R
- 18 _pwm_configure                                                 08FB GR
-  C _pwm_configure_pwm_config_options_1_143                        0046 R
- 18 _pwm_start                                                     0910 GR
-  C _pwm_start_PARM_2                                              0047 GR
-  C _pwm_start_pwm_channel_1_145                                   0048 R
- 18 _pwr_clk_mgmt_clklf_configure                                  092D GR
-  C _pwr_clk_mgmt_clklf_configure_clklf_config_options_1_154       0049 R
- 18 _pwr_clk_mgmt_get_cclk_freq_in_hz                              0942 GR
-  C _pwr_clk_mgmt_get_cclk_freq_in_hz_cclk_freq_hz_1_156           004A R
- 18 _radiobegin                                                    1200 GR
-  C _radiobegin_setup_1_227                                        007A R
- 18 _rf_configure_debug_lite                                       0055 GR
-  C _rf_configure_debug_lite_PARM_2                                0005 GR
-  C _rf_configure_debug_lite_config_1_40                           0007 R
-  C _rf_configure_debug_lite_rx_1_39                               0006 R
- 18 _rf_irq_clear_all                                              01C6 GR
-  C _rf_irq_clear_all_dataptr_1_54                                 0016 R
- 18 _rf_power_down                                                 0407 GR
-  C _rf_power_down_config_1_76                                     0035 R
- 18 _rf_power_up                                                   0451 GR
-  C _rf_power_up_config_1_79                                       0037 R
- 18 _rf_power_up_param                                             0324 GR
-  C _rf_power_up_param_PARM_2                                      0026 GR
-  C _rf_power_up_param_rx_active_mode_1_63                         0027 R
-  C _rf_power_up_rx_active_mode_1_78                               0036 R
- 18 _rf_read_register                                              0370 GR
-  C _rf_read_register_PARM_2                                       0028 GR
-  C _rf_read_register_PARM_3                                       002B GR
-  C _rf_read_register_regnumber_1_69                               002D R
- 18 _rf_read_rx_payload                                            0000 GR
-  C _rf_read_rx_payload_PARM_2                                     0000 GR
-  C _rf_read_rx_payload_dataptr_1_37                               0002 R
- 18 _rf_set_as_rx                                                  0166 GR
-  C _rf_set_as_rx_config_1_50                                      0015 R
-  C _rf_set_as_rx_rx_active_mode_1_49                              0014 R
- 18 _rf_set_as_tx                                                  01EB GR
-  C _rf_set_as_tx_config_1_55                                      0017 R
- 18 _rf_set_rx_addr                                                03BE GR
-  C _rf_set_rx_addr_PARM_2                                         002F GR
-  C _rf_set_rx_addr_PARM_3                                         0031 GR
-  C _rf_set_rx_addr_address_1_73                                   0032 R
- 18 _rf_spi_configure_enable                                       00F9 GR
- 18 _rf_spi_execute_command                                        0235 GR
-  C _rf_spi_execute_command_PARM_2                                 0018 GR
-  C _rf_spi_execute_command_PARM_3                                 001B GR
-  C _rf_spi_execute_command_PARM_4                                 001D GR
-  C _rf_spi_execute_command_instruction_1_57                       001E R
-  C _rf_spi_execute_command_status_1_58                            001F R
- 18 _rf_spi_send_read                                              0291 GR
-  C _rf_spi_send_read_PARM_2                                       0020 GR
-  C _rf_spi_send_read_PARM_3                                       0022 GR
- 18 _rf_spi_send_read_byte                                         03AB GR
-  C _rf_spi_send_read_byte_byte_1_71                               002E R
-  C _rf_spi_send_read_dataptr_1_59                                 0023 R
-  6 _rf_spi_send_read_sloc0_1_0                                    0000 R
+  B _pwm_configure_pwm_config_options_1_140                        0043 R
+ 17 _pwm_start                                                     0855 GR
+  B _pwm_start_PARM_2                                              0044 GR
+  B _pwm_start_pwm_channel_1_142                                   0045 R
+ 17 _pwr_clk_mgmt_clklf_configure                                  0872 GR
+  B _pwr_clk_mgmt_clklf_configure_clklf_config_options_1_151       0046 R
+ 17 _pwr_clk_mgmt_get_cclk_freq_in_hz                              0887 GR
+  B _pwr_clk_mgmt_get_cclk_freq_in_hz_cclk_freq_hz_1_153           0047 R
+ 17 _rf_configure_debug_lite                                       0055 GR
+  B _rf_configure_debug_lite_PARM_2                                0005 GR
+  B _rf_configure_debug_lite_config_1_47                           0007 R
+  B _rf_configure_debug_lite_rx_1_46                               0006 R
+ 17 _rf_irq_clear_all                                              01C6 GR
+  B _rf_irq_clear_all_dataptr_1_61                                 0016 R
+ 17 _rf_power_up_param                                             0324 GR
+  B _rf_power_up_param_PARM_2                                      0026 GR
+  B _rf_power_up_param_rx_active_mode_1_70                         0027 R
+ 17 _rf_read_register                                              0370 GR
+  B _rf_read_register_PARM_2                                       0028 GR
+  B _rf_read_register_PARM_3                                       002B GR
+  B _rf_read_register_regnumber_1_76                               002D R
+ 17 _rf_read_rx_payload                                            0000 GR
+  B _rf_read_rx_payload_PARM_2                                     0000 GR
+  B _rf_read_rx_payload_dataptr_1_44                               0002 R
+ 17 _rf_set_as_rx                                                  0166 GR
+  B _rf_set_as_rx_config_1_57                                      0015 R
+  B _rf_set_as_rx_rx_active_mode_1_56                              0014 R
+ 17 _rf_set_as_tx                                                  01EB GR
+  B _rf_set_as_tx_config_1_62                                      0017 R
+ 17 _rf_set_rx_addr                                                03BE GR
+  B _rf_set_rx_addr_PARM_2                                         002F GR
+  B _rf_set_rx_addr_PARM_3                                         0031 GR
+  B _rf_set_rx_addr_address_1_80                                   0032 R
+ 17 _rf_spi_configure_enable                                       00F9 GR
+ 17 _rf_spi_execute_command                                        0235 GR
+  B _rf_spi_execute_command_PARM_2                                 0018 GR
+  B _rf_spi_execute_command_PARM_3                                 001B GR
+  B _rf_spi_execute_command_PARM_4                                 001D GR
+  B _rf_spi_execute_command_instruction_1_64                       001E R
+  B _rf_spi_execute_command_status_1_65                            001F R
+ 17 _rf_spi_send_read                                              0291 GR
+  B _rf_spi_send_read_PARM_2                                       0020 GR
+  B _rf_spi_send_read_PARM_3                                       0022 GR
+ 17 _rf_spi_send_read_byte                                         03AB GR
+  B _rf_spi_send_read_byte_byte_1_78                               002E R
+  B _rf_spi_send_read_dataptr_1_66                                 0023 R
+  5 _rf_spi_send_read_sloc0_1_0                                    0000 R
+  5 _rf_spi_send_read_sloc1_1_0                                    0003 R
+ 17 _rf_transmit                                                   0155 GR
+ 17 _rf_write_register                                             00BC GR
+  B _rf_write_register_PARM_2                                      0008 GR
+  B _rf_write_register_PARM_3                                      000B GR
+  B _rf_write_register_regnumber_1_49                              000D R
+ 17 _rf_write_tx_payload                                           0100 GR
+  B _rf_write_tx_payload_PARM_2                                    000E GR
+  B _rf_write_tx_payload_PARM_3                                    0010 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
 
 Symbol Table
 
-  6 _rf_spi_send_read_sloc1_1_0                                    0003 R
- 18 _rf_transmit                                                   0155 GR
- 18 _rf_write_register                                             00BC GR
-  C _rf_write_register_PARM_2                                      0008 GR
-  C _rf_write_register_PARM_3                                      000B GR
-  C _rf_write_register_regnumber_1_42                              000D R
- 18 _rf_write_tx_payload                                           0100 GR
-  C _rf_write_tx_payload_PARM_2                                    000E GR
-  C _rf_write_tx_payload_PARM_3                                    0010 GR
-  C _rf_write_tx_payload_dataptr_1_45                              0011 R
-  C _servernf                                                      009C GR
- 18 _setAutoAck                                                    12A9 GR
-  C _setAutoAck_buffer_1_233                                       007F R
-  C _setAutoAck_enable_1_232                                       007E R
- 18 _setCRCLength                                                  12DC GR
-  C _setCRCLength_buffer_1_235                                     0081 R
-  C _setCRCLength_length_1_234                                     0080 R
- 18 _setChannel                                                    1225 GR
-  C _setChannel_channel_1_228                                      007B R
- 18 _setDataRate                                                   1247 GR
-  C _setDataRate_buffer_1_231                                      007D R
-  C _setDataRate_speed_1_230                                       007C R
- 18 _setPALevel                                                    1345 GR
-  C _setPALevel_setup_1_237                                        0082 R
-  C _stdimm                                                        009B GR
- 18 _timer0_configure                                              0B4E GR
-  C _timer0_configure_PARM_2                                       005D GR
-  C _timer0_configure_timer0_config_options_1_188                  005F R
- 18 _timer1_configure                                              0B81 GR
-  C _timer1_configure_PARM_2                                       0060 GR
-  C _timer1_configure_timer1_config_options_1_193                  0062 R
- 18 _uart_calc_actual_baud_rate_from_s0rel                         0C12 GR
-  C _uart_calc_actual_baud_rate_from_s0rel_PARM_2                  0066 GR
-  C _uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_210   0067 R
- 18 _uart_calc_actual_baud_rate_from_th1                           0CCB GR
-  C _uart_calc_actual_baud_rate_from_th1_PARM_2                    0069 GR
-  C _uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_212       006A R
- 18 _uart_calc_s0rel_value                                         0D8F GR
-  C _uart_calc_s0rel_value_PARM_2                                  006B GR
-  C _uart_calc_s0rel_value_desired_baud_rate_1_214                 006C R
- 18 _uart_calc_th1_value                                           0E72 GR
-  C _uart_calc_th1_value_PARM_2                                    0070 GR
-  C _uart_calc_th1_value_desired_baud_rate_1_216                   0071 R
- 18 _uart_configure_auto_baud_calc                                 0F4E GR
-  C _uart_configure_auto_baud_calc_PARM_2                          0075 GR
-  6 _uart_configure_auto_baud_calc_sloc0_1_0                       0004 R
-  6 _uart_configure_auto_baud_calc_sloc1_1_0                       0006 R
-  6 _uart_configure_auto_baud_calc_sloc2_1_0                       000A R
-  6 _uart_configure_auto_baud_calc_sloc3_1_0                       000E R
-  C _uart_configure_auto_baud_calc_uart_config_options_1_218       0079 R
- 18 _uart_configure_manual_baud_calc                               0BB4 GR
-  C _uart_configure_manual_baud_calc_PARM_2                        0063 GR
-  C _uart_configure_manual_baud_calc_uart_config_options_1_203     0065 R
- 18 _watchdog_set_wdsv_count                                       099B GR
-  C _watchdog_set_wdsv_count_wdsv_value_1_159                      004E R
- 18 _watchdog_start_and_set_timeout_in_ms                          09B3 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
-
-Symbol Table
-
-  C _watchdog_start_and_set_timeout_in_ms_milliseconds_1_161       0050 R
-  C _watchdog_start_and_set_timeout_in_ms_wd_value_1_162           0054 R
+  B _rf_write_tx_payload_dataptr_1_52                              0011 R
+ 17 _timer0_configure                                              0A93 GR
+  B _timer0_configure_PARM_2                                       005A GR
+  B _timer0_configure_timer0_config_options_1_185                  005C R
+ 17 _timer1_configure                                              0AC6 GR
+  B _timer1_configure_PARM_2                                       005D GR
+  B _timer1_configure_timer1_config_options_1_190                  005F R
+    _uart_configure_manual_baud_calc                               **** GX
+    _uart_configure_manual_baud_calc_PARM_2                        **** GX
+ 17 _watchdog_set_wdsv_count                                       08E0 GR
+  B _watchdog_set_wdsv_count_wdsv_value_1_156                      004B R
+ 17 _watchdog_start_and_set_timeout_in_ms                          08F8 GR
+  B _watchdog_start_and_set_timeout_in_ms_milliseconds_1_158       004D R
+  B _watchdog_start_and_set_timeout_in_ms_wd_value_1_159           0051 R
     a                                                           =  00E0 L
     a.0                                                         =  00E0 L
     a.1                                                         =  00E1 L
@@ -640,28 +592,19 @@ Symbol Table
     b.5                                                         =  00F5 L
     b.6                                                         =  00F6 L
     b.7                                                         =  00F7 L
-  5 b0                                                          =  8000 R
-  5 b1                                                          =  8100 R
-  5 b2                                                          =  8200 R
-  5 b3                                                          =  8300 R
-  5 b4                                                          =  8400 R
-  5 b5                                                          =  8500 R
-  5 b6                                                          =  8600 R
-  5 b7                                                          =  8700 R
-  5 bits                                                           0000 R
     cprl2                                                       =  00C8 L
     ct2                                                         =  00C9 L
     cy                                                          =  00D7 L
     dph                                                         =  0083 L
     dpl                                                         =  0082 L
     ea                                                          =  00AF L
-    es                                                          =  00AC L
-    et0                                                         =  00A9 L
-    et1                                                         =  00AB L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
 
 Symbol Table
 
+    es                                                          =  00AC L
+    et0                                                         =  00A9 L
+    et1                                                         =  00AB L
     et2                                                         =  00AD L
     ex0                                                         =  00A8 L
     ex1                                                         =  00AA L
@@ -715,13 +658,13 @@ Symbol Table
     p2.2                                                        =  00A2 L
     p2.3                                                        =  00A3 L
     p2.4                                                        =  00A4 L
-    p2.5                                                        =  00A5 L
-    p2.6                                                        =  00A6 L
-    p2.7                                                        =  00A7 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
 
 Symbol Table
 
+    p2.5                                                        =  00A5 L
+    p2.6                                                        =  00A6 L
+    p2.7                                                        =  00A7 L
     p3                                                          =  00B0 L
     p3.0                                                        =  00B0 L
     p3.1                                                        =  00B1 L
@@ -775,13 +718,13 @@ Symbol Table
     t2con.1                                                     =  00C9 L
     t2con.2                                                     =  00CA L
     t2con.3                                                     =  00CB L
-    t2con.4                                                     =  00CC L
-    t2con.5                                                     =  00CD L
-    t2con.6                                                     =  00CE L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
 
 Symbol Table
 
+    t2con.4                                                     =  00CC L
+    t2con.5                                                     =  00CD L
+    t2con.6                                                     =  00CE L
     t2con.7                                                     =  00CF L
     tb8                                                         =  009B L
     tclk                                                        =  00CC L
@@ -810,8 +753,7 @@ Symbol Table
     tr2                                                         =  00CA L
     txd                                                         =  00B1 L
 
-
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 15.
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
 
 Area Table
 
@@ -820,27 +762,26 @@ Area Table
    2 RSEG0                                      size    0   flags    8
    3 RSEG1                                      size    0   flags    8
    4 REG_BANK_0                                 size    8   flags    4
-   5 BIT_BANK                                   size    1   flags    4
-   6 DSEG                                       size   12   flags    0
-   7 SSEG                                       size    1   flags    0
-   8 ISEG                                       size    0   flags    0
-   9 IABS                                       size    0   flags    8
-   A BSEG                                       size    0   flags   80
-   B PSEG                                       size    0   flags   50
-   C XSEG                                       size   BC   flags   40
-   D XABS                                       size    0   flags   48
-   E XISEG                                      size    0   flags   40
-   F HOME                                       size   21   flags   20
-  10 GSINIT0                                    size    0   flags   20
-  11 GSINIT1                                    size    0   flags   20
-  12 GSINIT2                                    size    0   flags   20
-  13 GSINIT3                                    size    0   flags   20
-  14 GSINIT4                                    size    0   flags   20
-  15 GSINIT5                                    size    0   flags   20
-  16 GSINIT                                     size    0   flags   20
-  17 GSFINAL                                    size    3   flags   20
-  18 CSEG                                       size 16E9   flags   20
-  19 CONST                                      size    0   flags   20
-  1A XINIT                                      size    0   flags   20
-  1B CABS                                       size    0   flags   28
+   5 DSEG                                       size    4   flags    0
+   6 SSEG                                       size    1   flags    0
+   7 ISEG                                       size    0   flags    0
+   8 IABS                                       size    0   flags    8
+   9 BSEG                                       size    0   flags   80
+   A PSEG                                       size    0   flags   50
+   B XSEG                                       size   63   flags   40
+   C XABS                                       size    0   flags   48
+   D XISEG                                      size    0   flags   40
+   E HOME                                       size    6   flags   20
+   F GSINIT0                                    size    0   flags   20
+  10 GSINIT1                                    size    0   flags   20
+  11 GSINIT2                                    size    0   flags   20
+  12 GSINIT3                                    size    0   flags   20
+  13 GSINIT4                                    size    0   flags   20
+  14 GSINIT5                                    size    0   flags   20
+  15 GSINIT                                     size    0   flags   20
+  16 GSFINAL                                    size    3   flags   20
+  17 CSEG                                       size  C41   flags   20
+  18 CONST                                      size    3   flags   20
+  19 XINIT                                      size    0   flags   20
+  1A CABS                                       size    0   flags   28
 
