@@ -16,3 +16,12 @@
 *.exe
 *.out
 *.app
+
+*.zip
+*.c~
+*.ihx
+*.lk
+*.map
+*.mem
+.directory
+test*

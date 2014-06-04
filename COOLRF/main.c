@@ -43,7 +43,7 @@ if(value ==0) {
 
 uint8_t stdimm;
 
-interrupt_isr_ifp()
+interrupt_isr_ifp() // прерывание по переходу через ноль
 {
 timer1_stop();
   if(clientnf.countPWM !=0) {
