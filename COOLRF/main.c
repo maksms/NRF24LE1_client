@@ -28,7 +28,7 @@ nf1 clientnf;
 
 #define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор
 #define DIMMERSTEP 100 // количество шагов диммирования
-#define DIMSTART 16000000/12/DIMMERSTEP
+#define DIMSTART 16000000/12/100/DIMMERSTEP
 #if 0
 // в будущем возможно будет задействовано для экономии ресурсов - чтобы не пересчитывать при каждом прерывании
 uint16_t valuepwm=0;
