@@ -1,4 +1,4 @@
-// модификация 4.06.14
+// модификация 12.06.14
 
 #define chclient 1 // номер клиента 1...
 #define timesend 300 // интервал отправки данных,для обычных датчиков можно установить время выше.
@@ -67,7 +67,16 @@ stdimm=0;
 gpio_pin_val_clear(DIMMPIN);
 }
 
-
+void dimmon(uint8_t mode) // функция управлением вкл/выкл
+{
+if (mode) interrupt_control_ifp_enable();
+else {
+interrupt_control_ifp_disable();
+timer1_stop();
+gpio_pin_val_clear(DIMMPIN);
+}
+clientnf.test_data=mode;
+}  
 
 unsigned char servernf[32];
 
@@ -163,7 +172,7 @@ if (servernf[0]==chclient){
   
  if (servernf[1]==10) {
  //  gpio_pin_val_write(GPIO_PIN_ID_P0_0,servernf[3]); // -servernf[2]-1 ?
-
+dimmon(servernf[3]);
  }
 
 if (servernf[1]==11) clientnf.countPWM=servernf[3];

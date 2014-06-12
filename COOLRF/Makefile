@@ -8,5 +8,6 @@ all: ${PROGRAMS}
 ${PROGRAMS}: ${SOURCES}
 	sdcc --model-large $(CCFLAGS) $(LDFLAGS) main.c
 	../hex2bin -p 00 main.ihx
+	scp main.bin pi@192.168.1.100:/home/pi/nrf24le1/
 clean:
 	rm -rf  main.asm  main.cdb  main.ihx  main.lk  main.lst  main.map  main.mem  main.omf  main.rel  main.rst  main.sym

@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-; This file was generated Wed Jun  4 11:56:29 2014
+; This file was generated Thu Jun 12 15:57:40 2014
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-large
@@ -10,6 +10,7 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
+	.globl _dimmon
 	.globl _isr_t1
 	.globl _isr_ifp
 	.globl _openAllPipe
@@ -781,6 +782,8 @@ _openAllPipe_setup_1_238:
 _clientnf::
 	.ds 18
 _stdimm::
+	.ds 1
+_dimmon_mode_1_243:
 	.ds 1
 _servernf::
 	.ds 32
@@ -5067,7 +5070,7 @@ _isr_ifp:
 	movx	@dptr,a
 	inc	dptr
 	movx	@dptr,a
-	mov	dptr,#0x3415
+	mov	dptr,#(0x85&0x00ff)
 	clr	a
 	mov	b,a
 	lcall	__mullong
@@ -5177,77 +5180,109 @@ _isr_t1:
 	pop	bits
 	reti
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'dimmon'
+;------------------------------------------------------------
+;mode                      Allocated with name '_dimmon_mode_1_243'
+;------------------------------------------------------------
+;	main.c:70: void dimmon(uint8_t mode)
+;	-----------------------------------------
+;	 function dimmon
+;	-----------------------------------------
+_dimmon:
+	mov	a,dpl
+;	main.c:72: if (mode) interrupt_control_ifp_enable();
+	mov	dptr,#_dimmon_mode_1_243
+	movx	@dptr,a
+	mov	r7,a
+	jz	00102$
+	setb _IEN0_SB_IFP 
+	sjmp	00103$
+00102$:
+;	main.c:74: interrupt_control_ifp_disable();
+	clr _IEN0_SB_IFP 
+;	main.c:75: gpio_pin_val_clear(DIMMPIN);
+	mov	dpl,#0x02
+	push	ar7
+	lcall	_gpio_pin_val_clear
+	pop	ar7
+00103$:
+;	main.c:77: clientnf.test_data=mode;
+	mov	dptr,#(_clientnf + 0x0003)
+	mov	a,r7
+	movx	@dptr,a
+	ret
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;state                     Allocated with name '_main_state_1_243'
-;count                     Allocated with name '_main_count_1_243'
+;state                     Allocated with name '_main_state_1_246'
+;count                     Allocated with name '_main_count_1_246'
 ;------------------------------------------------------------
-;	main.c:77: void main()
+;	main.c:85: void main()
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	main.c:85: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+;	main.c:93: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 	mov	dptr,#_gpio_pin_configure_PARM_2
 	mov	a,#0x01
 	movx	@dptr,a
 	mov	dpl,#0x02
 	lcall	_gpio_pin_configure
-;	main.c:86: gpio_pin_val_set(DIMMPIN);
+;	main.c:94: gpio_pin_val_set(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_set
-;	main.c:87: delay_ms(500); 
+;	main.c:95: delay_ms(500); 
 	mov	dptr,#0x01F4
 	lcall	_delay_ms
-;	main.c:88: gpio_pin_val_clear(DIMMPIN);
+;	main.c:96: gpio_pin_val_clear(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_clear
-;	main.c:89: delay_ms(500); 
+;	main.c:97: delay_ms(500); 
 	mov	dptr,#0x01F4
 	lcall	_delay_ms
-;	main.c:92: radiobegin(); //
+;	main.c:100: radiobegin(); //
 	lcall	_radiobegin
-;	main.c:93: openAllPipe(); // открываем прием/передачу
+;	main.c:101: openAllPipe(); // открываем прием/передачу
 	lcall	_openAllPipe
-;	main.c:95: setChannel(100);
+;	main.c:103: setChannel(100);
 	mov	dpl,#0x64
 	lcall	_setChannel
-;	main.c:96: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
+;	main.c:104: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
 	mov	dpl,#0x02
 	lcall	_setDataRate
-;	main.c:97: setAutoAck(false);
+;	main.c:105: setAutoAck(false);
 	mov	dpl,#0x00
 	lcall	_setAutoAck
-;	main.c:98: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
+;	main.c:106: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
 	mov	dpl,#0x02
 	lcall	_setCRCLength
-;	main.c:99: setPALevel(3) ; // мощность 0..3
+;	main.c:107: setPALevel(3) ; // мощность 0..3
 	mov	dpl,#0x03
 	lcall	_setPALevel
-;	main.c:102: clientnf.identifier=chclient;
+;	main.c:110: clientnf.identifier=chclient;
 	mov	dptr,#_clientnf
 	mov	a,#0x01
 	movx	@dptr,a
-;	main.c:103: clientnf.countPWM=10;
+;	main.c:111: clientnf.countPWM=10;
 	mov	dptr,#(_clientnf + 0x0001)
 	mov	a,#0x0A
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	main.c:105: sti();
+;	main.c:113: sti();
 	setb _IEN0_SB_GLOBAL 
-;	main.c:106: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+;	main.c:114: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
 	mov	dptr,#_interrupt_configure_ifp_PARM_2
 	mov	a,#0x81
 	movx	@dptr,a
 	mov	dpl,#0x08
 	lcall	_interrupt_configure_ifp
-;	main.c:107: interrupt_control_ifp_enable();
+;	main.c:115: interrupt_control_ifp_enable();
 	setb _IEN0_SB_IFP 
-;	main.c:109: interrupt_control_t1_enable()	;
+;	main.c:117: interrupt_control_t1_enable()	;
 	setb _IEN0_SB_T1 
-;	main.c:110: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+;	main.c:118: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
 	mov	dptr,#_timer1_configure_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5256,11 +5291,11 @@ _main:
 	movx	@dptr,a
 	mov	dpl,#0x10
 	lcall	_timer1_configure
-;	main.c:111: timer1_run();
+;	main.c:119: timer1_run();
 	setb _TCON_SB_TR1 
-;	main.c:116: while(1)
-00119$:
-;	main.c:124: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
+;	main.c:124: while(1)
+00121$:
+;	main.c:132: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
 	mov	r6,#_clientnf
 	mov	r7,#(_clientnf >> 8)
 	mov	r5,#0x00
@@ -5277,7 +5312,7 @@ _main:
 	mov	dph,r7
 	mov	b,r5
 	lcall	_rf_write_tx_payload
-;	main.c:127: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
+;	main.c:135: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
 00102$:
 	jnb	_IRCON_SB_RFIRQ,00102$
 	mov	dptr,#_rf_spi_execute_command_PARM_2
@@ -5302,19 +5337,19 @@ _main:
 	lcall	_rf_spi_execute_command
 	mov	a,dpl
 	jnb	acc.5,00102$
-;	main.c:129: rf_irq_clear_all(); //clear all interrupts in the 24L01
+;	main.c:137: rf_irq_clear_all(); //clear all interrupts in the 24L01
 	lcall	_rf_irq_clear_all
-;	main.c:130: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
+;	main.c:138: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
 	mov	dpl,#0x01
 	lcall	_rf_set_as_rx
-;	main.c:134: for(count = 0; count < 25000; count++)
+;	main.c:142: for(count = 0; count < 25000; count++)
 	mov	r6,#0x00
 	mov	r7,#0x00
-00121$:
-;	main.c:137: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
-	jb	_IRCON_SB_RFIRQ,00160$
+00123$:
+;	main.c:145: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
+	jb	_IRCON_SB_RFIRQ,00165$
 	ljmp	00109$
-00160$:
+00165$:
 	mov	dptr,#_rf_spi_execute_command_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5341,7 +5376,7 @@ _main:
 	pop	ar6
 	pop	ar7
 	jnb	acc.6,00109$
-;	main.c:140: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
+;	main.c:148: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
 	mov	dptr,#(_clientnf + 0x0006)
 	movx	a,@dptr
 	mov	r2,a
@@ -5367,13 +5402,13 @@ _main:
 	subb	a,b
 	jc	00106$
 	inc	r2
-	cjne	r2,#0x00,00163$
+	cjne	r2,#0x00,00168$
 	inc	r3
-	cjne	r3,#0x00,00163$
+	cjne	r3,#0x00,00168$
 	inc	r4
-	cjne	r4,#0x00,00163$
+	cjne	r4,#0x00,00168$
 	inc	r5
-00163$:
+00168$:
 	mov	dptr,#(_clientnf + 0x0006)
 	mov	a,r2
 	movx	@dptr,a
@@ -5388,7 +5423,7 @@ _main:
 	movx	@dptr,a
 	sjmp	00107$
 00106$:
-;	main.c:141: else clientnf.count = 0;
+;	main.c:149: else clientnf.count = 0;
 	mov	dptr,#(_clientnf + 0x0006)
 	clr	a
 	movx	@dptr,a
@@ -5402,7 +5437,7 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 00107$:
-;	main.c:143: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
+;	main.c:151: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
 	mov	dptr,#_rf_read_rx_payload_PARM_2
 	mov	a,#0x20
 	movx	@dptr,a
@@ -5412,12 +5447,12 @@ _main:
 	mov	dptr,#_servernf
 	mov	b,#0x00
 	lcall	_rf_read_rx_payload
-;	main.c:144: break;
+;	main.c:152: break;
 	sjmp	00113$
 00109$:
-;	main.c:151: if(count == 24999) clientnf.Error_Message++;
-	cjne	r6,#0xA7,00122$
-	cjne	r7,#0x61,00122$
+;	main.c:159: if(count == 24999) clientnf.Error_Message++;
+	cjne	r6,#0xA7,00124$
+	cjne	r7,#0x61,00124$
 	mov	dptr,#(_clientnf + 0x0004)
 	movx	a,@dptr
 	mov	r4,a
@@ -5425,44 +5460,55 @@ _main:
 	movx	a,@dptr
 	mov	r5,a
 	inc	r4
-	cjne	r4,#0x00,00166$
+	cjne	r4,#0x00,00171$
 	inc	r5
-00166$:
+00171$:
 	mov	dptr,#(_clientnf + 0x0004)
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
 	inc	dptr
 	movx	@dptr,a
-00122$:
-;	main.c:134: for(count = 0; count < 25000; count++)
+00124$:
+;	main.c:142: for(count = 0; count < 25000; count++)
 	inc	r6
-	cjne	r6,#0x00,00167$
+	cjne	r6,#0x00,00172$
 	inc	r7
-00167$:
+00172$:
 	clr	c
 	mov	a,r6
 	subb	a,#0xA8
 	mov	a,r7
 	subb	a,#0x61
-	jnc	00168$
-	ljmp	00121$
-00168$:
+	jnc	00173$
+	ljmp	00123$
+00173$:
 00113$:
-;	main.c:156: rf_irq_clear_all(); //clear interrupts again
+;	main.c:164: rf_irq_clear_all(); //clear interrupts again
 	lcall	_rf_irq_clear_all
-;	main.c:158: rf_set_as_tx(); //resume normal operation as a TX
+;	main.c:166: rf_set_as_tx(); //resume normal operation as a TX
 	lcall	_rf_set_as_tx
-;	main.c:161: if (servernf[0]==chclient){	
+;	main.c:169: if (servernf[0]==chclient){	
 	mov	dptr,#_servernf
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x01,00117$
-;	main.c:169: if (servernf[1]==11) clientnf.countPWM=servernf[3];
+	cjne	r7,#0x01,00119$
+;	main.c:172: if (servernf[1]==10) {
 	mov	dptr,#(_servernf + 0x0001)
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x0B,00117$
+	cjne	r7,#0x0A,00115$
+;	main.c:174: dimmon(servernf[3]);
+	mov	dptr,#(_servernf + 0x0003)
+	movx	a,@dptr
+	mov	dpl,a
+	lcall	_dimmon
+00115$:
+;	main.c:177: if (servernf[1]==11) clientnf.countPWM=servernf[3];
+	mov	dptr,#(_servernf + 0x0001)
+	movx	a,@dptr
+	mov	r7,a
+	cjne	r7,#0x0B,00119$
 	mov	dptr,#(_servernf + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
@@ -5473,11 +5519,11 @@ _main:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-00117$:
-;	main.c:173: delay_ms(timesend);
+00119$:
+;	main.c:181: delay_ms(timesend);
 	mov	dptr,#0x012C
 	lcall	_delay_ms
-	ljmp	00119$
+	ljmp	00121$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area XINIT   (CODE)
