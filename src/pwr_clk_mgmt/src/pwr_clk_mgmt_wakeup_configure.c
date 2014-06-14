@@ -1,8 +1,8 @@
 /////////////////////////////////////////////////////////////////////////////
 //
-// File: rtc2_set_compare_val.c
+// File: pwr_clk_mgmt_wakeup_configure.c
 //
-// Copyright S. Brennen Ball, 2011
+// Copyright S. Brennen Ball, 2010
 //
 // The author provides no guarantees, warantees, or promises, implied or
 //  otherwise.  By using this software you agree to indemnify the author
@@ -26,25 +26,30 @@
 // Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 /////////////////////////////////////////////////////////////////////////////
 
-#include "rtc2.h"
+#include "pwr_clk_mgmt.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 //
-// void rtc2_set_compare_val(uint16_t compare_value)
+// void pwr_clk_mgmt_wakeup_configure(unsigned char wakeup_sources_config_options, unsigned int wakeup_on_pin_config_options)
 //
 // Description:
-//  Sets the compare value for RTC2
+//  Configures wakeup options
 //
 // Parameters:
-//  uint8_t compare_value - if using modes 2 or 3, this is the compare value
+//  unsigned char wakeup_sources_config_options - wakeup sources configuration options
+//  unsigned int wakeup_on_pin_config_options - set bits to enable wake-on-pin
 //
 // Return value:
 //  None
 //
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
-void rtc2_set_compare_val(uint16_t compare_value)
+void pwr_clk_mgmt_wakeup_configure(unsigned char wakeup_sources_config_options, unsigned int wakeup_on_pin_config_options)
 {
-	RTC2CMP0 = (uint8_t)compare_value;
-	RTC2CMP1 = (uint8_t)(compare_value >> 8);
+	//Set up WUCON register from clklf_config_options
+	WUCON = wakeup_sources_config_options;
+
+	//Set up WUOPCx registers from wakeup_on_pin_config_options
+	WUOPC0 = wakeup_on_pin_config_options & 0xFF;
+	WUOPC1 = (wakeup_on_pin_config_options >> 8) & 0xFF;
 }

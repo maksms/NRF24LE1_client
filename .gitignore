@@ -27,9 +27,7 @@
 *.rel
 *.asm
 *.rst
-*.sym
 
 .directory
 test*
 ds18b20
-git

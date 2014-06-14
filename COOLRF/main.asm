@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-; This file was generated Thu Jun 12 15:57:40 2014
+; This file was generated Sat Jun 14 09:22:02 2014
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-large
@@ -10,6 +10,7 @@
 ; Public variables in this module
 ;--------------------------------------------------------
 	.globl _main
+	.globl _isr_rtc2
 	.globl _dimmon
 	.globl _isr_t1
 	.globl _isr_ifp
@@ -243,9 +244,11 @@
 	.globl _DPL
 	.globl _SP
 	.globl _P0
+	.globl _countrtc
 	.globl _servernf
 	.globl _stdimm
 	.globl _clientnf
+	.globl _rtc2_configure_PARM_2
 	.globl _uart_configure_auto_baud_calc_PARM_2
 	.globl _uart_calc_th1_value_PARM_2
 	.globl _uart_calc_s0rel_value_PARM_2
@@ -255,6 +258,7 @@
 	.globl _timer1_configure_PARM_2
 	.globl _timer0_configure_PARM_2
 	.globl _interrupt_configure_ifp_PARM_2
+	.globl _pwr_clk_mgmt_wakeup_configure_PARM_2
 	.globl _pwm_start_PARM_2
 	.globl _gpio_pin_val_write_PARM_2
 	.globl _gpio_pin_configure_PARM_2
@@ -299,6 +303,7 @@
 	.globl _pwm_start
 	.globl _pwr_clk_mgmt_clklf_configure
 	.globl _pwr_clk_mgmt_get_cclk_freq_in_hz
+	.globl _pwr_clk_mgmt_wakeup_configure
 	.globl _interrupt_configure_ifp
 	.globl _adc_configure
 	.globl _adc_set_input_channel
@@ -312,6 +317,7 @@
 	.globl _uart_calc_s0rel_value
 	.globl _uart_calc_th1_value
 	.globl _uart_configure_auto_baud_calc
+	.globl _rtc2_configure
 ;--------------------------------------------------------
 ; special function registers
 ;--------------------------------------------------------
@@ -707,83 +713,91 @@ _pwr_clk_mgmt_clklf_configure_clklf_config_options_1_154:
 	.ds 1
 _pwr_clk_mgmt_get_cclk_freq_in_hz_cclk_freq_hz_1_156:
 	.ds 4
-_watchdog_set_wdsv_count_wdsv_value_1_159:
+_pwr_clk_mgmt_wakeup_configure_PARM_2:
 	.ds 2
-_watchdog_start_and_set_timeout_in_ms_milliseconds_1_161:
+_pwr_clk_mgmt_wakeup_configure_wakeup_sources_config_options_1_158:
+	.ds 1
+_watchdog_set_wdsv_count_wdsv_value_1_161:
+	.ds 2
+_watchdog_start_and_set_timeout_in_ms_milliseconds_1_163:
 	.ds 4
-_watchdog_start_and_set_timeout_in_ms_wd_value_1_162:
+_watchdog_start_and_set_timeout_in_ms_wd_value_1_164:
 	.ds 2
 _interrupt_configure_ifp_PARM_2:
 	.ds 1
-_interrupt_configure_ifp_interrupt_ifp_input_1_165:
+_interrupt_configure_ifp_interrupt_ifp_input_1_167:
 	.ds 1
-_adc_configure_adc_config_options_1_179:
+_adc_configure_adc_config_options_1_181:
 	.ds 2
-_adc_set_input_channel_adc_channel_1_181:
+_adc_set_input_channel_adc_channel_1_183:
 	.ds 1
-_adc_start_single_conversion_adc_channel_1_183:
+_adc_start_single_conversion_adc_channel_1_185:
 	.ds 1
-_adc_start_single_conversion_get_value_adc_channel_1_185:
+_adc_start_single_conversion_get_value_adc_channel_1_187:
 	.ds 1
 _timer0_configure_PARM_2:
 	.ds 2
-_timer0_configure_timer0_config_options_1_188:
+_timer0_configure_timer0_config_options_1_190:
 	.ds 1
 _timer1_configure_PARM_2:
 	.ds 2
-_timer1_configure_timer1_config_options_1_193:
+_timer1_configure_timer1_config_options_1_195:
 	.ds 1
 _uart_configure_manual_baud_calc_PARM_2:
 	.ds 2
-_uart_configure_manual_baud_calc_uart_config_options_1_203:
+_uart_configure_manual_baud_calc_uart_config_options_1_205:
 	.ds 1
 _uart_calc_actual_baud_rate_from_s0rel_PARM_2:
 	.ds 1
-_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_210:
+_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_212:
 	.ds 2
 _uart_calc_actual_baud_rate_from_th1_PARM_2:
 	.ds 1
-_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_212:
+_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_214:
 	.ds 1
 _uart_calc_s0rel_value_PARM_2:
 	.ds 1
-_uart_calc_s0rel_value_desired_baud_rate_1_214:
+_uart_calc_s0rel_value_desired_baud_rate_1_216:
 	.ds 4
 _uart_calc_th1_value_PARM_2:
 	.ds 1
-_uart_calc_th1_value_desired_baud_rate_1_216:
+_uart_calc_th1_value_desired_baud_rate_1_218:
 	.ds 4
 _uart_configure_auto_baud_calc_PARM_2:
 	.ds 4
-_uart_configure_auto_baud_calc_uart_config_options_1_218:
+_uart_configure_auto_baud_calc_uart_config_options_1_220:
 	.ds 1
-_radiobegin_setup_1_227:
+_rtc2_configure_PARM_2:
+	.ds 2
+_rtc2_configure_rtc2_config_options_1_230:
 	.ds 1
-_setChannel_channel_1_228:
+_radiobegin_setup_1_233:
 	.ds 1
-_setDataRate_speed_1_230:
+_setChannel_channel_1_234:
 	.ds 1
-_setDataRate_buffer_1_231:
+_setDataRate_speed_1_236:
 	.ds 1
-_setAutoAck_enable_1_232:
+_setDataRate_buffer_1_237:
 	.ds 1
-_setAutoAck_buffer_1_233:
+_setAutoAck_enable_1_238:
 	.ds 1
-_setCRCLength_length_1_234:
+_setAutoAck_buffer_1_239:
 	.ds 1
-_setCRCLength_buffer_1_235:
+_setCRCLength_length_1_240:
 	.ds 1
-_setPALevel_setup_1_237:
+_setCRCLength_buffer_1_241:
 	.ds 1
-_openAllPipe_buffer_1_238:
+_setPALevel_setup_1_243:
+	.ds 1
+_openAllPipe_buffer_1_244:
 	.ds 5
-_openAllPipe_setup_1_238:
+_openAllPipe_setup_1_244:
 	.ds 1
 _clientnf::
 	.ds 18
 _stdimm::
 	.ds 1
-_dimmon_mode_1_243:
+_dimmon_mode_1_249:
 	.ds 1
 _servernf::
 	.ds 32
@@ -795,6 +809,8 @@ _servernf::
 ; external initialized ram data
 ;--------------------------------------------------------
 	.area XISEG   (XDATA)
+_countrtc::
+	.ds 4
 	.area HOME    (CODE)
 	.area GSINIT0 (CODE)
 	.area GSINIT1 (CODE)
@@ -818,6 +834,26 @@ __interrupt_vect:
 	reti
 	.ds	7
 	ljmp	_isr_t1
+	.ds	5
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	reti
+	.ds	7
+	ljmp	_isr_rtc2
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -2930,9 +2966,38 @@ _pwr_clk_mgmt_get_cclk_freq_in_hz:
 	mov	b,r6
 	ret
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'pwr_clk_mgmt_wakeup_configure'
+;------------------------------------------------------------
+;wakeup_on_pin_config_options Allocated with name '_pwr_clk_mgmt_wakeup_configure_PARM_2'
+;wakeup_sources_config_options Allocated with name '_pwr_clk_mgmt_wakeup_configure_wakeup_sources_config_options_1_158'
+;------------------------------------------------------------
+;	../src/pwr_clk_mgmt/src/pwr_clk_mgmt_wakeup_configure.c:47: void pwr_clk_mgmt_wakeup_configure(unsigned char wakeup_sources_config_options, unsigned int wakeup_on_pin_config_options)
+;	-----------------------------------------
+;	 function pwr_clk_mgmt_wakeup_configure
+;	-----------------------------------------
+_pwr_clk_mgmt_wakeup_configure:
+	mov	a,dpl
+;	../src/pwr_clk_mgmt/src/pwr_clk_mgmt_wakeup_configure.c:50: WUCON = wakeup_sources_config_options;
+	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_wakeup_sources_config_options_1_158
+	movx	@dptr,a
+	mov	_WUCON,a
+;	../src/pwr_clk_mgmt/src/pwr_clk_mgmt_wakeup_configure.c:53: WUOPC0 = wakeup_on_pin_config_options & 0xFF;
+	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_PARM_2
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	mov	ar4,r6
+	mov	_WUOPC0,r4
+;	../src/pwr_clk_mgmt/src/pwr_clk_mgmt_wakeup_configure.c:54: WUOPC1 = (wakeup_on_pin_config_options >> 8) & 0xFF;
+	mov	ar6,r7
+	mov	_WUOPC1,r6
+	ret
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'watchdog_set_wdsv_count'
 ;------------------------------------------------------------
-;wdsv_value                Allocated with name '_watchdog_set_wdsv_count_wdsv_value_1_159'
+;wdsv_value                Allocated with name '_watchdog_set_wdsv_count_wdsv_value_1_161'
 ;------------------------------------------------------------
 ;	../src/watchdog/src/watchdog_set_wdsv_count.c:46: void watchdog_set_wdsv_count(uint16_t wdsv_value)
 ;	-----------------------------------------
@@ -2941,13 +3006,13 @@ _pwr_clk_mgmt_get_cclk_freq_in_hz:
 _watchdog_set_wdsv_count:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_watchdog_set_wdsv_count_wdsv_value_1_159
+	mov	dptr,#_watchdog_set_wdsv_count_wdsv_value_1_161
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	../src/watchdog/src/watchdog_set_wdsv_count.c:49: WDSV = (uint8_t)wdsv_value;
-	mov	dptr,#_watchdog_set_wdsv_count_wdsv_value_1_159
+	mov	dptr,#_watchdog_set_wdsv_count_wdsv_value_1_161
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -2960,8 +3025,8 @@ _watchdog_set_wdsv_count:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'watchdog_start_and_set_timeout_in_ms'
 ;------------------------------------------------------------
-;milliseconds              Allocated with name '_watchdog_start_and_set_timeout_in_ms_milliseconds_1_161'
-;wd_value                  Allocated with name '_watchdog_start_and_set_timeout_in_ms_wd_value_1_162'
+;milliseconds              Allocated with name '_watchdog_start_and_set_timeout_in_ms_milliseconds_1_163'
+;wd_value                  Allocated with name '_watchdog_start_and_set_timeout_in_ms_wd_value_1_164'
 ;------------------------------------------------------------
 ;	../src/watchdog/src/watchdog_start_and_set_timeout_in_ms.c:50: uint16_t watchdog_start_and_set_timeout_in_ms(uint32_t milliseconds)
 ;	-----------------------------------------
@@ -2972,7 +3037,7 @@ _watchdog_start_and_set_timeout_in_ms:
 	mov	r6,dph
 	mov	r5,b
 	mov	r4,a
-	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_milliseconds_1_161
+	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_milliseconds_1_163
 	mov	a,r7
 	movx	@dptr,a
 	mov	a,r6
@@ -2985,7 +3050,7 @@ _watchdog_start_and_set_timeout_in_ms:
 	inc	dptr
 	movx	@dptr,a
 ;	../src/watchdog/src/watchdog_start_and_set_timeout_in_ms.c:52: uint16_t wd_value = 0;
-	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_162
+	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_164
 	clr	a
 	movx	@dptr,a
 	clr	a
@@ -3005,7 +3070,7 @@ _watchdog_start_and_set_timeout_in_ms:
 	jnb	acc.6,00101$
 00105$:
 ;	../src/watchdog/src/watchdog_start_and_set_timeout_in_ms.c:63: if(milliseconds < 511992)
-	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_milliseconds_1_161
+	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_milliseconds_1_163
 	movx	a,@dptr
 	mov	r4,a
 	inc	dptr
@@ -3084,7 +3149,7 @@ _watchdog_start_and_set_timeout_in_ms:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_162
+	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_164
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
@@ -3092,7 +3157,7 @@ _watchdog_start_and_set_timeout_in_ms:
 	movx	@dptr,a
 00107$:
 ;	../src/watchdog/src/watchdog_start_and_set_timeout_in_ms.c:93: watchdog_set_wdsv_count(wd_value);
-	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_162
+	mov	dptr,#_watchdog_start_and_set_timeout_in_ms_wd_value_1_164
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -3113,7 +3178,7 @@ _watchdog_start_and_set_timeout_in_ms:
 ;Allocation info for local variables in function 'interrupt_configure_ifp'
 ;------------------------------------------------------------
 ;ifp_int_config_options    Allocated with name '_interrupt_configure_ifp_PARM_2'
-;interrupt_ifp_input       Allocated with name '_interrupt_configure_ifp_interrupt_ifp_input_1_165'
+;interrupt_ifp_input       Allocated with name '_interrupt_configure_ifp_interrupt_ifp_input_1_167'
 ;------------------------------------------------------------
 ;	../src/interrupt/src/interrupt_configure_ifp.c:57: bool interrupt_configure_ifp(interrupt_ifp_input_t interrupt_ifp_input, uint8_t ifp_int_config_options)
 ;	-----------------------------------------
@@ -3121,7 +3186,7 @@ _watchdog_start_and_set_timeout_in_ms:
 ;	-----------------------------------------
 _interrupt_configure_ifp:
 	mov	a,dpl
-	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_165
+	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_167
 	movx	@dptr,a
 ;	../src/interrupt/src/interrupt_configure_ifp.c:60: if(ifp_int_config_options & INTERRUPT_IFP_CONFIG_OPTION_ENABLE)
 	mov	dptr,#_interrupt_configure_ifp_PARM_2
@@ -3129,7 +3194,7 @@ _interrupt_configure_ifp:
 	mov	r7,a
 	jnb	acc.7,00116$
 ;	../src/interrupt/src/interrupt_configure_ifp.c:63: if(interrupt_ifp_input == INTERRUPT_IFP_INPUT_GPINT0)
-	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_165
+	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_167
 	movx	a,@dptr
 	mov	r6,a
 	cjne	r6,#0x08,00108$
@@ -3175,7 +3240,7 @@ _interrupt_configure_ifp:
 	sjmp	00117$
 00116$:
 ;	../src/interrupt/src/interrupt_configure_ifp.c:87: if((interrupt_ifp_input == INTERRUPT_IFP_INPUT_GPINT0) || (interrupt_ifp_input == INTERRUPT_IFP_INPUT_GPINT1) || (interrupt_ifp_input == INTERRUPT_IFP_INPUT_GPINT2))
-	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_165
+	mov	dptr,#_interrupt_configure_ifp_interrupt_ifp_input_1_167
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x08,00145$
@@ -3203,7 +3268,7 @@ _interrupt_configure_ifp:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'adc_configure'
 ;------------------------------------------------------------
-;adc_config_options        Allocated with name '_adc_configure_adc_config_options_1_179'
+;adc_config_options        Allocated with name '_adc_configure_adc_config_options_1_181'
 ;------------------------------------------------------------
 ;	../src/adc/src/adc_configure.c:54: void adc_configure(unsigned int adc_config_options)
 ;	-----------------------------------------
@@ -3212,13 +3277,13 @@ _interrupt_configure_ifp:
 _adc_configure:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_adc_configure_adc_config_options_1_179
+	mov	dptr,#_adc_configure_adc_config_options_1_181
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
 	movx	@dptr,a
 ;	../src/adc/src/adc_configure.c:57: ADCCON1 = (adc_config_options >> 8) & ADC_CONFIG_OPTION_ADCCON1_WRITE_MASK;
-	mov	dptr,#_adc_configure_adc_config_options_1_179
+	mov	dptr,#_adc_configure_adc_config_options_1_181
 	movx	a,@dptr
 	mov	r6,a
 	inc	dptr
@@ -3237,7 +3302,7 @@ _adc_configure:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'adc_set_input_channel'
 ;------------------------------------------------------------
-;adc_channel               Allocated with name '_adc_set_input_channel_adc_channel_1_181'
+;adc_channel               Allocated with name '_adc_set_input_channel_adc_channel_1_183'
 ;------------------------------------------------------------
 ;	../src/adc/src/adc_set_input_channel.c:46: void adc_set_input_channel(adc_channel_t adc_channel)
 ;	-----------------------------------------
@@ -3246,17 +3311,17 @@ _adc_configure:
 _adc_set_input_channel:
 	mov	a,dpl
 ;	../src/adc/src/adc_set_input_channel.c:49: adc_channel &= (ADCCON1_CHAN_SEL_MASK >> ADCCON1_CHAN_SEL_SHIFT);
-	mov	dptr,#_adc_set_input_channel_adc_channel_1_181
+	mov	dptr,#_adc_set_input_channel_adc_channel_1_183
 	movx	@dptr,a
 	mov	r7,a
-	mov	dptr,#_adc_set_input_channel_adc_channel_1_181
+	mov	dptr,#_adc_set_input_channel_adc_channel_1_183
 	mov	a,#0x0F
 	anl	a,r7
 	movx	@dptr,a
 ;	../src/adc/src/adc_set_input_channel.c:52: ADCCON1 = (ADCCON1 & ~ADCCON1_CHAN_SEL_MASK) | (adc_channel << ADCCON1_CHAN_SEL_SHIFT);
 	mov	r7,_ADCCON1
 	anl	ar7,#0xC3
-	mov	dptr,#_adc_set_input_channel_adc_channel_1_181
+	mov	dptr,#_adc_set_input_channel_adc_channel_1_183
 	movx	a,@dptr
 	add	a,acc
 	add	a,acc
@@ -3266,7 +3331,7 @@ _adc_set_input_channel:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'adc_start_single_conversion'
 ;------------------------------------------------------------
-;adc_channel               Allocated with name '_adc_start_single_conversion_adc_channel_1_183'
+;adc_channel               Allocated with name '_adc_start_single_conversion_adc_channel_1_185'
 ;------------------------------------------------------------
 ;	../src/adc/src/adc_start_single_conversion.c:47: void adc_start_single_conversion(adc_channel_t adc_channel)
 ;	-----------------------------------------
@@ -3275,7 +3340,7 @@ _adc_set_input_channel:
 _adc_start_single_conversion:
 	mov	a,dpl
 ;	../src/adc/src/adc_start_single_conversion.c:49: adc_set_input_channel(adc_channel);
-	mov	dptr,#_adc_start_single_conversion_adc_channel_1_183
+	mov	dptr,#_adc_start_single_conversion_adc_channel_1_185
 	movx	@dptr,a
 	mov	dpl,a
 	lcall	_adc_set_input_channel
@@ -3290,7 +3355,7 @@ _adc_start_single_conversion:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'adc_start_single_conversion_get_value'
 ;------------------------------------------------------------
-;adc_channel               Allocated with name '_adc_start_single_conversion_get_value_adc_channel_1_185'
+;adc_channel               Allocated with name '_adc_start_single_conversion_get_value_adc_channel_1_187'
 ;------------------------------------------------------------
 ;	../src/adc/src/adc_start_single_conversion_get_value.c:48: uint16_t adc_start_single_conversion_get_value(adc_channel_t adc_channel)
 ;	-----------------------------------------
@@ -3299,7 +3364,7 @@ _adc_start_single_conversion:
 _adc_start_single_conversion_get_value:
 	mov	a,dpl
 ;	../src/adc/src/adc_start_single_conversion_get_value.c:50: adc_start_single_conversion(adc_channel);
-	mov	dptr,#_adc_start_single_conversion_get_value_adc_channel_1_185
+	mov	dptr,#_adc_start_single_conversion_get_value_adc_channel_1_187
 	movx	@dptr,a
 	mov	dpl,a
 	lcall	_adc_start_single_conversion
@@ -3319,7 +3384,7 @@ _adc_start_single_conversion_get_value:
 ;Allocation info for local variables in function 'timer0_configure'
 ;------------------------------------------------------------
 ;t0_val                    Allocated with name '_timer0_configure_PARM_2'
-;timer0_config_options     Allocated with name '_timer0_configure_timer0_config_options_1_188'
+;timer0_config_options     Allocated with name '_timer0_configure_timer0_config_options_1_190'
 ;------------------------------------------------------------
 ;	../src/timer0/src/timer0_configure.c:53: void timer0_configure(uint8_t timer0_config_options, uint16_t t0_val)
 ;	-----------------------------------------
@@ -3328,7 +3393,7 @@ _adc_start_single_conversion_get_value:
 _timer0_configure:
 	mov	a,dpl
 ;	../src/timer0/src/timer0_configure.c:56: if((timer0_config_options & TMOD_MODE0_MASK) == TIMER0_CONFIG_OPTION_MODE_2_8_BIT_AUTO_RLD_TMR)
-	mov	dptr,#_timer0_configure_timer0_config_options_1_188
+	mov	dptr,#_timer0_configure_timer0_config_options_1_190
 	movx	@dptr,a
 	mov	r7,a
 	mov	a,#0x03
@@ -3367,7 +3432,7 @@ _timer0_configure:
 ;Allocation info for local variables in function 'timer1_configure'
 ;------------------------------------------------------------
 ;t1_val                    Allocated with name '_timer1_configure_PARM_2'
-;timer1_config_options     Allocated with name '_timer1_configure_timer1_config_options_1_193'
+;timer1_config_options     Allocated with name '_timer1_configure_timer1_config_options_1_195'
 ;------------------------------------------------------------
 ;	../src/timer1/src/timer1_configure.c:53: void timer1_configure(uint8_t timer1_config_options, uint16_t t1_val)
 ;	-----------------------------------------
@@ -3376,7 +3441,7 @@ _timer0_configure:
 _timer1_configure:
 	mov	a,dpl
 ;	../src/timer1/src/timer1_configure.c:56: if((timer1_config_options & TMOD_MODE1_MASK) == TIMER1_CONFIG_OPTION_MODE_2_8_BIT_AUTO_RLD_TMR)
-	mov	dptr,#_timer1_configure_timer1_config_options_1_193
+	mov	dptr,#_timer1_configure_timer1_config_options_1_195
 	movx	@dptr,a
 	mov	r7,a
 	mov	a,#0x30
@@ -3415,7 +3480,7 @@ _timer1_configure:
 ;Allocation info for local variables in function 'uart_configure_manual_baud_calc'
 ;------------------------------------------------------------
 ;s0rel_val_if_br_gen_or_th1_val_if_tmr1 Allocated with name '_uart_configure_manual_baud_calc_PARM_2'
-;uart_config_options       Allocated with name '_uart_configure_manual_baud_calc_uart_config_options_1_203'
+;uart_config_options       Allocated with name '_uart_configure_manual_baud_calc_uart_config_options_1_205'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_configure_manual_baud_calc.c:55: void uart_configure_manual_baud_calc(uint8_t uart_config_options, uint16_t s0rel_val_if_br_gen_or_th1_val_if_tmr1)
 ;	-----------------------------------------
@@ -3424,7 +3489,7 @@ _timer1_configure:
 _uart_configure_manual_baud_calc:
 	mov	a,dpl
 ;	../src/uart/src/uart_configure_manual_baud_calc.c:58: if(uart_config_options & UART_CONFIG_OPTION_BIT_SMOD_SET)
-	mov	dptr,#_uart_configure_manual_baud_calc_uart_config_options_1_203
+	mov	dptr,#_uart_configure_manual_baud_calc_uart_config_options_1_205
 	movx	@dptr,a
 	mov	r7,a
 	jnb	acc.2,00102$
@@ -3497,7 +3562,7 @@ _uart_configure_manual_baud_calc:
 ;Allocation info for local variables in function 'uart_calc_actual_baud_rate_from_s0rel'
 ;------------------------------------------------------------
 ;smod_bit_value            Allocated with name '_uart_calc_actual_baud_rate_from_s0rel_PARM_2'
-;s0rel_reg_value           Allocated with name '_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_210'
+;s0rel_reg_value           Allocated with name '_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_212'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_calc_actual_baud_rate_from_s0rel.c:48: uint32_t uart_calc_actual_baud_rate_from_s0rel(uint16_t s0rel_reg_value, bool smod_bit_value)
 ;	-----------------------------------------
@@ -3506,7 +3571,7 @@ _uart_configure_manual_baud_calc:
 _uart_calc_actual_baud_rate_from_s0rel:
 	mov	r7,dph
 	mov	a,dpl
-	mov	dptr,#_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_210
+	mov	dptr,#_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_212
 	movx	@dptr,a
 	mov	a,r7
 	inc	dptr
@@ -3563,7 +3628,7 @@ _uart_calc_actual_baud_rate_from_s0rel:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	mov	dptr,#_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_210
+	mov	dptr,#_uart_calc_actual_baud_rate_from_s0rel_s0rel_reg_value_1_212
 	movx	a,@dptr
 	mov	r2,a
 	inc	dptr
@@ -3638,7 +3703,7 @@ _uart_calc_actual_baud_rate_from_s0rel:
 ;Allocation info for local variables in function 'uart_calc_actual_baud_rate_from_th1'
 ;------------------------------------------------------------
 ;smod_bit_value            Allocated with name '_uart_calc_actual_baud_rate_from_th1_PARM_2'
-;th1_reg_value             Allocated with name '_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_212'
+;th1_reg_value             Allocated with name '_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_214'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_calc_actual_baud_rate_from_th1.c:48: uint32_t uart_calc_actual_baud_rate_from_th1(uint8_t th1_reg_value, bool smod_bit_value)
 ;	-----------------------------------------
@@ -3646,7 +3711,7 @@ _uart_calc_actual_baud_rate_from_s0rel:
 ;	-----------------------------------------
 _uart_calc_actual_baud_rate_from_th1:
 	mov	a,dpl
-	mov	dptr,#_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_212
+	mov	dptr,#_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_214
 	movx	@dptr,a
 ;	../src/uart/src/uart_calc_actual_baud_rate_from_th1.c:57: return (uint32_t)(((((uint32_t)(2 * ((smod_bit_value != 0) ? 2 : 1) * pwr_clk_mgmt_get_cclk_freq_in_hz())) / ((uint32_t)(384 * (256 - th1_reg_value)))) + 1) / 2);
 	mov	dptr,#_uart_calc_actual_baud_rate_from_th1_PARM_2
@@ -3700,7 +3765,7 @@ _uart_calc_actual_baud_rate_from_th1:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	mov	dptr,#_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_212
+	mov	dptr,#_uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_214
 	movx	a,@dptr
 	mov	r3,a
 	mov	r2,#0x00
@@ -3776,7 +3841,7 @@ _uart_calc_actual_baud_rate_from_th1:
 ;Allocation info for local variables in function 'uart_calc_s0rel_value'
 ;------------------------------------------------------------
 ;smod_bit_value            Allocated with name '_uart_calc_s0rel_value_PARM_2'
-;desired_baud_rate         Allocated with name '_uart_calc_s0rel_value_desired_baud_rate_1_214'
+;desired_baud_rate         Allocated with name '_uart_calc_s0rel_value_desired_baud_rate_1_216'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_calc_s0rel_value.c:48: uint16_t uart_calc_s0rel_value(uint32_t desired_baud_rate, bool smod_bit_value)
 ;	-----------------------------------------
@@ -3787,7 +3852,7 @@ _uart_calc_s0rel_value:
 	mov	r6,dph
 	mov	r5,b
 	mov	r4,a
-	mov	dptr,#_uart_calc_s0rel_value_desired_baud_rate_1_214
+	mov	dptr,#_uart_calc_s0rel_value_desired_baud_rate_1_216
 	mov	a,r7
 	movx	@dptr,a
 	mov	a,r6
@@ -3851,7 +3916,7 @@ _uart_calc_s0rel_value:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	mov	dptr,#_uart_calc_s0rel_value_desired_baud_rate_1_214
+	mov	dptr,#_uart_calc_s0rel_value_desired_baud_rate_1_216
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -3955,7 +4020,7 @@ _uart_calc_s0rel_value:
 ;Allocation info for local variables in function 'uart_calc_th1_value'
 ;------------------------------------------------------------
 ;smod_bit_value            Allocated with name '_uart_calc_th1_value_PARM_2'
-;desired_baud_rate         Allocated with name '_uart_calc_th1_value_desired_baud_rate_1_216'
+;desired_baud_rate         Allocated with name '_uart_calc_th1_value_desired_baud_rate_1_218'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_calc_th1_value.c:48: uint8_t uart_calc_th1_value(uint32_t desired_baud_rate, bool smod_bit_value)
 ;	-----------------------------------------
@@ -3966,7 +4031,7 @@ _uart_calc_th1_value:
 	mov	r6,dph
 	mov	r5,b
 	mov	r4,a
-	mov	dptr,#_uart_calc_th1_value_desired_baud_rate_1_216
+	mov	dptr,#_uart_calc_th1_value_desired_baud_rate_1_218
 	mov	a,r7
 	movx	@dptr,a
 	mov	a,r6
@@ -4030,7 +4095,7 @@ _uart_calc_th1_value:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-	mov	dptr,#_uart_calc_th1_value_desired_baud_rate_1_216
+	mov	dptr,#_uart_calc_th1_value_desired_baud_rate_1_218
 	movx	a,@dptr
 	mov	r0,a
 	inc	dptr
@@ -4122,15 +4187,15 @@ _uart_calc_th1_value:
 ;sloc2                     Allocated with name '_uart_configure_auto_baud_calc_sloc2_1_0'
 ;sloc3                     Allocated with name '_uart_configure_auto_baud_calc_sloc3_1_0'
 ;baud_rate                 Allocated with name '_uart_configure_auto_baud_calc_PARM_2'
-;uart_config_options       Allocated with name '_uart_configure_auto_baud_calc_uart_config_options_1_218'
-;calc_br_with_smod_cleared Allocated with name '_uart_configure_auto_baud_calc_calc_br_with_smod_cleared_2_220'
-;calc_br_with_smod_set     Allocated with name '_uart_configure_auto_baud_calc_calc_br_with_smod_set_2_220'
-;error_calc_br_with_smod_cleared Allocated with name '_uart_configure_auto_baud_calc_error_calc_br_with_smod_cleared_2_220'
-;error_calc_br_with_smod_set Allocated with name '_uart_configure_auto_baud_calc_error_calc_br_with_smod_set_2_220'
-;s0rel_with_smod_cleared   Allocated with name '_uart_configure_auto_baud_calc_s0rel_with_smod_cleared_3_221'
-;s0rel_with_smod_set       Allocated with name '_uart_configure_auto_baud_calc_s0rel_with_smod_set_3_221'
-;th1_with_smod_cleared     Allocated with name '_uart_configure_auto_baud_calc_th1_with_smod_cleared_3_224'
-;th1_with_smod_set         Allocated with name '_uart_configure_auto_baud_calc_th1_with_smod_set_3_224'
+;uart_config_options       Allocated with name '_uart_configure_auto_baud_calc_uart_config_options_1_220'
+;calc_br_with_smod_cleared Allocated with name '_uart_configure_auto_baud_calc_calc_br_with_smod_cleared_2_222'
+;calc_br_with_smod_set     Allocated with name '_uart_configure_auto_baud_calc_calc_br_with_smod_set_2_222'
+;error_calc_br_with_smod_cleared Allocated with name '_uart_configure_auto_baud_calc_error_calc_br_with_smod_cleared_2_222'
+;error_calc_br_with_smod_set Allocated with name '_uart_configure_auto_baud_calc_error_calc_br_with_smod_set_2_222'
+;s0rel_with_smod_cleared   Allocated with name '_uart_configure_auto_baud_calc_s0rel_with_smod_cleared_3_223'
+;s0rel_with_smod_set       Allocated with name '_uart_configure_auto_baud_calc_s0rel_with_smod_set_3_223'
+;th1_with_smod_cleared     Allocated with name '_uart_configure_auto_baud_calc_th1_with_smod_cleared_3_226'
+;th1_with_smod_set         Allocated with name '_uart_configure_auto_baud_calc_th1_with_smod_set_3_226'
 ;------------------------------------------------------------
 ;	../src/uart/src/uart_configure_auto_baud_calc.c:48: void uart_configure_auto_baud_calc(uint8_t uart_config_options, uint32_t baud_rate)
 ;	-----------------------------------------
@@ -4139,7 +4204,7 @@ _uart_calc_th1_value:
 _uart_configure_auto_baud_calc:
 	mov	a,dpl
 ;	../src/uart/src/uart_configure_auto_baud_calc.c:51: if(((uart_config_options & UART_CONFIG_OPTION_MODE_MASK) == UART_CONFIG_OPTION_MODE_1_UART_8_BIT) ||
-	mov	dptr,#_uart_configure_auto_baud_calc_uart_config_options_1_218
+	mov	dptr,#_uart_configure_auto_baud_calc_uart_config_options_1_220
 	movx	@dptr,a
 	mov	r7,a
 	mov	a,#0xC0
@@ -4566,9 +4631,56 @@ _uart_configure_auto_baud_calc:
 	mov	dpl,r7
 	ljmp	_uart_configure_manual_baud_calc
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'rtc2_configure'
+;------------------------------------------------------------
+;compare_value             Allocated with name '_rtc2_configure_PARM_2'
+;rtc2_config_options       Allocated with name '_rtc2_configure_rtc2_config_options_1_230'
+;------------------------------------------------------------
+;	../src/rtc2/src/rtc2_configure.c:53: void rtc2_configure(unsigned char rtc2_config_options, unsigned int compare_value)
+;	-----------------------------------------
+;	 function rtc2_configure
+;	-----------------------------------------
+_rtc2_configure:
+	mov	a,dpl
+;	../src/rtc2/src/rtc2_configure.c:56: if(((rtc2_config_options & RTC2CON_COMPARE_MODE_MASK) == RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ) ||
+	mov	dptr,#_rtc2_configure_rtc2_config_options_1_230
+	movx	@dptr,a
+	mov	r7,a
+	mov	a,#0x06
+	anl	a,r7
+	mov	r6,a
+	cjne	r6,#0x06,00109$
+	sjmp	00101$
+00109$:
+;	../src/rtc2/src/rtc2_configure.c:57: ((rtc2_config_options & RTC2CON_COMPARE_MODE_MASK) == RTC2_CONFIG_OPTION_COMPARE_MODE_1_WRAP_AT_IRQ))
+	mov	a,#0x06
+	anl	a,r7
+	mov	r6,a
+	cjne	r6,#0x04,00102$
+00101$:
+;	../src/rtc2/src/rtc2_configure.c:59: RTC2CMP0 = (unsigned char)compare_value;
+	mov	dptr,#_rtc2_configure_PARM_2
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	mov	_RTC2CMP0,r5
+;	../src/rtc2/src/rtc2_configure.c:60: RTC2CMP1 = (unsigned char)(compare_value >> 8);
+	mov	_RTC2CMP1,r6
+00102$:
+;	../src/rtc2/src/rtc2_configure.c:64: RTC2CON = (RTC2CON & ~RTC2_CONFIG_OPTION_RTC2CON_MASK) | (rtc2_config_options & RTC2_CONFIG_OPTION_RTC2CON_MASK);
+	mov	r6,_RTC2CON
+	anl	ar6,#0xF0
+	anl	ar7,#0x0F
+	mov	a,r7
+	orl	a,r6
+	mov	_RTC2CON,a
+	ret
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'radiobegin'
 ;------------------------------------------------------------
-;setup                     Allocated with name '_radiobegin_setup_1_227'
+;setup                     Allocated with name '_radiobegin_setup_1_233'
 ;------------------------------------------------------------
 ;	../nRFLE.c:22: void radiobegin() {
 ;	-----------------------------------------
@@ -4578,14 +4690,14 @@ _radiobegin:
 ;	../nRFLE.c:26: rf_spi_configure_enable();
 	lcall	_rf_spi_configure_enable
 ;	../nRFLE.c:28: setup = 255; // setup_retr setRetries 15*16+15
-	mov	dptr,#_radiobegin_setup_1_227
+	mov	dptr,#_radiobegin_setup_1_233
 	mov	a,#0xFF
 	movx	@dptr,a
 ;	../nRFLE.c:29: rf_write_register(RF_SETUP_RETR, &setup, 1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_radiobegin_setup_1_227
+	mov	a,#_radiobegin_setup_1_233
 	movx	@dptr,a
-	mov	a,#(_radiobegin_setup_1_227 >> 8)
+	mov	a,#(_radiobegin_setup_1_233 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4602,7 +4714,7 @@ _radiobegin:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'setChannel'
 ;------------------------------------------------------------
-;channel                   Allocated with name '_setChannel_channel_1_228'
+;channel                   Allocated with name '_setChannel_channel_1_234'
 ;------------------------------------------------------------
 ;	../nRFLE.c:35: void setChannel(unsigned char channel){
 ;	-----------------------------------------
@@ -4610,13 +4722,13 @@ _radiobegin:
 ;	-----------------------------------------
 _setChannel:
 	mov	a,dpl
-	mov	dptr,#_setChannel_channel_1_228
+	mov	dptr,#_setChannel_channel_1_234
 	movx	@dptr,a
 ;	../nRFLE.c:36: rf_write_register(RF_RF_CH, &channel, 1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_setChannel_channel_1_228
+	mov	a,#_setChannel_channel_1_234
 	movx	@dptr,a
-	mov	a,#(_setChannel_channel_1_228 >> 8)
+	mov	a,#(_setChannel_channel_1_234 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4633,8 +4745,8 @@ _setChannel:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'setDataRate'
 ;------------------------------------------------------------
-;speed                     Allocated with name '_setDataRate_speed_1_230'
-;buffer                    Allocated with name '_setDataRate_buffer_1_231'
+;speed                     Allocated with name '_setDataRate_speed_1_236'
+;buffer                    Allocated with name '_setDataRate_buffer_1_237'
 ;------------------------------------------------------------
 ;	../nRFLE.c:41: void setDataRate(unsigned char speed){
 ;	-----------------------------------------
@@ -4642,13 +4754,13 @@ _setChannel:
 ;	-----------------------------------------
 _setDataRate:
 	mov	a,dpl
-	mov	dptr,#_setDataRate_speed_1_230
+	mov	dptr,#_setDataRate_speed_1_236
 	movx	@dptr,a
 ;	../nRFLE.c:43: rf_read_register(RF_RF_SETUP,&buffer,1);
 	mov	dptr,#_rf_read_register_PARM_2
-	mov	a,#_setDataRate_buffer_1_231
+	mov	a,#_setDataRate_buffer_1_237
 	movx	@dptr,a
-	mov	a,#(_setDataRate_buffer_1_231 >> 8)
+	mov	a,#(_setDataRate_buffer_1_237 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4663,16 +4775,16 @@ _setDataRate:
 	mov	dpl,#0x06
 	lcall	_rf_read_register
 ;	../nRFLE.c:45: buffer &= ~(_BV(RF_DR_LOW) | _BV(RF_DR_HIGH)) ;
-	mov	dptr,#_setDataRate_buffer_1_231
+	mov	dptr,#_setDataRate_buffer_1_237
 	movx	a,@dptr
 	anl	a,#0xD7
 	movx	@dptr,a
 ;	../nRFLE.c:47: if( speed == 1 )	 buffer |= _BV(RF_DR_LOW);
-	mov	dptr,#_setDataRate_speed_1_230
+	mov	dptr,#_setDataRate_speed_1_236
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x01,00104$
-	mov	dptr,#_setDataRate_buffer_1_231
+	mov	dptr,#_setDataRate_buffer_1_237
 	movx	a,@dptr
 	mov	r6,a
 	orl	a,#0x20
@@ -4681,7 +4793,7 @@ _setDataRate:
 00104$:
 ;	../nRFLE.c:49: else if ( speed == 3 ) buffer |= _BV(RF_DR_HIGH);
 	cjne	r7,#0x03,00105$
-	mov	dptr,#_setDataRate_buffer_1_231
+	mov	dptr,#_setDataRate_buffer_1_237
 	movx	a,@dptr
 	mov	r7,a
 	orl	a,#0x08
@@ -4689,9 +4801,9 @@ _setDataRate:
 00105$:
 ;	../nRFLE.c:51: rf_write_register(RF_RF_SETUP,&buffer,1 ) ;
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_setDataRate_buffer_1_231
+	mov	a,#_setDataRate_buffer_1_237
 	movx	@dptr,a
-	mov	a,#(_setDataRate_buffer_1_231 >> 8)
+	mov	a,#(_setDataRate_buffer_1_237 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4708,8 +4820,8 @@ _setDataRate:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'setAutoAck'
 ;------------------------------------------------------------
-;enable                    Allocated with name '_setAutoAck_enable_1_232'
-;buffer                    Allocated with name '_setAutoAck_buffer_1_233'
+;enable                    Allocated with name '_setAutoAck_enable_1_238'
+;buffer                    Allocated with name '_setAutoAck_buffer_1_239'
 ;------------------------------------------------------------
 ;	../nRFLE.c:56: void setAutoAck(unsigned char enable)
 ;	-----------------------------------------
@@ -4718,25 +4830,25 @@ _setDataRate:
 _setAutoAck:
 	mov	a,dpl
 ;	../nRFLE.c:60: if (enable==1) buffer=63;
-	mov	dptr,#_setAutoAck_enable_1_232
+	mov	dptr,#_setAutoAck_enable_1_238
 	movx	@dptr,a
 	mov	r7,a
 	cjne	r7,#0x01,00102$
-	mov	dptr,#_setAutoAck_buffer_1_233
+	mov	dptr,#_setAutoAck_buffer_1_239
 	mov	a,#0x3F
 	movx	@dptr,a
 	sjmp	00103$
 00102$:
 ;	../nRFLE.c:61: else        buffer=0;
-	mov	dptr,#_setAutoAck_buffer_1_233
+	mov	dptr,#_setAutoAck_buffer_1_239
 	clr	a
 	movx	@dptr,a
 00103$:
 ;	../nRFLE.c:62: rf_write_register(RF_EN_AA, &buffer,1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_setAutoAck_buffer_1_233
+	mov	a,#_setAutoAck_buffer_1_239
 	movx	@dptr,a
-	mov	a,#(_setAutoAck_buffer_1_233 >> 8)
+	mov	a,#(_setAutoAck_buffer_1_239 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4753,8 +4865,8 @@ _setAutoAck:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'setCRCLength'
 ;------------------------------------------------------------
-;length                    Allocated with name '_setCRCLength_length_1_234'
-;buffer                    Allocated with name '_setCRCLength_buffer_1_235'
+;length                    Allocated with name '_setCRCLength_length_1_240'
+;buffer                    Allocated with name '_setCRCLength_buffer_1_241'
 ;------------------------------------------------------------
 ;	../nRFLE.c:67: void setCRCLength(unsigned char length)
 ;	-----------------------------------------
@@ -4762,13 +4874,13 @@ _setAutoAck:
 ;	-----------------------------------------
 _setCRCLength:
 	mov	a,dpl
-	mov	dptr,#_setCRCLength_length_1_234
+	mov	dptr,#_setCRCLength_length_1_240
 	movx	@dptr,a
 ;	../nRFLE.c:71: rf_read_register(RF_CONFIG,&buffer,1);
 	mov	dptr,#_rf_read_register_PARM_2
-	mov	a,#_setCRCLength_buffer_1_235
+	mov	a,#_setCRCLength_buffer_1_241
 	movx	@dptr,a
-	mov	a,#(_setCRCLength_buffer_1_235 >> 8)
+	mov	a,#(_setCRCLength_buffer_1_241 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4783,16 +4895,16 @@ _setCRCLength:
 	mov	dpl,#0x00
 	lcall	_rf_read_register
 ;	../nRFLE.c:73: buffer = buffer & ~( _BV(RF_CRCO) | _BV(RF_EN_CRC)) ;
-	mov	dptr,#_setCRCLength_buffer_1_235
+	mov	dptr,#_setCRCLength_buffer_1_241
 	movx	a,@dptr
 	anl	a,#0xF3
 	movx	@dptr,a
 ;	../nRFLE.c:75: if (length==1) buffer |= _BV(RF_EN_CRC);
-	mov	dptr,#_setCRCLength_length_1_234
+	mov	dptr,#_setCRCLength_length_1_240
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x01,00104$
-	mov	dptr,#_setCRCLength_buffer_1_235
+	mov	dptr,#_setCRCLength_buffer_1_241
 	movx	a,@dptr
 	mov	r6,a
 	orl	a,#0x08
@@ -4801,22 +4913,22 @@ _setCRCLength:
 00104$:
 ;	../nRFLE.c:76: else if (length==2) buffer |= _BV(RF_EN_CRC) | _BV( RF_CRCO );
 	cjne	r7,#0x02,00105$
-	mov	dptr,#_setCRCLength_buffer_1_235
+	mov	dptr,#_setCRCLength_buffer_1_241
 	movx	a,@dptr
 	mov	r7,a
 	orl	a,#0x0C
 	movx	@dptr,a
 00105$:
 ;	../nRFLE.c:78: buffer |=1<<PWR_UP;
-	mov	dptr,#_setCRCLength_buffer_1_235
+	mov	dptr,#_setCRCLength_buffer_1_241
 	movx	a,@dptr
 	orl	a,#0x02
 	movx	@dptr,a
 ;	../nRFLE.c:80: rf_write_register(RF_CONFIG,&buffer,1 ) ;
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_setCRCLength_buffer_1_235
+	mov	a,#_setCRCLength_buffer_1_241
 	movx	@dptr,a
-	mov	a,#(_setCRCLength_buffer_1_235 >> 8)
+	mov	a,#(_setCRCLength_buffer_1_241 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4833,8 +4945,8 @@ _setCRCLength:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'setPALevel'
 ;------------------------------------------------------------
-;level                     Allocated with name '_setPALevel_level_1_236'
-;setup                     Allocated with name '_setPALevel_setup_1_237'
+;level                     Allocated with name '_setPALevel_level_1_242'
+;setup                     Allocated with name '_setPALevel_setup_1_243'
 ;------------------------------------------------------------
 ;	../nRFLE.c:84: void setPALevel(unsigned char level)
 ;	-----------------------------------------
@@ -4843,9 +4955,9 @@ _setCRCLength:
 _setPALevel:
 ;	../nRFLE.c:88: rf_read_register(RF_RF_SETUP,&setup,1) ;
 	mov	dptr,#_rf_read_register_PARM_2
-	mov	a,#_setPALevel_setup_1_237
+	mov	a,#_setPALevel_setup_1_243
 	movx	@dptr,a
-	mov	a,#(_setPALevel_setup_1_237 >> 8)
+	mov	a,#(_setPALevel_setup_1_243 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4860,15 +4972,15 @@ _setPALevel:
 	mov	dpl,#0x06
 	lcall	_rf_read_register
 ;	../nRFLE.c:90: setup &= ~(_BV(RF_PWR_LOW) | _BV(RF_PWR_HIGH)) ;
-	mov	dptr,#_setPALevel_setup_1_237
+	mov	dptr,#_setPALevel_setup_1_243
 	movx	a,@dptr
 	anl	a,#0xF9
 	movx	@dptr,a
 ;	../nRFLE.c:93: rf_write_register(RF_RF_SETUP,&setup,1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_setPALevel_setup_1_237
+	mov	a,#_setPALevel_setup_1_243
 	movx	@dptr,a
-	mov	a,#(_setPALevel_setup_1_237 >> 8)
+	mov	a,#(_setPALevel_setup_1_243 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4885,8 +4997,8 @@ _setPALevel:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'openAllPipe'
 ;------------------------------------------------------------
-;buffer                    Allocated with name '_openAllPipe_buffer_1_238'
-;setup                     Allocated with name '_openAllPipe_setup_1_238'
+;buffer                    Allocated with name '_openAllPipe_buffer_1_244'
+;setup                     Allocated with name '_openAllPipe_setup_1_244'
 ;------------------------------------------------------------
 ;	../nRFLE.c:101: void openAllPipe()
 ;	-----------------------------------------
@@ -4894,30 +5006,30 @@ _setPALevel:
 ;	-----------------------------------------
 _openAllPipe:
 ;	../nRFLE.c:106: buffer[1]=adr1;
-	mov	dptr,#(_openAllPipe_buffer_1_238 + 0x0001)
+	mov	dptr,#(_openAllPipe_buffer_1_244 + 0x0001)
 	mov	a,#0xF0
 	movx	@dptr,a
 ;	../nRFLE.c:107: buffer[2]=adr2;
-	mov	dptr,#(_openAllPipe_buffer_1_238 + 0x0002)
+	mov	dptr,#(_openAllPipe_buffer_1_244 + 0x0002)
 	mov	a,#0xF0
 	movx	@dptr,a
 ;	../nRFLE.c:108: buffer[3]=adr3;
-	mov	dptr,#(_openAllPipe_buffer_1_238 + 0x0003)
+	mov	dptr,#(_openAllPipe_buffer_1_244 + 0x0003)
 	mov	a,#0xF0
 	movx	@dptr,a
 ;	../nRFLE.c:109: buffer[4]=adr4;
-	mov	dptr,#(_openAllPipe_buffer_1_238 + 0x0004)
+	mov	dptr,#(_openAllPipe_buffer_1_244 + 0x0004)
 	mov	a,#0xF0
 	movx	@dptr,a
 ;	../nRFLE.c:111: setup = 2; // en_rxaddr ,биты включения каналов B00000010 на прием
-	mov	dptr,#_openAllPipe_setup_1_238
+	mov	dptr,#_openAllPipe_setup_1_244
 	mov	a,#0x02
 	movx	@dptr,a
 ;	../nRFLE.c:112: rf_write_register(RF_EN_RXADDR, &setup, 1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_openAllPipe_setup_1_238
+	mov	a,#_openAllPipe_setup_1_244
 	movx	@dptr,a
-	mov	a,#(_openAllPipe_setup_1_238 >> 8)
+	mov	a,#(_openAllPipe_setup_1_244 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4932,14 +5044,14 @@ _openAllPipe:
 	mov	dpl,#0x02
 	lcall	_rf_write_register
 ;	../nRFLE.c:115: buffer[0]=0xD2;
-	mov	dptr,#_openAllPipe_buffer_1_238
+	mov	dptr,#_openAllPipe_buffer_1_244
 	mov	a,#0xD2
 	movx	@dptr,a
 ;	../nRFLE.c:117: rf_write_register(RF_RX_ADDR_P0,buffer,5);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_openAllPipe_buffer_1_238
+	mov	a,#_openAllPipe_buffer_1_244
 	movx	@dptr,a
-	mov	a,#(_openAllPipe_buffer_1_238 >> 8)
+	mov	a,#(_openAllPipe_buffer_1_244 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4955,9 +5067,9 @@ _openAllPipe:
 	lcall	_rf_write_register
 ;	../nRFLE.c:118: rf_write_register(RF_TX_ADDR,buffer,5);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_openAllPipe_buffer_1_238
+	mov	a,#_openAllPipe_buffer_1_244
 	movx	@dptr,a
-	mov	a,#(_openAllPipe_buffer_1_238 >> 8)
+	mov	a,#(_openAllPipe_buffer_1_244 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4972,14 +5084,14 @@ _openAllPipe:
 	mov	dpl,#0x10
 	lcall	_rf_write_register
 ;	../nRFLE.c:122: buffer[0]=0xE1;
-	mov	dptr,#_openAllPipe_buffer_1_238
+	mov	dptr,#_openAllPipe_buffer_1_244
 	mov	a,#0xE1
 	movx	@dptr,a
 ;	../nRFLE.c:124: rf_write_register(RF_RX_ADDR_P0+1,buffer,5);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_openAllPipe_buffer_1_238
+	mov	a,#_openAllPipe_buffer_1_244
 	movx	@dptr,a
-	mov	a,#(_openAllPipe_buffer_1_238 >> 8)
+	mov	a,#(_openAllPipe_buffer_1_244 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -4994,14 +5106,14 @@ _openAllPipe:
 	mov	dpl,#0x0B
 	lcall	_rf_write_register
 ;	../nRFLE.c:126: setup=32; //
-	mov	dptr,#_openAllPipe_setup_1_238
+	mov	dptr,#_openAllPipe_setup_1_244
 	mov	a,#0x20
 	movx	@dptr,a
 ;	../nRFLE.c:127: rf_write_register(RF_RX_PW_P0+1,&setup,1);
 	mov	dptr,#_rf_write_register_PARM_2
-	mov	a,#_openAllPipe_setup_1_238
+	mov	a,#_openAllPipe_setup_1_244
 	movx	@dptr,a
-	mov	a,#(_openAllPipe_setup_1_238 >> 8)
+	mov	a,#(_openAllPipe_setup_1_244 >> 8)
 	inc	dptr
 	movx	@dptr,a
 	clr	a
@@ -5018,7 +5130,7 @@ _openAllPipe:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'isr_ifp'
 ;------------------------------------------------------------
-;	main.c:46: interrupt_isr_ifp()
+;	main.c:50: interrupt_isr_ifp()
 ;	-----------------------------------------
 ;	 function isr_ifp
 ;	-----------------------------------------
@@ -5038,9 +5150,9 @@ _isr_ifp:
 	push	(0+0)
 	push	psw
 	mov	psw,#0x00
-;	main.c:48: timer1_stop();
+;	main.c:52: timer1_stop();
 	clr _TCON_SB_TR1 
-;	main.c:49: if(clientnf.countPWM !=0) {
+;	main.c:53: if(clientnf.countPWM !=0) {
 	mov	dptr,#(_clientnf + 0x0001)
 	movx	a,@dptr
 	mov	r6,a
@@ -5049,7 +5161,7 @@ _isr_ifp:
 	mov	r7,a
 	orl	a,r6
 	jz	00102$
-;	main.c:51: timer1_set_t1_val(65535-DIMSTART*(DIMMERSTEP-clientnf.countPWM) );
+;	main.c:55: timer1_set_t1_val(65535-DIMSTART*(DIMMERSTEP-clientnf.countPWM) );
 	mov	a,#0x64
 	clr	c
 	subb	a,r6
@@ -5093,15 +5205,15 @@ _isr_ifp:
 	mov	r7,a
 	mov	((_T1 >> 0) & 0xFF),r4
 	mov	((_T1 >> 8) & 0xFF),r5
-;	main.c:53: timer1_run();
+;	main.c:57: timer1_run();
 	setb _TCON_SB_TR1 
 	sjmp	00103$
 00102$:
-;	main.c:55: else gpio_pin_val_clear(DIMMPIN);
+;	main.c:59: else gpio_pin_val_clear(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_clear
 00103$:
-;	main.c:56: stdimm=1;
+;	main.c:60: stdimm=1;
 	mov	dptr,#_stdimm
 	mov	a,#0x01
 	movx	@dptr,a
@@ -5123,7 +5235,7 @@ _isr_ifp:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'isr_t1'
 ;------------------------------------------------------------
-;	main.c:60: interrupt_isr_t1() {
+;	main.c:64: interrupt_isr_t1() {
 ;	-----------------------------------------
 ;	 function isr_t1
 ;	-----------------------------------------
@@ -5143,24 +5255,24 @@ _isr_t1:
 	push	(0+0)
 	push	psw
 	mov	psw,#0x00
-;	main.c:62: if (stdimm) {
+;	main.c:66: if (stdimm) {
 	mov	dptr,#_stdimm
 	movx	a,@dptr
 	mov	r7,a
 	jz	00102$
-;	main.c:63: gpio_pin_val_set(DIMMPIN); 
+;	main.c:67: gpio_pin_val_set(DIMMPIN); 
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_set
-;	main.c:64: timer1_set_t1_val(65535-100);
+;	main.c:68: timer1_set_t1_val(65535-100);
 	mov	((_T1 >> 0) & 0xFF),#0x9B
 	mov	((_T1 >> 8) & 0xFF),#0xFF
-;	main.c:65: stdimm=0;
+;	main.c:69: stdimm=0;
 	mov	dptr,#_stdimm
 	clr	a
 	movx	@dptr,a
 	sjmp	00104$
 00102$:
-;	main.c:67: gpio_pin_val_clear(DIMMPIN);
+;	main.c:71: gpio_pin_val_clear(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_clear
 00104$:
@@ -5182,107 +5294,179 @@ _isr_t1:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'dimmon'
 ;------------------------------------------------------------
-;mode                      Allocated with name '_dimmon_mode_1_243'
+;mode                      Allocated with name '_dimmon_mode_1_249'
 ;------------------------------------------------------------
-;	main.c:70: void dimmon(uint8_t mode)
+;	main.c:74: void dimmon(uint8_t mode) // функция управлением вкл/выкл
 ;	-----------------------------------------
 ;	 function dimmon
 ;	-----------------------------------------
 _dimmon:
 	mov	a,dpl
-;	main.c:72: if (mode) interrupt_control_ifp_enable();
-	mov	dptr,#_dimmon_mode_1_243
+;	main.c:76: if (mode) interrupt_control_ifp_enable();
+	mov	dptr,#_dimmon_mode_1_249
 	movx	@dptr,a
 	mov	r7,a
 	jz	00102$
 	setb _IEN0_SB_IFP 
 	sjmp	00103$
 00102$:
-;	main.c:74: interrupt_control_ifp_disable();
+;	main.c:78: interrupt_control_ifp_disable();
 	clr _IEN0_SB_IFP 
-;	main.c:75: gpio_pin_val_clear(DIMMPIN);
+;	main.c:79: timer1_stop();
+	clr _TCON_SB_TR1 
+;	main.c:80: gpio_pin_val_clear(DIMMPIN);
 	mov	dpl,#0x02
 	push	ar7
 	lcall	_gpio_pin_val_clear
 	pop	ar7
 00103$:
-;	main.c:77: clientnf.test_data=mode;
+;	main.c:82: clientnf.test_data=mode;
 	mov	dptr,#(_clientnf + 0x0003)
 	mov	a,r7
 	movx	@dptr,a
 	ret
 ;------------------------------------------------------------
+;Allocation info for local variables in function 'isr_rtc2'
+;------------------------------------------------------------
+;	main.c:89: interrupt_isr_rtc2()
+;	-----------------------------------------
+;	 function isr_rtc2
+;	-----------------------------------------
+_isr_rtc2:
+	push	acc
+	push	dpl
+	push	dph
+	push	psw
+;	main.c:91: countrtc++;
+	mov	dptr,#_countrtc
+	movx	a,@dptr
+	add	a,#0x01
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0x00
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0x00
+	movx	@dptr,a
+	inc	dptr
+	movx	a,@dptr
+	addc	a,#0x00
+	movx	@dptr,a
+	pop	psw
+	pop	dph
+	pop	dpl
+	pop	acc
+	reti
+;	eliminated unneeded mov psw,# (no regs used in bank)
+;	eliminated unneeded push/pop b
+;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;state                     Allocated with name '_main_state_1_246'
-;count                     Allocated with name '_main_count_1_246'
+;state                     Allocated with name '_main_state_1_253'
+;count                     Allocated with name '_main_count_1_253'
+;dat                       Allocated with name '_main_dat_1_253'
+;st                        Allocated with name '_main_st_1_253'
+;countpause                Allocated with name '_main_countpause_1_253'
+;rewers                    Allocated with name '_main_rewers_1_253'
+;statesend                 Allocated with name '_main_statesend_1_253'
+;radiosend                 Allocated with name '_main_radiosend_1_253'
 ;------------------------------------------------------------
-;	main.c:85: void main()
+;	main.c:96: void main()
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	main.c:93: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+;	main.c:106: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний кварц.
+	mov	_CLKLFCTRL,#0x01
+;	main.c:107: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,8191); //65535=2 сек, 32767=1 сек,16383 = 0.250 сек ,8191 = 0.125 сек
+	mov	dptr,#_rtc2_configure_PARM_2
+	mov	a,#0xFF
+	movx	@dptr,a
+	mov	a,#0x1F
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl,#0x06
+	lcall	_rtc2_configure
+;	main.c:108: rtc2_run();
+	orl	_RTC2CON,#0x01
+;	main.c:109: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
+	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_PARM_2
+	clr	a
+	movx	@dptr,a
+	clr	a
+	inc	dptr
+	movx	@dptr,a
+	mov	dpl,#0x00
+	lcall	_pwr_clk_mgmt_wakeup_configure
+;	main.c:111: gpio_pin_configure(BUTTON,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
+	mov	dptr,#_gpio_pin_configure_PARM_2
+	mov	a,#0x41
+	movx	@dptr,a
+	mov	dpl,#0x04
+	lcall	_gpio_pin_configure
+;	main.c:113: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 	mov	dptr,#_gpio_pin_configure_PARM_2
 	mov	a,#0x01
 	movx	@dptr,a
 	mov	dpl,#0x02
 	lcall	_gpio_pin_configure
-;	main.c:94: gpio_pin_val_set(DIMMPIN);
+;	main.c:114: gpio_pin_val_set(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_set
-;	main.c:95: delay_ms(500); 
+;	main.c:115: delay_ms(500); 
 	mov	dptr,#0x01F4
 	lcall	_delay_ms
-;	main.c:96: gpio_pin_val_clear(DIMMPIN);
+;	main.c:116: gpio_pin_val_clear(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_clear
-;	main.c:97: delay_ms(500); 
+;	main.c:117: delay_ms(500); 
 	mov	dptr,#0x01F4
 	lcall	_delay_ms
-;	main.c:100: radiobegin(); //
+;	main.c:120: radiobegin(); //
 	lcall	_radiobegin
-;	main.c:101: openAllPipe(); // открываем прием/передачу
+;	main.c:121: openAllPipe(); // открываем прием/передачу
 	lcall	_openAllPipe
-;	main.c:103: setChannel(100);
+;	main.c:123: setChannel(100);
 	mov	dpl,#0x64
 	lcall	_setChannel
-;	main.c:104: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
+;	main.c:124: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
 	mov	dpl,#0x02
 	lcall	_setDataRate
-;	main.c:105: setAutoAck(false);
+;	main.c:125: setAutoAck(false);
 	mov	dpl,#0x00
 	lcall	_setAutoAck
-;	main.c:106: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
+;	main.c:126: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
 	mov	dpl,#0x02
 	lcall	_setCRCLength
-;	main.c:107: setPALevel(3) ; // мощность 0..3
+;	main.c:127: setPALevel(3) ; // мощность 0..3
 	mov	dpl,#0x03
 	lcall	_setPALevel
-;	main.c:110: clientnf.identifier=chclient;
+;	main.c:130: clientnf.identifier=chclient;
 	mov	dptr,#_clientnf
 	mov	a,#0x01
 	movx	@dptr,a
-;	main.c:111: clientnf.countPWM=10;
+;	main.c:131: clientnf.countPWM=10;
 	mov	dptr,#(_clientnf + 0x0001)
 	mov	a,#0x0A
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	main.c:113: sti();
+;	main.c:133: sti();
 	setb _IEN0_SB_GLOBAL 
-;	main.c:114: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+;	main.c:134: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
 	mov	dptr,#_interrupt_configure_ifp_PARM_2
 	mov	a,#0x81
 	movx	@dptr,a
 	mov	dpl,#0x08
 	lcall	_interrupt_configure_ifp
-;	main.c:115: interrupt_control_ifp_enable();
+;	main.c:135: interrupt_control_ifp_enable();
 	setb _IEN0_SB_IFP 
-;	main.c:117: interrupt_control_t1_enable()	;
+;	main.c:137: interrupt_control_t1_enable()	;
 	setb _IEN0_SB_T1 
-;	main.c:118: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+;	main.c:138: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
 	mov	dptr,#_timer1_configure_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5291,11 +5475,34 @@ _main:
 	movx	@dptr,a
 	mov	dpl,#0x10
 	lcall	_timer1_configure
-;	main.c:119: timer1_run();
+;	main.c:139: timer1_run();
 	setb _TCON_SB_TR1 
-;	main.c:124: while(1)
-00121$:
-;	main.c:132: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
+;	main.c:144: while(1)
+00123$:
+;	main.c:151: if (countrtc-radiosend >timesend) {
+	mov	dptr,#_countrtc
+	movx	a,@dptr
+	mov	r4,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r5,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r6,a
+	inc	dptr
+	movx	a,@dptr
+	mov	r7,a
+	clr	c
+	mov	a,#0x02
+	subb	a,r4
+	clr	a
+	subb	a,r5
+	clr	a
+	subb	a,r6
+	clr	a
+	subb	a,r7
+	jnc	00123$
+;	main.c:153: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
 	mov	r6,#_clientnf
 	mov	r7,#(_clientnf >> 8)
 	mov	r5,#0x00
@@ -5312,7 +5519,7 @@ _main:
 	mov	dph,r7
 	mov	b,r5
 	lcall	_rf_write_tx_payload
-;	main.c:135: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
+;	main.c:156: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
 00102$:
 	jnb	_IRCON_SB_RFIRQ,00102$
 	mov	dptr,#_rf_spi_execute_command_PARM_2
@@ -5337,19 +5544,19 @@ _main:
 	lcall	_rf_spi_execute_command
 	mov	a,dpl
 	jnb	acc.5,00102$
-;	main.c:137: rf_irq_clear_all(); //clear all interrupts in the 24L01
+;	main.c:158: rf_irq_clear_all(); //clear all interrupts in the 24L01
 	lcall	_rf_irq_clear_all
-;	main.c:138: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
+;	main.c:159: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
 	mov	dpl,#0x01
 	lcall	_rf_set_as_rx
-;	main.c:142: for(count = 0; count < 25000; count++)
+;	main.c:163: for(count = 0; count < 25000; count++)
 	mov	r6,#0x00
 	mov	r7,#0x00
-00123$:
-;	main.c:145: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
-	jb	_IRCON_SB_RFIRQ,00165$
+00125$:
+;	main.c:166: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
+	jb	_IRCON_SB_RFIRQ,00171$
 	ljmp	00109$
-00165$:
+00171$:
 	mov	dptr,#_rf_spi_execute_command_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5376,7 +5583,7 @@ _main:
 	pop	ar6
 	pop	ar7
 	jnb	acc.6,00109$
-;	main.c:148: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
+;	main.c:169: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
 	mov	dptr,#(_clientnf + 0x0006)
 	movx	a,@dptr
 	mov	r2,a
@@ -5402,13 +5609,13 @@ _main:
 	subb	a,b
 	jc	00106$
 	inc	r2
-	cjne	r2,#0x00,00168$
+	cjne	r2,#0x00,00174$
 	inc	r3
-	cjne	r3,#0x00,00168$
+	cjne	r3,#0x00,00174$
 	inc	r4
-	cjne	r4,#0x00,00168$
+	cjne	r4,#0x00,00174$
 	inc	r5
-00168$:
+00174$:
 	mov	dptr,#(_clientnf + 0x0006)
 	mov	a,r2
 	movx	@dptr,a
@@ -5423,7 +5630,7 @@ _main:
 	movx	@dptr,a
 	sjmp	00107$
 00106$:
-;	main.c:149: else clientnf.count = 0;
+;	main.c:170: else clientnf.count = 0;
 	mov	dptr,#(_clientnf + 0x0006)
 	clr	a
 	movx	@dptr,a
@@ -5437,7 +5644,7 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 00107$:
-;	main.c:151: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
+;	main.c:172: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
 	mov	dptr,#_rf_read_rx_payload_PARM_2
 	mov	a,#0x20
 	movx	@dptr,a
@@ -5447,12 +5654,12 @@ _main:
 	mov	dptr,#_servernf
 	mov	b,#0x00
 	lcall	_rf_read_rx_payload
-;	main.c:152: break;
+;	main.c:173: break;
 	sjmp	00113$
 00109$:
-;	main.c:159: if(count == 24999) clientnf.Error_Message++;
-	cjne	r6,#0xA7,00124$
-	cjne	r7,#0x61,00124$
+;	main.c:180: if(count == 24999) clientnf.Error_Message++;
+	cjne	r6,#0xA7,00126$
+	cjne	r7,#0x61,00126$
 	mov	dptr,#(_clientnf + 0x0004)
 	movx	a,@dptr
 	mov	r4,a
@@ -5460,55 +5667,63 @@ _main:
 	movx	a,@dptr
 	mov	r5,a
 	inc	r4
-	cjne	r4,#0x00,00171$
+	cjne	r4,#0x00,00177$
 	inc	r5
-00171$:
+00177$:
 	mov	dptr,#(_clientnf + 0x0004)
 	mov	a,r4
 	movx	@dptr,a
 	mov	a,r5
 	inc	dptr
 	movx	@dptr,a
-00124$:
-;	main.c:142: for(count = 0; count < 25000; count++)
+00126$:
+;	main.c:163: for(count = 0; count < 25000; count++)
 	inc	r6
-	cjne	r6,#0x00,00172$
+	cjne	r6,#0x00,00178$
 	inc	r7
-00172$:
+00178$:
 	clr	c
 	mov	a,r6
 	subb	a,#0xA8
 	mov	a,r7
 	subb	a,#0x61
-	jnc	00173$
-	ljmp	00123$
-00173$:
+	jnc	00179$
+	ljmp	00125$
+00179$:
 00113$:
-;	main.c:164: rf_irq_clear_all(); //clear interrupts again
+;	main.c:185: rf_irq_clear_all(); //clear interrupts again
 	lcall	_rf_irq_clear_all
-;	main.c:166: rf_set_as_tx(); //resume normal operation as a TX
+;	main.c:187: rf_set_as_tx(); //resume normal operation as a TX
 	lcall	_rf_set_as_tx
-;	main.c:169: if (servernf[0]==chclient){	
+;	main.c:190: if (servernf[0]==chclient){	
 	mov	dptr,#_servernf
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x01,00119$
-;	main.c:172: if (servernf[1]==10) {
+	cjne	r7,#0x01,00180$
+	sjmp	00181$
+00180$:
+	ljmp	00123$
+00181$:
+;	main.c:193: if (servernf[1]==10) {
 	mov	dptr,#(_servernf + 0x0001)
 	movx	a,@dptr
 	mov	r7,a
 	cjne	r7,#0x0A,00115$
-;	main.c:174: dimmon(servernf[3]);
+;	main.c:195: dimmon(servernf[3]);
 	mov	dptr,#(_servernf + 0x0003)
 	movx	a,@dptr
 	mov	dpl,a
 	lcall	_dimmon
 00115$:
-;	main.c:177: if (servernf[1]==11) clientnf.countPWM=servernf[3];
+;	main.c:198: if (servernf[1]==11) clientnf.countPWM=servernf[3];
 	mov	dptr,#(_servernf + 0x0001)
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x0B,00119$
+	cjne	r7,#0x0B,00184$
+	sjmp	00185$
+00184$:
+	ljmp	00123$
+00185$:
 	mov	dptr,#(_servernf + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
@@ -5519,12 +5734,10 @@ _main:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-00119$:
-;	main.c:181: delay_ms(timesend);
-	mov	dptr,#0x012C
-	lcall	_delay_ms
-	ljmp	00121$
+	ljmp	00123$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)
 	.area XINIT   (CODE)
+__xinit__countrtc:
+	.byte #0x00,#0x00,#0x00,#0x00	; 0
 	.area CABS    (ABS,CODE)

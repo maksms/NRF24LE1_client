@@ -1,12 +1,16 @@
 // модификация 12.06.14
 
 #define chclient 1 // номер клиента 1...
-#define timesend 300 // интервал отправки данных,для обычных датчиков можно установить время выше.
+#define timesend 2 // интервал отправки данных,для обычных датчиков можно установить время выше.
 #define nofloat 0 // без float , данные передаются умноженные на 10.Очень экономит место.
 
+#define stepdimm 5
+#define BUTTON 4
 
 #include "../libs.h"
 #include "../nRFLE.c"
+
+//#include "../millisNrf/millisNrf.c"
 
 typedef struct{
   unsigned char identifier;// номер передатчика.МЕНЯТЬ НЕЛЬЗЯ
@@ -78,8 +82,14 @@ gpio_pin_val_clear(DIMMPIN);
 clientnf.test_data=mode;
 }  
 
+unsigned long countrtc=0;
 unsigned char servernf[32];
 
+
+interrupt_isr_rtc2()
+{
+countrtc++;
+}
 //====================main========================
 
 
@@ -87,9 +97,18 @@ void main()
 {
 int state=0;
 
-unsigned int count; //counter for for loop
+unsigned int count=0; //counter for loop
+uint8_t dat=0,st=0,countpause=0,rewers=0; // for key
+unsigned long statesend=0;
+unsigned long radiosend=0;
 
+//millisbegin();
+CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний кварц.
+rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,8191); //65535=2 сек, 32767=1 сек,16383 = 0.250 сек ,8191 = 0.125 сек
+rtc2_run();
+pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
 
+gpio_pin_configure(BUTTON,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
 
 gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 	 gpio_pin_val_set(DIMMPIN);
@@ -129,6 +148,7 @@ interrupt_control_ifp_enable();
 
 
 	  // ---
+if (countrtc-radiosend >timesend) {
 //rf_power_up(1);
 	 	rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
 
@@ -179,12 +199,49 @@ if (servernf[1]==11) clientnf.countPWM=servernf[3];
  
 }
 	
-		delay_ms(timesend);
-		
+}
+//	delay_ms(timesend);
 
+#if 0
+#define dimm clientnf.countPWM
+
+if (millis()-statesend>100) {
+if (digitalRead(BUTTON)==0){
+   statesend=millis();
+   
+   if (st){
+   st=0;
+    dat=!dat;
+    
+    dimmon (dat);
+    
+   } else 
+if (countpause>=20){
+ 
+if (!dat) dimmon(1);
+else {
+  
+if(rewers) {
+if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
+else rewers=0;
+}else{
+if(dimm+stepdimm<=DIMMERSTEP) dimm=dimm+stepdimm;
+else rewers=1;
+}
+//setdimmer(dimm);
+ }
+} else countpause++;
+
+} else {
+st=1;
+countpause=0;
+rewers=!rewers;
+}
+
+}
+#endif
+
+// end loop
 	}
-	
-	
-	
-	
+
 }

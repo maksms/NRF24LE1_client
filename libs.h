@@ -51,6 +51,7 @@
 // управление питанием ,необходимо для watchdog
 #include "src/pwr_clk_mgmt/src/pwr_clk_mgmt_clklf_configure.c"
 #include "src/pwr_clk_mgmt/src/pwr_clk_mgmt_get_cclk_freq_in_hz.c"
+#include "src/pwr_clk_mgmt/src/pwr_clk_mgmt_wakeup_configure.c"
 
 // watchdog
 #include "src/watchdog/src/watchdog_set_wdsv_count.c"
@@ -99,4 +100,4 @@
 
 
 
-
+#include "src/rtc2/src/rtc2_configure.c"
