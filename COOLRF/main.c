@@ -1,4 +1,4 @@
-// модификация 12.06.14
+// модификация 14.06.14
 
 #define chclient 1 // номер клиента 1...
 #define timesend 2 // интервал отправки данных,для обычных датчиков можно установить время выше.
@@ -31,13 +31,13 @@ nf1;
 nf1 clientnf; 
 
 #define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор
-#define DIMMERSTEP 100 // количество шагов диммирования
-#define DIMSTART 16000000/12/100/DIMMERSTEP
+#define MAXSTEP 100 // количество шагов диммирования
+#define DIMSTART 16000000/12/100/MAXSTEP
 #if 1
-// в будущем возможно будет задействовано для экономии ресурсов - чтобы не пересчитывать при каждом прерывании
+// задействовано для экономии ресурсов - чтобы не пересчитывать при каждом прерывании
 uint16_t valuepwm=0;
 void setdimmer(uint8_t value){
-  valuepwm=65535-DIMSTART*(DIMMERSTEP-value);
+  valuepwm=65535-DIMSTART*(MAXSTEP-value);
 if(value ==0 | clientnf.test_data==0) {
   interrupt_control_ifp_disable();
   gpio_pin_val_clear(DIMMPIN);
@@ -52,7 +52,7 @@ interrupt_isr_ifp()
 timer1_stop();
   if(clientnf.countPWM !=0) {
 
-//timer1_set_t1_val(65535-DIMSTART*(DIMMERSTEP-clientnf.countPWM) );
+//timer1_set_t1_val(65535-DIMSTART*(MAXSTEP-clientnf.countPWM) );
 timer1_set_t1_val(valuepwm);
 timer1_run();
   }
@@ -230,7 +230,7 @@ if(rewers) {
 if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
 else rewers=0;
 }else{
-if(dimm+stepdimm<=DIMMERSTEP) dimm=dimm+stepdimm;
+if(dimm+stepdimm<=MAXSTEP) dimm=dimm+stepdimm;
 else rewers=1;
 }
 setdimmer(dimm);
