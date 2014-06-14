@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-                              4 ; This file was generated Sat Jun 14 18:53:27 2014
+                              4 ; This file was generated Sat Jun 14 20:27:49 2014
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-large
@@ -5154,7 +5154,7 @@
                            5154 ;	-----------------------------------------
    1489                    5155 _setdimmer:
    1489 E5 82         [12] 5156 	mov	a,dpl
-                           5157 ;	main.c:40: valuepwm=65535-DIMSTART*(DIMMERSTEP-value);
+                           5157 ;	main.c:40: valuepwm=65535-DIMSTART*(MAXSTEP-value);
    148B 90r00rA1      [24] 5158 	mov	dptr,#_setdimmer_value_1_245
    148E F0            [24] 5159 	movx	@dptr,a
    148F FF            [12] 5160 	mov	r7,a
@@ -5632,7 +5632,7 @@
    1703 EF            [12] 5632 	mov	a,r7
    1704 94 00         [12] 5633 	subb	a,#0x00
    1706 50 03         [24] 5634 	jnc	00215$
-   1708 02r18r7B      [24] 5635 	ljmp	00121$
+   1708 02r18r74      [24] 5635 	ljmp	00121$
    170B                    5636 00215$:
                            5637 ;	main.c:158: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
    170B 7Er8F         [12] 5638 	mov	r6,#_clientnf
@@ -5831,7 +5831,7 @@
    1823 90r00rA4      [24] 5831 	mov	dptr,#_servernf
    1826 E0            [24] 5832 	movx	a,@dptr
    1827 FF            [12] 5833 	mov	r7,a
-   1828 BF 01 34      [24] 5834 	cjne	r7,#0x01,00119$
+   1828 BF 01 2D      [24] 5834 	cjne	r7,#0x01,00119$
                            5835 ;	main.c:198: if (servernf[1]==10) {
    182B 90r00rA5      [24] 5836 	mov	dptr,#(_servernf + 0x0001)
    182E E0            [24] 5837 	movx	a,@dptr
@@ -5843,316 +5843,311 @@
    1837 F5 82         [12] 5843 	mov	dpl,a
    1839 12r15rB5      [24] 5844 	lcall	_dimmon
    183C                    5845 00115$:
-                           5846 ;	main.c:202: if (servernf[1]==11) clientnf.countPWM=servernf[3];
+                           5846 ;	main.c:202: if (servernf[1]==11) {
    183C 90r00rA5      [24] 5847 	mov	dptr,#(_servernf + 0x0001)
    183F E0            [24] 5848 	movx	a,@dptr
    1840 FF            [12] 5849 	mov	r7,a
-   1841 BF 0B 0F      [24] 5850 	cjne	r7,#0x0B,00117$
-   1844 90r00rA7      [24] 5851 	mov	dptr,#(_servernf + 0x0003)
-   1847 E0            [24] 5852 	movx	a,@dptr
-   1848 FF            [12] 5853 	mov	r7,a
-   1849 7E 00         [12] 5854 	mov	r6,#0x00
-   184B 90r00r90      [24] 5855 	mov	dptr,#(_clientnf + 0x0001)
-   184E EF            [12] 5856 	mov	a,r7
-   184F F0            [24] 5857 	movx	@dptr,a
-   1850 EE            [12] 5858 	mov	a,r6
-   1851 A3            [24] 5859 	inc	dptr
-   1852 F0            [24] 5860 	movx	@dptr,a
-   1853                    5861 00117$:
-                           5862 ;	main.c:203: setdimmer(clientnf.countPWM);
-   1853 90r00r90      [24] 5863 	mov	dptr,#(_clientnf + 0x0001)
-   1856 E0            [24] 5864 	movx	a,@dptr
-   1857 FE            [12] 5865 	mov	r6,a
-   1858 A3            [24] 5866 	inc	dptr
-   1859 E0            [24] 5867 	movx	a,@dptr
-   185A 8E 82         [24] 5868 	mov	dpl,r6
-   185C 12r14r89      [24] 5869 	lcall	_setdimmer
-   185F                    5870 00119$:
-                           5871 ;	main.c:205: radiosend=countrtc;
-   185F 90r00r02      [24] 5872 	mov	dptr,#_countrtc
-   1862 E0            [24] 5873 	movx	a,@dptr
-   1863 FC            [12] 5874 	mov	r4,a
-   1864 A3            [24] 5875 	inc	dptr
-   1865 E0            [24] 5876 	movx	a,@dptr
-   1866 FD            [12] 5877 	mov	r5,a
-   1867 A3            [24] 5878 	inc	dptr
-   1868 E0            [24] 5879 	movx	a,@dptr
-   1869 FE            [12] 5880 	mov	r6,a
-   186A A3            [24] 5881 	inc	dptr
-   186B E0            [24] 5882 	movx	a,@dptr
-   186C FF            [12] 5883 	mov	r7,a
-   186D 90r00rCB      [24] 5884 	mov	dptr,#_main_radiosend_1_256
-   1870 EC            [12] 5885 	mov	a,r4
-   1871 F0            [24] 5886 	movx	@dptr,a
-   1872 ED            [12] 5887 	mov	a,r5
-   1873 A3            [24] 5888 	inc	dptr
-   1874 F0            [24] 5889 	movx	@dptr,a
-   1875 EE            [12] 5890 	mov	a,r6
-   1876 A3            [24] 5891 	inc	dptr
-   1877 F0            [24] 5892 	movx	@dptr,a
-   1878 EF            [12] 5893 	mov	a,r7
-   1879 A3            [24] 5894 	inc	dptr
-   187A F0            [24] 5895 	movx	@dptr,a
-   187B                    5896 00121$:
-                           5897 ;	main.c:214: if (digitalRead(BUTTON)==0){
-   187B 75 82 04      [24] 5898 	mov	dpl,#0x04
-   187E 12r06rBD      [24] 5899 	lcall	_gpio_pin_val_read
-   1881 E5 82         [12] 5900 	mov	a,dpl
-   1883 60 03         [24] 5901 	jz	00233$
-   1885 02r19rB1      [24] 5902 	ljmp	00143$
-   1888                    5903 00233$:
-                           5904 ;	main.c:215: if (countrtc-statesend>=4) {
-   1888 90r00rC7      [24] 5905 	mov	dptr,#_main_statesend_1_256
-   188B E0            [24] 5906 	movx	a,@dptr
-   188C FC            [12] 5907 	mov	r4,a
-   188D A3            [24] 5908 	inc	dptr
-   188E E0            [24] 5909 	movx	a,@dptr
-   188F FD            [12] 5910 	mov	r5,a
-   1890 A3            [24] 5911 	inc	dptr
-   1891 E0            [24] 5912 	movx	a,@dptr
-   1892 FE            [12] 5913 	mov	r6,a
-   1893 A3            [24] 5914 	inc	dptr
-   1894 E0            [24] 5915 	movx	a,@dptr
-   1895 FF            [12] 5916 	mov	r7,a
-   1896 90r00r02      [24] 5917 	mov	dptr,#_countrtc
-   1899 E0            [24] 5918 	movx	a,@dptr
-   189A F8            [12] 5919 	mov	r0,a
-   189B A3            [24] 5920 	inc	dptr
-   189C E0            [24] 5921 	movx	a,@dptr
-   189D F9            [12] 5922 	mov	r1,a
-   189E A3            [24] 5923 	inc	dptr
-   189F E0            [24] 5924 	movx	a,@dptr
-   18A0 FA            [12] 5925 	mov	r2,a
-   18A1 A3            [24] 5926 	inc	dptr
-   18A2 E0            [24] 5927 	movx	a,@dptr
-   18A3 FB            [12] 5928 	mov	r3,a
-   18A4 E8            [12] 5929 	mov	a,r0
-   18A5 C3            [12] 5930 	clr	c
-   18A6 9C            [12] 5931 	subb	a,r4
-   18A7 FC            [12] 5932 	mov	r4,a
-   18A8 E9            [12] 5933 	mov	a,r1
-   18A9 9D            [12] 5934 	subb	a,r5
-   18AA FD            [12] 5935 	mov	r5,a
-   18AB EA            [12] 5936 	mov	a,r2
-   18AC 9E            [12] 5937 	subb	a,r6
-   18AD FE            [12] 5938 	mov	r6,a
-   18AE EB            [12] 5939 	mov	a,r3
-   18AF 9F            [12] 5940 	subb	a,r7
-   18B0 FF            [12] 5941 	mov	r7,a
-   18B1 C3            [12] 5942 	clr	c
-   18B2 EC            [12] 5943 	mov	a,r4
-   18B3 94 04         [12] 5944 	subb	a,#0x04
-   18B5 ED            [12] 5945 	mov	a,r5
-   18B6 94 00         [12] 5946 	subb	a,#0x00
-   18B8 EE            [12] 5947 	mov	a,r6
-   18B9 94 00         [12] 5948 	subb	a,#0x00
-   18BB EF            [12] 5949 	mov	a,r7
-   18BC 94 00         [12] 5950 	subb	a,#0x00
-   18BE 50 03         [24] 5951 	jnc	00234$
-   18C0 02r16rD0      [24] 5952 	ljmp	00146$
-   18C3                    5953 00234$:
-                           5954 ;	main.c:217: if (st){
+   1841 BF 0B 14      [24] 5850 	cjne	r7,#0x0B,00119$
+                           5851 ;	main.c:203: clientnf.countPWM=servernf[3];
+   1844 90r00rA7      [24] 5852 	mov	dptr,#(_servernf + 0x0003)
+   1847 E0            [24] 5853 	movx	a,@dptr
+   1848 FF            [12] 5854 	mov	r7,a
+   1849 7E 00         [12] 5855 	mov	r6,#0x00
+   184B 90r00r90      [24] 5856 	mov	dptr,#(_clientnf + 0x0001)
+   184E EF            [12] 5857 	mov	a,r7
+   184F F0            [24] 5858 	movx	@dptr,a
+   1850 EE            [12] 5859 	mov	a,r6
+   1851 A3            [24] 5860 	inc	dptr
+   1852 F0            [24] 5861 	movx	@dptr,a
+                           5862 ;	main.c:204: setdimmer(clientnf.countPWM);
+   1853 8F 82         [24] 5863 	mov	dpl,r7
+   1855 12r14r89      [24] 5864 	lcall	_setdimmer
+   1858                    5865 00119$:
+                           5866 ;	main.c:208: radiosend=countrtc;
+   1858 90r00r02      [24] 5867 	mov	dptr,#_countrtc
+   185B E0            [24] 5868 	movx	a,@dptr
+   185C FC            [12] 5869 	mov	r4,a
+   185D A3            [24] 5870 	inc	dptr
+   185E E0            [24] 5871 	movx	a,@dptr
+   185F FD            [12] 5872 	mov	r5,a
+   1860 A3            [24] 5873 	inc	dptr
+   1861 E0            [24] 5874 	movx	a,@dptr
+   1862 FE            [12] 5875 	mov	r6,a
+   1863 A3            [24] 5876 	inc	dptr
+   1864 E0            [24] 5877 	movx	a,@dptr
+   1865 FF            [12] 5878 	mov	r7,a
+   1866 90r00rCB      [24] 5879 	mov	dptr,#_main_radiosend_1_256
+   1869 EC            [12] 5880 	mov	a,r4
+   186A F0            [24] 5881 	movx	@dptr,a
+   186B ED            [12] 5882 	mov	a,r5
+   186C A3            [24] 5883 	inc	dptr
+   186D F0            [24] 5884 	movx	@dptr,a
+   186E EE            [12] 5885 	mov	a,r6
+   186F A3            [24] 5886 	inc	dptr
+   1870 F0            [24] 5887 	movx	@dptr,a
+   1871 EF            [12] 5888 	mov	a,r7
+   1872 A3            [24] 5889 	inc	dptr
+   1873 F0            [24] 5890 	movx	@dptr,a
+   1874                    5891 00121$:
+                           5892 ;	main.c:217: if (digitalRead(BUTTON)==0){
+   1874 75 82 04      [24] 5893 	mov	dpl,#0x04
+   1877 12r06rBD      [24] 5894 	lcall	_gpio_pin_val_read
+   187A E5 82         [12] 5895 	mov	a,dpl
+   187C 60 03         [24] 5896 	jz	00233$
+   187E 02r19rAA      [24] 5897 	ljmp	00143$
+   1881                    5898 00233$:
+                           5899 ;	main.c:218: if (countrtc-statesend>=4) {
+   1881 90r00rC7      [24] 5900 	mov	dptr,#_main_statesend_1_256
+   1884 E0            [24] 5901 	movx	a,@dptr
+   1885 FC            [12] 5902 	mov	r4,a
+   1886 A3            [24] 5903 	inc	dptr
+   1887 E0            [24] 5904 	movx	a,@dptr
+   1888 FD            [12] 5905 	mov	r5,a
+   1889 A3            [24] 5906 	inc	dptr
+   188A E0            [24] 5907 	movx	a,@dptr
+   188B FE            [12] 5908 	mov	r6,a
+   188C A3            [24] 5909 	inc	dptr
+   188D E0            [24] 5910 	movx	a,@dptr
+   188E FF            [12] 5911 	mov	r7,a
+   188F 90r00r02      [24] 5912 	mov	dptr,#_countrtc
+   1892 E0            [24] 5913 	movx	a,@dptr
+   1893 F8            [12] 5914 	mov	r0,a
+   1894 A3            [24] 5915 	inc	dptr
+   1895 E0            [24] 5916 	movx	a,@dptr
+   1896 F9            [12] 5917 	mov	r1,a
+   1897 A3            [24] 5918 	inc	dptr
+   1898 E0            [24] 5919 	movx	a,@dptr
+   1899 FA            [12] 5920 	mov	r2,a
+   189A A3            [24] 5921 	inc	dptr
+   189B E0            [24] 5922 	movx	a,@dptr
+   189C FB            [12] 5923 	mov	r3,a
+   189D E8            [12] 5924 	mov	a,r0
+   189E C3            [12] 5925 	clr	c
+   189F 9C            [12] 5926 	subb	a,r4
+   18A0 FC            [12] 5927 	mov	r4,a
+   18A1 E9            [12] 5928 	mov	a,r1
+   18A2 9D            [12] 5929 	subb	a,r5
+   18A3 FD            [12] 5930 	mov	r5,a
+   18A4 EA            [12] 5931 	mov	a,r2
+   18A5 9E            [12] 5932 	subb	a,r6
+   18A6 FE            [12] 5933 	mov	r6,a
+   18A7 EB            [12] 5934 	mov	a,r3
+   18A8 9F            [12] 5935 	subb	a,r7
+   18A9 FF            [12] 5936 	mov	r7,a
+   18AA C3            [12] 5937 	clr	c
+   18AB EC            [12] 5938 	mov	a,r4
+   18AC 94 04         [12] 5939 	subb	a,#0x04
+   18AE ED            [12] 5940 	mov	a,r5
+   18AF 94 00         [12] 5941 	subb	a,#0x00
+   18B1 EE            [12] 5942 	mov	a,r6
+   18B2 94 00         [12] 5943 	subb	a,#0x00
+   18B4 EF            [12] 5944 	mov	a,r7
+   18B5 94 00         [12] 5945 	subb	a,#0x00
+   18B7 50 03         [24] 5946 	jnc	00234$
+   18B9 02r16rD0      [24] 5947 	ljmp	00146$
+   18BC                    5948 00234$:
+                           5949 ;	main.c:220: if (st){
+   18BC 90r00rC4      [24] 5950 	mov	dptr,#_main_st_1_256
+   18BF E0            [24] 5951 	movx	a,@dptr
+   18C0 FF            [12] 5952 	mov	r7,a
+   18C1 60 1F         [24] 5953 	jz	00138$
+                           5954 ;	main.c:221: st=0;
    18C3 90r00rC4      [24] 5955 	mov	dptr,#_main_st_1_256
-   18C6 E0            [24] 5956 	movx	a,@dptr
-   18C7 FF            [12] 5957 	mov	r7,a
-   18C8 60 1F         [24] 5958 	jz	00138$
-                           5959 ;	main.c:218: st=0;
-   18CA 90r00rC4      [24] 5960 	mov	dptr,#_main_st_1_256
-   18CD E4            [12] 5961 	clr	a
-   18CE F0            [24] 5962 	movx	@dptr,a
-                           5963 ;	main.c:219: dat=!dat;
-   18CF 90r00r92      [24] 5964 	mov	dptr,#(_clientnf + 0x0003)
-   18D2 E0            [24] 5965 	movx	a,@dptr
-   18D3 FF            [12] 5966 	mov	r7,a
-   18D4 B4 01 00      [24] 5967 	cjne	a,#0x01,00236$
-   18D7                    5968 00236$:
-   18D7 E4            [12] 5969 	clr	a
-   18D8 33            [12] 5970 	rlc	a
-   18D9 90r00r92      [24] 5971 	mov	dptr,#(_clientnf + 0x0003)
-   18DC F0            [24] 5972 	movx	@dptr,a
-                           5973 ;	main.c:221: dimmon (dat);
-   18DD 90r00r92      [24] 5974 	mov	dptr,#(_clientnf + 0x0003)
-   18E0 E0            [24] 5975 	movx	a,@dptr
-   18E1 F5 82         [12] 5976 	mov	dpl,a
-   18E3 12r15rB5      [24] 5977 	lcall	_dimmon
-   18E6 02r19r92      [24] 5978 	ljmp	00139$
-   18E9                    5979 00138$:
-                           5980 ;	main.c:224: if (countpause>=3){
-   18E9 90r00rC5      [24] 5981 	mov	dptr,#_main_countpause_1_256
-   18EC E0            [24] 5982 	movx	a,@dptr
-   18ED FF            [12] 5983 	mov	r7,a
-   18EE BF 03 00      [24] 5984 	cjne	r7,#0x03,00237$
-   18F1                    5985 00237$:
-   18F1 50 03         [24] 5986 	jnc	00238$
-   18F3 02r19r8C      [24] 5987 	ljmp	00135$
-   18F6                    5988 00238$:
-                           5989 ;	main.c:226: if (!dat) dimmon(1);
-   18F6 90r00r92      [24] 5990 	mov	dptr,#(_clientnf + 0x0003)
-   18F9 E0            [24] 5991 	movx	a,@dptr
-   18FA 70 09         [24] 5992 	jnz	00132$
-   18FC 75 82 01      [24] 5993 	mov	dpl,#0x01
-   18FF 12r15rB5      [24] 5994 	lcall	_dimmon
-   1902 02r19r92      [24] 5995 	ljmp	00139$
-   1905                    5996 00132$:
-                           5997 ;	main.c:229: if(rewers) {
-   1905 90r00rC6      [24] 5998 	mov	dptr,#_main_rewers_1_256
+   18C6 E4            [12] 5956 	clr	a
+   18C7 F0            [24] 5957 	movx	@dptr,a
+                           5958 ;	main.c:222: dat=!dat;
+   18C8 90r00r92      [24] 5959 	mov	dptr,#(_clientnf + 0x0003)
+   18CB E0            [24] 5960 	movx	a,@dptr
+   18CC FF            [12] 5961 	mov	r7,a
+   18CD B4 01 00      [24] 5962 	cjne	a,#0x01,00236$
+   18D0                    5963 00236$:
+   18D0 E4            [12] 5964 	clr	a
+   18D1 33            [12] 5965 	rlc	a
+   18D2 90r00r92      [24] 5966 	mov	dptr,#(_clientnf + 0x0003)
+   18D5 F0            [24] 5967 	movx	@dptr,a
+                           5968 ;	main.c:224: dimmon (dat);
+   18D6 90r00r92      [24] 5969 	mov	dptr,#(_clientnf + 0x0003)
+   18D9 E0            [24] 5970 	movx	a,@dptr
+   18DA F5 82         [12] 5971 	mov	dpl,a
+   18DC 12r15rB5      [24] 5972 	lcall	_dimmon
+   18DF 02r19r8B      [24] 5973 	ljmp	00139$
+   18E2                    5974 00138$:
+                           5975 ;	main.c:227: if (countpause>=3){
+   18E2 90r00rC5      [24] 5976 	mov	dptr,#_main_countpause_1_256
+   18E5 E0            [24] 5977 	movx	a,@dptr
+   18E6 FF            [12] 5978 	mov	r7,a
+   18E7 BF 03 00      [24] 5979 	cjne	r7,#0x03,00237$
+   18EA                    5980 00237$:
+   18EA 50 03         [24] 5981 	jnc	00238$
+   18EC 02r19r85      [24] 5982 	ljmp	00135$
+   18EF                    5983 00238$:
+                           5984 ;	main.c:229: if (!dat) dimmon(1);
+   18EF 90r00r92      [24] 5985 	mov	dptr,#(_clientnf + 0x0003)
+   18F2 E0            [24] 5986 	movx	a,@dptr
+   18F3 70 09         [24] 5987 	jnz	00132$
+   18F5 75 82 01      [24] 5988 	mov	dpl,#0x01
+   18F8 12r15rB5      [24] 5989 	lcall	_dimmon
+   18FB 02r19r8B      [24] 5990 	ljmp	00139$
+   18FE                    5991 00132$:
+                           5992 ;	main.c:232: if(rewers) {
+   18FE 90r00rC6      [24] 5993 	mov	dptr,#_main_rewers_1_256
+   1901 E0            [24] 5994 	movx	a,@dptr
+   1902 FE            [12] 5995 	mov	r6,a
+   1903 60 34         [24] 5996 	jz	00129$
+                           5997 ;	main.c:233: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
+   1905 90r00r90      [24] 5998 	mov	dptr,#(_clientnf + 0x0001)
    1908 E0            [24] 5999 	movx	a,@dptr
-   1909 FE            [12] 6000 	mov	r6,a
-   190A 60 34         [24] 6001 	jz	00129$
-                           6002 ;	main.c:230: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
-   190C 90r00r90      [24] 6003 	mov	dptr,#(_clientnf + 0x0001)
-   190F E0            [24] 6004 	movx	a,@dptr
-   1910 FD            [12] 6005 	mov	r5,a
-   1911 A3            [24] 6006 	inc	dptr
-   1912 E0            [24] 6007 	movx	a,@dptr
-   1913 FE            [12] 6008 	mov	r6,a
-   1914 ED            [12] 6009 	mov	a,r5
-   1915 24 FB         [12] 6010 	add	a,#0xFB
-   1917 FD            [12] 6011 	mov	r5,a
-   1918 EE            [12] 6012 	mov	a,r6
-   1919 34 FF         [12] 6013 	addc	a,#0xFF
-   191B FE            [12] 6014 	mov	r6,a
-   191C 20 E7 1A      [24] 6015 	jb	acc.7,00123$
-   191F 90r00r90      [24] 6016 	mov	dptr,#(_clientnf + 0x0001)
-   1922 E0            [24] 6017 	movx	a,@dptr
-   1923 FD            [12] 6018 	mov	r5,a
-   1924 A3            [24] 6019 	inc	dptr
-   1925 E0            [24] 6020 	movx	a,@dptr
-   1926 FE            [12] 6021 	mov	r6,a
-   1927 ED            [12] 6022 	mov	a,r5
-   1928 24 FB         [12] 6023 	add	a,#0xFB
-   192A FD            [12] 6024 	mov	r5,a
-   192B EE            [12] 6025 	mov	a,r6
-   192C 34 FF         [12] 6026 	addc	a,#0xFF
-   192E FE            [12] 6027 	mov	r6,a
-   192F 90r00r90      [24] 6028 	mov	dptr,#(_clientnf + 0x0001)
-   1932 ED            [12] 6029 	mov	a,r5
-   1933 F0            [24] 6030 	movx	@dptr,a
-   1934 EE            [12] 6031 	mov	a,r6
-   1935 A3            [24] 6032 	inc	dptr
-   1936 F0            [24] 6033 	movx	@dptr,a
-   1937 80 45         [24] 6034 	sjmp	00130$
-   1939                    6035 00123$:
-                           6036 ;	main.c:231: else rewers=0;
-   1939 90r00rC6      [24] 6037 	mov	dptr,#_main_rewers_1_256
-   193C E4            [12] 6038 	clr	a
-   193D F0            [24] 6039 	movx	@dptr,a
-   193E 80 3E         [24] 6040 	sjmp	00130$
-   1940                    6041 00129$:
-                           6042 ;	main.c:233: if(dimm+stepdimm<=DIMMERSTEP) dimm=dimm+stepdimm;
-   1940 90r00r90      [24] 6043 	mov	dptr,#(_clientnf + 0x0001)
-   1943 E0            [24] 6044 	movx	a,@dptr
-   1944 FD            [12] 6045 	mov	r5,a
-   1945 A3            [24] 6046 	inc	dptr
-   1946 E0            [24] 6047 	movx	a,@dptr
-   1947 FE            [12] 6048 	mov	r6,a
-   1948 74 05         [12] 6049 	mov	a,#0x05
-   194A 2D            [12] 6050 	add	a,r5
-   194B FD            [12] 6051 	mov	r5,a
-   194C E4            [12] 6052 	clr	a
-   194D 3E            [12] 6053 	addc	a,r6
-   194E FE            [12] 6054 	mov	r6,a
-   194F C3            [12] 6055 	clr	c
-   1950 74 64         [12] 6056 	mov	a,#0x64
-   1952 9D            [12] 6057 	subb	a,r5
-   1953 E4            [12] 6058 	clr	a
-   1954 64 80         [12] 6059 	xrl	a,#0x80
-   1956 8E F0         [24] 6060 	mov	b,r6
-   1958 63 F0 80      [24] 6061 	xrl	b,#0x80
-   195B 95 F0         [12] 6062 	subb	a,b
-   195D 40 19         [24] 6063 	jc	00126$
-   195F 90r00r90      [24] 6064 	mov	dptr,#(_clientnf + 0x0001)
-   1962 E0            [24] 6065 	movx	a,@dptr
-   1963 FD            [12] 6066 	mov	r5,a
-   1964 A3            [24] 6067 	inc	dptr
-   1965 E0            [24] 6068 	movx	a,@dptr
-   1966 FE            [12] 6069 	mov	r6,a
-   1967 74 05         [12] 6070 	mov	a,#0x05
-   1969 2D            [12] 6071 	add	a,r5
-   196A FD            [12] 6072 	mov	r5,a
-   196B E4            [12] 6073 	clr	a
-   196C 3E            [12] 6074 	addc	a,r6
-   196D FE            [12] 6075 	mov	r6,a
-   196E 90r00r90      [24] 6076 	mov	dptr,#(_clientnf + 0x0001)
-   1971 ED            [12] 6077 	mov	a,r5
-   1972 F0            [24] 6078 	movx	@dptr,a
-   1973 EE            [12] 6079 	mov	a,r6
-   1974 A3            [24] 6080 	inc	dptr
-   1975 F0            [24] 6081 	movx	@dptr,a
-   1976 80 06         [24] 6082 	sjmp	00130$
-   1978                    6083 00126$:
-                           6084 ;	main.c:234: else rewers=1;
-   1978 90r00rC6      [24] 6085 	mov	dptr,#_main_rewers_1_256
-   197B 74 01         [12] 6086 	mov	a,#0x01
-   197D F0            [24] 6087 	movx	@dptr,a
-   197E                    6088 00130$:
-                           6089 ;	main.c:236: setdimmer(dimm);
-   197E 90r00r90      [24] 6090 	mov	dptr,#(_clientnf + 0x0001)
-   1981 E0            [24] 6091 	movx	a,@dptr
-   1982 FD            [12] 6092 	mov	r5,a
-   1983 A3            [24] 6093 	inc	dptr
-   1984 E0            [24] 6094 	movx	a,@dptr
-   1985 8D 82         [24] 6095 	mov	dpl,r5
-   1987 12r14r89      [24] 6096 	lcall	_setdimmer
-   198A 80 06         [24] 6097 	sjmp	00139$
-   198C                    6098 00135$:
-                           6099 ;	main.c:238: } else countpause++;
-   198C 90r00rC5      [24] 6100 	mov	dptr,#_main_countpause_1_256
-   198F EF            [12] 6101 	mov	a,r7
-   1990 04            [12] 6102 	inc	a
-   1991 F0            [24] 6103 	movx	@dptr,a
-   1992                    6104 00139$:
-                           6105 ;	main.c:239: statesend=countrtc;
-   1992 90r00r02      [24] 6106 	mov	dptr,#_countrtc
-   1995 E0            [24] 6107 	movx	a,@dptr
-   1996 FC            [12] 6108 	mov	r4,a
-   1997 A3            [24] 6109 	inc	dptr
-   1998 E0            [24] 6110 	movx	a,@dptr
-   1999 FD            [12] 6111 	mov	r5,a
-   199A A3            [24] 6112 	inc	dptr
-   199B E0            [24] 6113 	movx	a,@dptr
-   199C FE            [12] 6114 	mov	r6,a
-   199D A3            [24] 6115 	inc	dptr
-   199E E0            [24] 6116 	movx	a,@dptr
-   199F FF            [12] 6117 	mov	r7,a
-   19A0 90r00rC7      [24] 6118 	mov	dptr,#_main_statesend_1_256
-   19A3 EC            [12] 6119 	mov	a,r4
-   19A4 F0            [24] 6120 	movx	@dptr,a
-   19A5 ED            [12] 6121 	mov	a,r5
-   19A6 A3            [24] 6122 	inc	dptr
-   19A7 F0            [24] 6123 	movx	@dptr,a
-   19A8 EE            [12] 6124 	mov	a,r6
-   19A9 A3            [24] 6125 	inc	dptr
-   19AA F0            [24] 6126 	movx	@dptr,a
-   19AB EF            [12] 6127 	mov	a,r7
-   19AC A3            [24] 6128 	inc	dptr
-   19AD F0            [24] 6129 	movx	@dptr,a
-   19AE 02r16rD0      [24] 6130 	ljmp	00146$
-   19B1                    6131 00143$:
-                           6132 ;	main.c:243: st=1;
-   19B1 90r00rC4      [24] 6133 	mov	dptr,#_main_st_1_256
-   19B4 74 01         [12] 6134 	mov	a,#0x01
-   19B6 F0            [24] 6135 	movx	@dptr,a
-                           6136 ;	main.c:244: countpause=0;
-   19B7 90r00rC5      [24] 6137 	mov	dptr,#_main_countpause_1_256
-   19BA E4            [12] 6138 	clr	a
-   19BB F0            [24] 6139 	movx	@dptr,a
-                           6140 ;	main.c:245: rewers=!rewers;
-   19BC 90r00rC6      [24] 6141 	mov	dptr,#_main_rewers_1_256
-   19BF E0            [24] 6142 	movx	a,@dptr
-   19C0 FF            [12] 6143 	mov	r7,a
-   19C1 90r00rC6      [24] 6144 	mov	dptr,#_main_rewers_1_256
-   19C4 B4 01 00      [24] 6145 	cjne	a,#0x01,00243$
-   19C7                    6146 00243$:
-   19C7 E4            [12] 6147 	clr	a
-   19C8 33            [12] 6148 	rlc	a
-   19C9 F0            [24] 6149 	movx	@dptr,a
-   19CA 02r16rD0      [24] 6150 	ljmp	00146$
-                           6151 	.area CSEG    (CODE)
-                           6152 	.area CONST   (CODE)
-                           6153 	.area XINIT   (CODE)
-   0000                    6154 __xinit__valuepwm:
-   0000 00 00              6155 	.byte #0x00,#0x00	; 0
-   0002                    6156 __xinit__countrtc:
-   0002 00 00 00 00        6157 	.byte #0x00,#0x00,#0x00,#0x00	; 0
-                           6158 	.area CABS    (ABS,CODE)
+   1909 FD            [12] 6000 	mov	r5,a
+   190A A3            [24] 6001 	inc	dptr
+   190B E0            [24] 6002 	movx	a,@dptr
+   190C FE            [12] 6003 	mov	r6,a
+   190D ED            [12] 6004 	mov	a,r5
+   190E 24 FB         [12] 6005 	add	a,#0xFB
+   1910 FD            [12] 6006 	mov	r5,a
+   1911 EE            [12] 6007 	mov	a,r6
+   1912 34 FF         [12] 6008 	addc	a,#0xFF
+   1914 FE            [12] 6009 	mov	r6,a
+   1915 20 E7 1A      [24] 6010 	jb	acc.7,00123$
+   1918 90r00r90      [24] 6011 	mov	dptr,#(_clientnf + 0x0001)
+   191B E0            [24] 6012 	movx	a,@dptr
+   191C FD            [12] 6013 	mov	r5,a
+   191D A3            [24] 6014 	inc	dptr
+   191E E0            [24] 6015 	movx	a,@dptr
+   191F FE            [12] 6016 	mov	r6,a
+   1920 ED            [12] 6017 	mov	a,r5
+   1921 24 FB         [12] 6018 	add	a,#0xFB
+   1923 FD            [12] 6019 	mov	r5,a
+   1924 EE            [12] 6020 	mov	a,r6
+   1925 34 FF         [12] 6021 	addc	a,#0xFF
+   1927 FE            [12] 6022 	mov	r6,a
+   1928 90r00r90      [24] 6023 	mov	dptr,#(_clientnf + 0x0001)
+   192B ED            [12] 6024 	mov	a,r5
+   192C F0            [24] 6025 	movx	@dptr,a
+   192D EE            [12] 6026 	mov	a,r6
+   192E A3            [24] 6027 	inc	dptr
+   192F F0            [24] 6028 	movx	@dptr,a
+   1930 80 45         [24] 6029 	sjmp	00130$
+   1932                    6030 00123$:
+                           6031 ;	main.c:234: else rewers=0;
+   1932 90r00rC6      [24] 6032 	mov	dptr,#_main_rewers_1_256
+   1935 E4            [12] 6033 	clr	a
+   1936 F0            [24] 6034 	movx	@dptr,a
+   1937 80 3E         [24] 6035 	sjmp	00130$
+   1939                    6036 00129$:
+                           6037 ;	main.c:236: if(dimm+stepdimm<=MAXSTEP) dimm=dimm+stepdimm;
+   1939 90r00r90      [24] 6038 	mov	dptr,#(_clientnf + 0x0001)
+   193C E0            [24] 6039 	movx	a,@dptr
+   193D FD            [12] 6040 	mov	r5,a
+   193E A3            [24] 6041 	inc	dptr
+   193F E0            [24] 6042 	movx	a,@dptr
+   1940 FE            [12] 6043 	mov	r6,a
+   1941 74 05         [12] 6044 	mov	a,#0x05
+   1943 2D            [12] 6045 	add	a,r5
+   1944 FD            [12] 6046 	mov	r5,a
+   1945 E4            [12] 6047 	clr	a
+   1946 3E            [12] 6048 	addc	a,r6
+   1947 FE            [12] 6049 	mov	r6,a
+   1948 C3            [12] 6050 	clr	c
+   1949 74 64         [12] 6051 	mov	a,#0x64
+   194B 9D            [12] 6052 	subb	a,r5
+   194C E4            [12] 6053 	clr	a
+   194D 64 80         [12] 6054 	xrl	a,#0x80
+   194F 8E F0         [24] 6055 	mov	b,r6
+   1951 63 F0 80      [24] 6056 	xrl	b,#0x80
+   1954 95 F0         [12] 6057 	subb	a,b
+   1956 40 19         [24] 6058 	jc	00126$
+   1958 90r00r90      [24] 6059 	mov	dptr,#(_clientnf + 0x0001)
+   195B E0            [24] 6060 	movx	a,@dptr
+   195C FD            [12] 6061 	mov	r5,a
+   195D A3            [24] 6062 	inc	dptr
+   195E E0            [24] 6063 	movx	a,@dptr
+   195F FE            [12] 6064 	mov	r6,a
+   1960 74 05         [12] 6065 	mov	a,#0x05
+   1962 2D            [12] 6066 	add	a,r5
+   1963 FD            [12] 6067 	mov	r5,a
+   1964 E4            [12] 6068 	clr	a
+   1965 3E            [12] 6069 	addc	a,r6
+   1966 FE            [12] 6070 	mov	r6,a
+   1967 90r00r90      [24] 6071 	mov	dptr,#(_clientnf + 0x0001)
+   196A ED            [12] 6072 	mov	a,r5
+   196B F0            [24] 6073 	movx	@dptr,a
+   196C EE            [12] 6074 	mov	a,r6
+   196D A3            [24] 6075 	inc	dptr
+   196E F0            [24] 6076 	movx	@dptr,a
+   196F 80 06         [24] 6077 	sjmp	00130$
+   1971                    6078 00126$:
+                           6079 ;	main.c:237: else rewers=1;
+   1971 90r00rC6      [24] 6080 	mov	dptr,#_main_rewers_1_256
+   1974 74 01         [12] 6081 	mov	a,#0x01
+   1976 F0            [24] 6082 	movx	@dptr,a
+   1977                    6083 00130$:
+                           6084 ;	main.c:239: setdimmer(dimm);
+   1977 90r00r90      [24] 6085 	mov	dptr,#(_clientnf + 0x0001)
+   197A E0            [24] 6086 	movx	a,@dptr
+   197B FD            [12] 6087 	mov	r5,a
+   197C A3            [24] 6088 	inc	dptr
+   197D E0            [24] 6089 	movx	a,@dptr
+   197E 8D 82         [24] 6090 	mov	dpl,r5
+   1980 12r14r89      [24] 6091 	lcall	_setdimmer
+   1983 80 06         [24] 6092 	sjmp	00139$
+   1985                    6093 00135$:
+                           6094 ;	main.c:241: } else countpause++;
+   1985 90r00rC5      [24] 6095 	mov	dptr,#_main_countpause_1_256
+   1988 EF            [12] 6096 	mov	a,r7
+   1989 04            [12] 6097 	inc	a
+   198A F0            [24] 6098 	movx	@dptr,a
+   198B                    6099 00139$:
+                           6100 ;	main.c:242: statesend=countrtc;
+   198B 90r00r02      [24] 6101 	mov	dptr,#_countrtc
+   198E E0            [24] 6102 	movx	a,@dptr
+   198F FC            [12] 6103 	mov	r4,a
+   1990 A3            [24] 6104 	inc	dptr
+   1991 E0            [24] 6105 	movx	a,@dptr
+   1992 FD            [12] 6106 	mov	r5,a
+   1993 A3            [24] 6107 	inc	dptr
+   1994 E0            [24] 6108 	movx	a,@dptr
+   1995 FE            [12] 6109 	mov	r6,a
+   1996 A3            [24] 6110 	inc	dptr
+   1997 E0            [24] 6111 	movx	a,@dptr
+   1998 FF            [12] 6112 	mov	r7,a
+   1999 90r00rC7      [24] 6113 	mov	dptr,#_main_statesend_1_256
+   199C EC            [12] 6114 	mov	a,r4
+   199D F0            [24] 6115 	movx	@dptr,a
+   199E ED            [12] 6116 	mov	a,r5
+   199F A3            [24] 6117 	inc	dptr
+   19A0 F0            [24] 6118 	movx	@dptr,a
+   19A1 EE            [12] 6119 	mov	a,r6
+   19A2 A3            [24] 6120 	inc	dptr
+   19A3 F0            [24] 6121 	movx	@dptr,a
+   19A4 EF            [12] 6122 	mov	a,r7
+   19A5 A3            [24] 6123 	inc	dptr
+   19A6 F0            [24] 6124 	movx	@dptr,a
+   19A7 02r16rD0      [24] 6125 	ljmp	00146$
+   19AA                    6126 00143$:
+                           6127 ;	main.c:246: st=1;
+   19AA 90r00rC4      [24] 6128 	mov	dptr,#_main_st_1_256
+   19AD 74 01         [12] 6129 	mov	a,#0x01
+   19AF F0            [24] 6130 	movx	@dptr,a
+                           6131 ;	main.c:247: countpause=0;
+   19B0 90r00rC5      [24] 6132 	mov	dptr,#_main_countpause_1_256
+   19B3 E4            [12] 6133 	clr	a
+   19B4 F0            [24] 6134 	movx	@dptr,a
+                           6135 ;	main.c:248: rewers=!rewers;
+   19B5 90r00rC6      [24] 6136 	mov	dptr,#_main_rewers_1_256
+   19B8 E0            [24] 6137 	movx	a,@dptr
+   19B9 FF            [12] 6138 	mov	r7,a
+   19BA 90r00rC6      [24] 6139 	mov	dptr,#_main_rewers_1_256
+   19BD B4 01 00      [24] 6140 	cjne	a,#0x01,00243$
+   19C0                    6141 00243$:
+   19C0 E4            [12] 6142 	clr	a
+   19C1 33            [12] 6143 	rlc	a
+   19C2 F0            [24] 6144 	movx	@dptr,a
+   19C3 02r16rD0      [24] 6145 	ljmp	00146$
+                           6146 	.area CSEG    (CODE)
+                           6147 	.area CONST   (CODE)
+                           6148 	.area XINIT   (CODE)
+   0000                    6149 __xinit__valuepwm:
+   0000 00 00              6150 	.byte #0x00,#0x00	; 0
+   0002                    6151 __xinit__countrtc:
+   0002 00 00 00 00        6152 	.byte #0x00,#0x00,#0x00,#0x00	; 0
+                           6153 	.area CABS    (ABS,CODE)

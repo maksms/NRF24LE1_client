@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-; This file was generated Sat Jun 14 18:53:27 2014
+; This file was generated Sat Jun 14 20:27:49 2014
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-large
@@ -5154,7 +5154,7 @@ _openAllPipe:
 ;	-----------------------------------------
 _setdimmer:
 	mov	a,dpl
-;	main.c:40: valuepwm=65535-DIMSTART*(DIMMERSTEP-value);
+;	main.c:40: valuepwm=65535-DIMSTART*(MAXSTEP-value);
 	mov	dptr,#_setdimmer_value_1_245
 	movx	@dptr,a
 	mov	r7,a
@@ -5843,11 +5843,12 @@ _main:
 	mov	dpl,a
 	lcall	_dimmon
 00115$:
-;	main.c:202: if (servernf[1]==11) clientnf.countPWM=servernf[3];
+;	main.c:202: if (servernf[1]==11) {
 	mov	dptr,#(_servernf + 0x0001)
 	movx	a,@dptr
 	mov	r7,a
-	cjne	r7,#0x0B,00117$
+	cjne	r7,#0x0B,00119$
+;	main.c:203: clientnf.countPWM=servernf[3];
 	mov	dptr,#(_servernf + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
@@ -5858,17 +5859,11 @@ _main:
 	mov	a,r6
 	inc	dptr
 	movx	@dptr,a
-00117$:
-;	main.c:203: setdimmer(clientnf.countPWM);
-	mov	dptr,#(_clientnf + 0x0001)
-	movx	a,@dptr
-	mov	r6,a
-	inc	dptr
-	movx	a,@dptr
-	mov	dpl,r6
+;	main.c:204: setdimmer(clientnf.countPWM);
+	mov	dpl,r7
 	lcall	_setdimmer
 00119$:
-;	main.c:205: radiosend=countrtc;
+;	main.c:208: radiosend=countrtc;
 	mov	dptr,#_countrtc
 	movx	a,@dptr
 	mov	r4,a
@@ -5894,14 +5889,14 @@ _main:
 	inc	dptr
 	movx	@dptr,a
 00121$:
-;	main.c:214: if (digitalRead(BUTTON)==0){
+;	main.c:217: if (digitalRead(BUTTON)==0){
 	mov	dpl,#0x04
 	lcall	_gpio_pin_val_read
 	mov	a,dpl
 	jz	00233$
 	ljmp	00143$
 00233$:
-;	main.c:215: if (countrtc-statesend>=4) {
+;	main.c:218: if (countrtc-statesend>=4) {
 	mov	dptr,#_main_statesend_1_256
 	movx	a,@dptr
 	mov	r4,a
@@ -5951,16 +5946,16 @@ _main:
 	jnc	00234$
 	ljmp	00146$
 00234$:
-;	main.c:217: if (st){
+;	main.c:220: if (st){
 	mov	dptr,#_main_st_1_256
 	movx	a,@dptr
 	mov	r7,a
 	jz	00138$
-;	main.c:218: st=0;
+;	main.c:221: st=0;
 	mov	dptr,#_main_st_1_256
 	clr	a
 	movx	@dptr,a
-;	main.c:219: dat=!dat;
+;	main.c:222: dat=!dat;
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
@@ -5970,14 +5965,14 @@ _main:
 	rlc	a
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	@dptr,a
-;	main.c:221: dimmon (dat);
+;	main.c:224: dimmon (dat);
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	mov	dpl,a
 	lcall	_dimmon
 	ljmp	00139$
 00138$:
-;	main.c:224: if (countpause>=3){
+;	main.c:227: if (countpause>=3){
 	mov	dptr,#_main_countpause_1_256
 	movx	a,@dptr
 	mov	r7,a
@@ -5986,7 +5981,7 @@ _main:
 	jnc	00238$
 	ljmp	00135$
 00238$:
-;	main.c:226: if (!dat) dimmon(1);
+;	main.c:229: if (!dat) dimmon(1);
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	jnz	00132$
@@ -5994,12 +5989,12 @@ _main:
 	lcall	_dimmon
 	ljmp	00139$
 00132$:
-;	main.c:229: if(rewers) {
+;	main.c:232: if(rewers) {
 	mov	dptr,#_main_rewers_1_256
 	movx	a,@dptr
 	mov	r6,a
 	jz	00129$
-;	main.c:230: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
+;	main.c:233: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
 	mov	dptr,#(_clientnf + 0x0001)
 	movx	a,@dptr
 	mov	r5,a
@@ -6033,13 +6028,13 @@ _main:
 	movx	@dptr,a
 	sjmp	00130$
 00123$:
-;	main.c:231: else rewers=0;
+;	main.c:234: else rewers=0;
 	mov	dptr,#_main_rewers_1_256
 	clr	a
 	movx	@dptr,a
 	sjmp	00130$
 00129$:
-;	main.c:233: if(dimm+stepdimm<=DIMMERSTEP) dimm=dimm+stepdimm;
+;	main.c:236: if(dimm+stepdimm<=MAXSTEP) dimm=dimm+stepdimm;
 	mov	dptr,#(_clientnf + 0x0001)
 	movx	a,@dptr
 	mov	r5,a
@@ -6081,12 +6076,12 @@ _main:
 	movx	@dptr,a
 	sjmp	00130$
 00126$:
-;	main.c:234: else rewers=1;
+;	main.c:237: else rewers=1;
 	mov	dptr,#_main_rewers_1_256
 	mov	a,#0x01
 	movx	@dptr,a
 00130$:
-;	main.c:236: setdimmer(dimm);
+;	main.c:239: setdimmer(dimm);
 	mov	dptr,#(_clientnf + 0x0001)
 	movx	a,@dptr
 	mov	r5,a
@@ -6096,13 +6091,13 @@ _main:
 	lcall	_setdimmer
 	sjmp	00139$
 00135$:
-;	main.c:238: } else countpause++;
+;	main.c:241: } else countpause++;
 	mov	dptr,#_main_countpause_1_256
 	mov	a,r7
 	inc	a
 	movx	@dptr,a
 00139$:
-;	main.c:239: statesend=countrtc;
+;	main.c:242: statesend=countrtc;
 	mov	dptr,#_countrtc
 	movx	a,@dptr
 	mov	r4,a
@@ -6129,15 +6124,15 @@ _main:
 	movx	@dptr,a
 	ljmp	00146$
 00143$:
-;	main.c:243: st=1;
+;	main.c:246: st=1;
 	mov	dptr,#_main_st_1_256
 	mov	a,#0x01
 	movx	@dptr,a
-;	main.c:244: countpause=0;
+;	main.c:247: countpause=0;
 	mov	dptr,#_main_countpause_1_256
 	clr	a
 	movx	@dptr,a
-;	main.c:245: rewers=!rewers;
+;	main.c:248: rewers=!rewers;
 	mov	dptr,#_main_rewers_1_256
 	movx	a,@dptr
 	mov	r7,a

@@ -4,7 +4,7 @@
 #define timesend 2 // интервал отправки данных,для обычных датчиков можно установить время выше.
 #define nofloat 0 // без float , данные передаются умноженные на 10.Очень экономит место.
 
-#define stepdimm 5
+#define stepdimm 10
 #define BUTTON 4
 
 #include "../libs.h"
@@ -199,8 +199,11 @@ if (servernf[0]==chclient){
 dimmon(servernf[3]);
  }
 
-if (servernf[1]==11) clientnf.countPWM=servernf[3];
+if (servernf[1]==11) {
+ clientnf.countPWM=servernf[3];
  setdimmer(clientnf.countPWM);
+}
+
 }
 radiosend=countrtc;
 }
