@@ -1,16 +1,21 @@
 // модификация 14.06.14
 
 #define chclient 1 // номер клиента 1...
-#define timesend 2 // интервал отправки данных,для обычных датчиков можно установить время выше.
+
 #define nofloat 0 // без float , данные передаются умноженные на 10.Очень экономит место.
 
-#define stepdimm 10
-#define BUTTON 4
+#define RTCDEC 8191 //65535=2 сек, 32767=1 сек,16383 = 0.250 сек ,8191 = 0.125 сек. Константы ниже используют это значение за такт:
+#define TIMESEND 2 // интервал приема/отправки данных по радио.
+#define TIMEKEY 4 // пауза кнопки для защиты от дребезга. (0.125*4=0.5с)
+#define TIMELONGKEY 3 // долгое нажатие кнопки,вычисляется как TIMEKEY*TIMELONGKEY*0.125. 3*4*0.125=1.5с
+
+#define stepdimm 10 // шаг управления яркостью используя кнопку
+#define BUTTONPIN 4 // пин, к которому подключена кнопка
+#define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор
+#define MAXSTEP 100 // количество шагов диммирования
 
 #include "../libs.h"
 #include "../nRFLE.c"
-
-//#include "../millisNrf/millisNrf.c"
 
 typedef struct{
   unsigned char identifier;// номер передатчика.МЕНЯТЬ НЕЛЬЗЯ
@@ -30,8 +35,7 @@ int Humidity_Sensor;// передаём влажность
 nf1;
 nf1 clientnf; 
 
-#define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор
-#define MAXSTEP 100 // количество шагов диммирования
+
 #define DIMSTART 16000000/12/100/MAXSTEP
 #if 1
 // задействовано для экономии ресурсов - чтобы не пересчитывать при каждом прерывании
@@ -102,15 +106,24 @@ uint8_t st=0,countpause=0,rewers=0; // for key dat=0,
 unsigned long statesend=0;
 unsigned long radiosend=0;
 
-//millisbegin();
+// конфигурация RTC--> 
 CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
-rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,8191); //65535=2 сек, 32767=1 сек,16383 = 0.250 сек ,8191 = 0.125 сек
+rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
 rtc2_run();
 pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
 interrupt_control_rtc2_enable();
+// <--конфигурация RTC 
 
-gpio_pin_configure(BUTTON,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
-// GPIO_PIN_CONFIG_OPTION_DIR_INPUT|   GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_DOWN_RESISTOR     GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_DOWN_RESISTOR  
+interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+interrupt_control_ifp_enable();
+
+interrupt_control_t1_enable()	;
+timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+timer1_run();
+  
+sti();
+
+gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
 
 gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 	 gpio_pin_val_set(DIMMPIN);
@@ -133,15 +146,7 @@ gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 		clientnf.countPWM=10;
 
 
-interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
-interrupt_control_ifp_enable();
 
-
-  interrupt_control_t1_enable()	;
-  timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
-  timer1_run();
-  
-sti();
 
 	//main program loop
 		
@@ -153,7 +158,7 @@ sti();
 
 
 	  // ---
-if (countrtc-radiosend >=timesend) {
+if (countrtc-radiosend >=TIMESEND) {
 //rf_power_up(1);
 	 	rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
 
@@ -195,11 +200,11 @@ else clientnf.count = 0;
 if (servernf[0]==chclient){	
   
   
- if (servernf[1]==10) {
+ if (servernf[1]==10) { // включение/выключение по радио
 dimmon(servernf[3]);
- }
+ } else
 
-if (servernf[1]==11) {
+if (servernf[1]==11) { // управление яркостью по радио
  clientnf.countPWM=servernf[3];
  setdimmer(clientnf.countPWM);
 }
@@ -207,15 +212,15 @@ if (servernf[1]==11) {
 }
 radiosend=countrtc;
 }
-//	delay_ms(timesend);
+//	delay_ms(TIMESEND);
 
 #if 1
 #define dimm clientnf.countPWM
 #define dat clientnf.test_data
 
 
-if (digitalRead(BUTTON)==0){
-if (countrtc-statesend>=4) {
+if (digitalRead(BUTTONPIN)==0){
+if (countrtc-statesend>=TIMEKEY) {
    
    if (st){
    st=0;
@@ -224,7 +229,7 @@ if (countrtc-statesend>=4) {
     dimmon (dat);
     
    } else 
-if (countpause>=3){
+if (countpause>=TIMELONGKEY){
  
 if (!dat) dimmon(1);
 else {

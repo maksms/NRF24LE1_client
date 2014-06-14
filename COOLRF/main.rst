@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-                              4 ; This file was generated Sat Jun 14 20:27:49 2014
+                              4 ; This file was generated Sat Jun 14 21:07:48 2014
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-large
@@ -1530,7 +1530,7 @@
    039F 85 08 82      [24] 1530 	mov	dpl,_rf_spi_send_read_sloc0_1_0
    03A2 85 09 83      [24] 1531 	mov	dph,(_rf_spi_send_read_sloc0_1_0 + 1)
    03A5 85 0A F0      [24] 1532 	mov	b,(_rf_spi_send_read_sloc0_1_0 + 2)
-   03A8 12 1C 48      [24] 1533 	lcall	__gptrget
+   03A8 12 1C 45      [24] 1533 	lcall	__gptrget
    03AB FB            [12] 1534 	mov	r3,a
    03AC F5 82         [12] 1535 	mov	dpl,a
    03AE C0 07         [24] 1536 	push	ar7
@@ -1561,7 +1561,7 @@
    03DE 85 09 83      [24] 1561 	mov	dph,(_rf_spi_send_read_sloc0_1_0 + 1)
    03E1 85 0A F0      [24] 1562 	mov	b,(_rf_spi_send_read_sloc0_1_0 + 2)
    03E4 E5 0B         [12] 1563 	mov	a,_rf_spi_send_read_sloc1_1_0
-   03E6 12 1B A1      [24] 1564 	lcall	__gptrput
+   03E6 12 1B 9E      [24] 1564 	lcall	__gptrput
    03E9                    1565 00106$:
                            1566 ;	../src/rf/src/rf_spi_send_read.c:55: for(i = 0; i < len; i++)
    03E9 08            [12] 1567 	inc	r0
@@ -3160,7 +3160,7 @@
    0B21 8D 83         [24] 3160 	mov	dph,r5
    0B23 8E F0         [24] 3161 	mov	b,r6
    0B25 EF            [12] 3162 	mov	a,r7
-   0B26 12 1A 93      [24] 3163 	lcall	__divulong
+   0B26 12 1A 90      [24] 3163 	lcall	__divulong
    0B29 AC 82         [24] 3164 	mov	r4,dpl
    0B2B AD 83         [24] 3165 	mov	r5,dph
    0B2D AE F0         [24] 3166 	mov	r6,b
@@ -3639,7 +3639,7 @@
    0D43 89 83         [24] 3639 	mov	dph,r1
    0D45 8E F0         [24] 3640 	mov	b,r6
    0D47 EF            [12] 3641 	mov	a,r7
-   0D48 12 1B DC      [24] 3642 	lcall	__mullong
+   0D48 12 1B D9      [24] 3642 	lcall	__mullong
    0D4B AC 82         [24] 3643 	mov	r4,dpl
    0D4D AD 83         [24] 3644 	mov	r5,dph
    0D4F AE F0         [24] 3645 	mov	r6,b
@@ -3685,7 +3685,7 @@
    0D81 8D 83         [24] 3685 	mov	dph,r5
    0D83 8E F0         [24] 3686 	mov	b,r6
    0D85 EF            [12] 3687 	mov	a,r7
-   0D86 12 1A 93      [24] 3688 	lcall	__divulong
+   0D86 12 1A 90      [24] 3688 	lcall	__divulong
    0D89 AC 82         [24] 3689 	mov	r4,dpl
    0D8B AD 83         [24] 3690 	mov	r5,dph
    0D8D AE F0         [24] 3691 	mov	r6,b
@@ -3776,7 +3776,7 @@
    0DF7 89 83         [24] 3776 	mov	dph,r1
    0DF9 8E F0         [24] 3777 	mov	b,r6
    0DFB EF            [12] 3778 	mov	a,r7
-   0DFC 12 1B DC      [24] 3779 	lcall	__mullong
+   0DFC 12 1B D9      [24] 3779 	lcall	__mullong
    0DFF AC 82         [24] 3780 	mov	r4,dpl
    0E01 AD 83         [24] 3781 	mov	r5,dph
    0E03 AE F0         [24] 3782 	mov	r6,b
@@ -3799,7 +3799,7 @@
    0E1E C0 06         [24] 3799 	push	ar6
    0E20 C0 05         [24] 3800 	push	ar5
    0E22 C0 04         [24] 3801 	push	ar4
-   0E24 12 1B BC      [24] 3802 	lcall	__mulint
+   0E24 12 1B B9      [24] 3802 	lcall	__mulint
    0E27 AA 82         [24] 3803 	mov	r2,dpl
    0E29 AB 83         [24] 3804 	mov	r3,dph
    0E2B D0 04         [24] 3805 	pop	ar4
@@ -3823,7 +3823,7 @@
    0E45 8D 83         [24] 3823 	mov	dph,r5
    0E47 8E F0         [24] 3824 	mov	b,r6
    0E49 EF            [12] 3825 	mov	a,r7
-   0E4A 12 1A 93      [24] 3826 	lcall	__divulong
+   0E4A 12 1A 90      [24] 3826 	lcall	__divulong
    0E4D AC 82         [24] 3827 	mov	r4,dpl
    0E4F AD 83         [24] 3828 	mov	r5,dph
    0E51 AE F0         [24] 3829 	mov	r6,b
@@ -3927,7 +3927,7 @@
    0ECA 89 83         [24] 3927 	mov	dph,r1
    0ECC 8E F0         [24] 3928 	mov	b,r6
    0ECE EF            [12] 3929 	mov	a,r7
-   0ECF 12 1B DC      [24] 3930 	lcall	__mullong
+   0ECF 12 1B D9      [24] 3930 	lcall	__mullong
    0ED2 AC 82         [24] 3931 	mov	r4,dpl
    0ED4 AD 83         [24] 3932 	mov	r5,dph
    0ED6 AE F0         [24] 3933 	mov	r6,b
@@ -3992,7 +3992,7 @@
    0F1E 8D 83         [24] 3992 	mov	dph,r5
    0F20 8E F0         [24] 3993 	mov	b,r6
    0F22 EF            [12] 3994 	mov	a,r7
-   0F23 12 1A 93      [24] 3995 	lcall	__divulong
+   0F23 12 1A 90      [24] 3995 	lcall	__divulong
    0F26 AC 82         [24] 3996 	mov	r4,dpl
    0F28 AD 83         [24] 3997 	mov	r5,dph
    0F2A AE F0         [24] 3998 	mov	r6,b
@@ -4106,7 +4106,7 @@
    0FAD 89 83         [24] 4106 	mov	dph,r1
    0FAF 8E F0         [24] 4107 	mov	b,r6
    0FB1 EF            [12] 4108 	mov	a,r7
-   0FB2 12 1B DC      [24] 4109 	lcall	__mullong
+   0FB2 12 1B D9      [24] 4109 	lcall	__mullong
    0FB5 AC 82         [24] 4110 	mov	r4,dpl
    0FB7 AD 83         [24] 4111 	mov	r5,dph
    0FB9 AE F0         [24] 4112 	mov	r6,b
@@ -4142,7 +4142,7 @@
    0FE0 C0 06         [24] 4142 	push	ar6
    0FE2 C0 05         [24] 4143 	push	ar5
    0FE4 C0 04         [24] 4144 	push	ar4
-   0FE6 12 1B DC      [24] 4145 	lcall	__mullong
+   0FE6 12 1B D9      [24] 4145 	lcall	__mullong
    0FE9 A8 82         [24] 4146 	mov	r0,dpl
    0FEB A9 83         [24] 4147 	mov	r1,dph
    0FED AA F0         [24] 4148 	mov	r2,b
@@ -4167,7 +4167,7 @@
    1008 8D 83         [24] 4167 	mov	dph,r5
    100A 8E F0         [24] 4168 	mov	b,r6
    100C EF            [12] 4169 	mov	a,r7
-   100D 12 1A 93      [24] 4170 	lcall	__divulong
+   100D 12 1A 90      [24] 4170 	lcall	__divulong
    1010 AC 82         [24] 4171 	mov	r4,dpl
    1012 AD 83         [24] 4172 	mov	r5,dph
    1014 AE F0         [24] 4173 	mov	r6,b
@@ -5148,13 +5148,13 @@
                            5148 ;------------------------------------------------------------
                            5149 ;value                     Allocated with name '_setdimmer_value_1_245'
                            5150 ;------------------------------------------------------------
-                           5151 ;	main.c:39: void setdimmer(uint8_t value){
+                           5151 ;	main.c:43: void setdimmer(uint8_t value){
                            5152 ;	-----------------------------------------
                            5153 ;	 function setdimmer
                            5154 ;	-----------------------------------------
    1556                    5155 _setdimmer:
    1556 E5 82         [12] 5156 	mov	a,dpl
-                           5157 ;	main.c:40: valuepwm=65535-DIMSTART*(MAXSTEP-value);
+                           5157 ;	main.c:44: valuepwm=65535-DIMSTART*(MAXSTEP-value);
    1558 90 00 A1      [24] 5158 	mov	dptr,#_setdimmer_value_1_245
    155B F0            [24] 5159 	movx	@dptr,a
    155C FF            [12] 5160 	mov	r7,a
@@ -5184,7 +5184,7 @@
    157B E4            [12] 5184 	clr	a
    157C F5 F0         [12] 5185 	mov	b,a
    157E C0 07         [24] 5186 	push	ar7
-   1580 12 1B DC      [24] 5187 	lcall	__mullong
+   1580 12 1B D9      [24] 5187 	lcall	__mullong
    1583 AB 82         [24] 5188 	mov	r3,dpl
    1585 AC 83         [24] 5189 	mov	r4,dph
    1587 AD F0         [24] 5190 	mov	r5,b
@@ -5209,7 +5209,7 @@
    15A0 EC            [12] 5209 	mov	a,r4
    15A1 A3            [24] 5210 	inc	dptr
    15A2 F0            [24] 5211 	movx	@dptr,a
-                           5212 ;	main.c:41: if(value ==0 | clientnf.test_data==0) {
+                           5212 ;	main.c:45: if(value ==0 | clientnf.test_data==0) {
    15A3 EF            [12] 5213 	mov	a,r7
    15A4 B4 01 00      [24] 5214 	cjne	a,#0x01,00109$
    15A7                    5215 00109$:
@@ -5226,19 +5226,19 @@
    15B4 FE            [12] 5226 	mov	r6,a
    15B5 4F            [12] 5227 	orl	a,r7
    15B6 60 08         [24] 5228 	jz	00102$
-                           5229 ;	main.c:42: interrupt_control_ifp_disable();
+                           5229 ;	main.c:46: interrupt_control_ifp_disable();
    15B8 C2 A8         [12] 5230 	clr _IEN0_SB_IFP 
-                           5231 ;	main.c:43: gpio_pin_val_clear(DIMMPIN);
+                           5231 ;	main.c:47: gpio_pin_val_clear(DIMMPIN);
    15BA 75 82 02      [24] 5232 	mov	dpl,#0x02
    15BD 02 08 1E      [24] 5233 	ljmp	_gpio_pin_val_clear
    15C0                    5234 00102$:
-                           5235 ;	main.c:44: } else interrupt_control_ifp_enable();
+                           5235 ;	main.c:48: } else interrupt_control_ifp_enable();
    15C0 D2 A8         [12] 5236 	setb _IEN0_SB_IFP 
    15C2 22            [24] 5237 	ret
                            5238 ;------------------------------------------------------------
                            5239 ;Allocation info for local variables in function 'isr_ifp'
                            5240 ;------------------------------------------------------------
-                           5241 ;	main.c:50: interrupt_isr_ifp()
+                           5241 ;	main.c:54: interrupt_isr_ifp()
                            5242 ;	-----------------------------------------
                            5243 ;	 function isr_ifp
                            5244 ;	-----------------------------------------
@@ -5258,9 +5258,9 @@
    15DB C0 00         [24] 5258 	push	(0+0)
    15DD C0 D0         [24] 5259 	push	psw
    15DF 75 D0 00      [24] 5260 	mov	psw,#0x00
-                           5261 ;	main.c:52: timer1_stop();
+                           5261 ;	main.c:56: timer1_stop();
    15E2 C2 8E         [12] 5262 	clr _TCON_SB_TR1 
-                           5263 ;	main.c:53: if(clientnf.countPWM !=0) {
+                           5263 ;	main.c:57: if(clientnf.countPWM !=0) {
    15E4 90 00 90      [24] 5264 	mov	dptr,#(_clientnf + 0x0001)
    15E7 E0            [24] 5265 	movx	a,@dptr
    15E8 FE            [12] 5266 	mov	r6,a
@@ -5269,22 +5269,22 @@
    15EB FF            [12] 5269 	mov	r7,a
    15EC 4E            [12] 5270 	orl	a,r6
    15ED 60 0E         [24] 5271 	jz	00102$
-                           5272 ;	main.c:56: timer1_set_t1_val(valuepwm);
+                           5272 ;	main.c:60: timer1_set_t1_val(valuepwm);
    15EF 90 00 E2      [24] 5273 	mov	dptr,#_valuepwm
    15F2 E0            [24] 5274 	movx	a,@dptr
    15F3 F5 8B         [12] 5275 	mov	((_T1 >> 0) & 0xFF),a
    15F5 A3            [24] 5276 	inc	dptr
    15F6 E0            [24] 5277 	movx	a,@dptr
    15F7 F5 8D         [12] 5278 	mov	((_T1 >> 8) & 0xFF),a
-                           5279 ;	main.c:57: timer1_run();
+                           5279 ;	main.c:61: timer1_run();
    15F9 D2 8E         [12] 5280 	setb _TCON_SB_TR1 
    15FB 80 06         [24] 5281 	sjmp	00103$
    15FD                    5282 00102$:
-                           5283 ;	main.c:59: else gpio_pin_val_clear(DIMMPIN);
+                           5283 ;	main.c:63: else gpio_pin_val_clear(DIMMPIN);
    15FD 75 82 02      [24] 5284 	mov	dpl,#0x02
    1600 12 08 1E      [24] 5285 	lcall	_gpio_pin_val_clear
    1603                    5286 00103$:
-                           5287 ;	main.c:60: stdimm=1;
+                           5287 ;	main.c:64: stdimm=1;
    1603 90 00 A2      [24] 5288 	mov	dptr,#_stdimm
    1606 74 01         [12] 5289 	mov	a,#0x01
    1608 F0            [24] 5290 	movx	@dptr,a
@@ -5306,7 +5306,7 @@
                            5306 ;------------------------------------------------------------
                            5307 ;Allocation info for local variables in function 'isr_t1'
                            5308 ;------------------------------------------------------------
-                           5309 ;	main.c:64: interrupt_isr_t1() {
+                           5309 ;	main.c:68: interrupt_isr_t1() {
                            5310 ;	-----------------------------------------
                            5311 ;	 function isr_t1
                            5312 ;	-----------------------------------------
@@ -5326,24 +5326,24 @@
    163E C0 00         [24] 5326 	push	(0+0)
    1640 C0 D0         [24] 5327 	push	psw
    1642 75 D0 00      [24] 5328 	mov	psw,#0x00
-                           5329 ;	main.c:66: if (stdimm) {
+                           5329 ;	main.c:70: if (stdimm) {
    1645 90 00 A2      [24] 5330 	mov	dptr,#_stdimm
    1648 E0            [24] 5331 	movx	a,@dptr
    1649 FF            [12] 5332 	mov	r7,a
    164A 60 13         [24] 5333 	jz	00102$
-                           5334 ;	main.c:67: gpio_pin_val_set(DIMMPIN); 
+                           5334 ;	main.c:71: gpio_pin_val_set(DIMMPIN); 
    164C 75 82 02      [24] 5335 	mov	dpl,#0x02
    164F 12 08 89      [24] 5336 	lcall	_gpio_pin_val_set
-                           5337 ;	main.c:68: timer1_set_t1_val(65535-100);
+                           5337 ;	main.c:72: timer1_set_t1_val(65535-100);
    1652 75 8B 9B      [24] 5338 	mov	((_T1 >> 0) & 0xFF),#0x9B
    1655 75 8D FF      [24] 5339 	mov	((_T1 >> 8) & 0xFF),#0xFF
-                           5340 ;	main.c:69: stdimm=0;
+                           5340 ;	main.c:73: stdimm=0;
    1658 90 00 A2      [24] 5341 	mov	dptr,#_stdimm
    165B E4            [12] 5342 	clr	a
    165C F0            [24] 5343 	movx	@dptr,a
    165D 80 06         [24] 5344 	sjmp	00104$
    165F                    5345 00102$:
-                           5346 ;	main.c:71: gpio_pin_val_clear(DIMMPIN);
+                           5346 ;	main.c:75: gpio_pin_val_clear(DIMMPIN);
    165F 75 82 02      [24] 5347 	mov	dpl,#0x02
    1662 12 08 1E      [24] 5348 	lcall	_gpio_pin_val_clear
    1665                    5349 00104$:
@@ -5367,13 +5367,13 @@
                            5367 ;------------------------------------------------------------
                            5368 ;mode                      Allocated with name '_dimmon_mode_1_252'
                            5369 ;------------------------------------------------------------
-                           5370 ;	main.c:74: void dimmon(uint8_t mode) // функция управлением вкл/выкл
+                           5370 ;	main.c:78: void dimmon(uint8_t mode) // функция управлением вкл/выкл
                            5371 ;	-----------------------------------------
                            5372 ;	 function dimmon
                            5373 ;	-----------------------------------------
    1682                    5374 _dimmon:
    1682 E5 82         [12] 5375 	mov	a,dpl
-                           5376 ;	main.c:76: if (mode) interrupt_control_ifp_enable();
+                           5376 ;	main.c:80: if (mode) interrupt_control_ifp_enable();
    1684 90 00 A3      [24] 5377 	mov	dptr,#_dimmon_mode_1_252
    1687 F0            [24] 5378 	movx	@dptr,a
    1688 FF            [12] 5379 	mov	r7,a
@@ -5381,17 +5381,17 @@
    168B D2 A8         [12] 5381 	setb _IEN0_SB_IFP 
    168D 80 0E         [24] 5382 	sjmp	00103$
    168F                    5383 00102$:
-                           5384 ;	main.c:78: interrupt_control_ifp_disable();
+                           5384 ;	main.c:82: interrupt_control_ifp_disable();
    168F C2 A8         [12] 5385 	clr _IEN0_SB_IFP 
-                           5386 ;	main.c:79: timer1_stop();
+                           5386 ;	main.c:83: timer1_stop();
    1691 C2 8E         [12] 5387 	clr _TCON_SB_TR1 
-                           5388 ;	main.c:80: gpio_pin_val_clear(DIMMPIN);
+                           5388 ;	main.c:84: gpio_pin_val_clear(DIMMPIN);
    1693 75 82 02      [24] 5389 	mov	dpl,#0x02
    1696 C0 07         [24] 5390 	push	ar7
    1698 12 08 1E      [24] 5391 	lcall	_gpio_pin_val_clear
    169B D0 07         [24] 5392 	pop	ar7
    169D                    5393 00103$:
-                           5394 ;	main.c:82: clientnf.test_data=mode;
+                           5394 ;	main.c:86: clientnf.test_data=mode;
    169D 90 00 92      [24] 5395 	mov	dptr,#(_clientnf + 0x0003)
    16A0 EF            [12] 5396 	mov	a,r7
    16A1 F0            [24] 5397 	movx	@dptr,a
@@ -5399,7 +5399,7 @@
                            5399 ;------------------------------------------------------------
                            5400 ;Allocation info for local variables in function 'isr_rtc2'
                            5401 ;------------------------------------------------------------
-                           5402 ;	main.c:89: interrupt_isr_rtc2()
+                           5402 ;	main.c:93: interrupt_isr_rtc2()
                            5403 ;	-----------------------------------------
                            5404 ;	 function isr_rtc2
                            5405 ;	-----------------------------------------
@@ -5408,7 +5408,7 @@
    16A5 C0 82         [24] 5408 	push	dpl
    16A7 C0 83         [24] 5409 	push	dph
    16A9 C0 D0         [24] 5410 	push	psw
-                           5411 ;	main.c:91: countrtc++;
+                           5411 ;	main.c:95: countrtc++;
    16AB 90 00 E4      [24] 5412 	mov	dptr,#_countrtc
    16AE E0            [24] 5413 	movx	a,@dptr
    16AF 24 01         [12] 5414 	add	a,#0x01
@@ -5443,14 +5443,14 @@
                            5443 ;statesend                 Allocated with name '_main_statesend_1_256'
                            5444 ;radiosend                 Allocated with name '_main_radiosend_1_256'
                            5445 ;------------------------------------------------------------
-                           5446 ;	main.c:96: void main()
+                           5446 ;	main.c:100: void main()
                            5447 ;	-----------------------------------------
                            5448 ;	 function main
                            5449 ;	-----------------------------------------
    16CA                    5450 _main:
-                           5451 ;	main.c:101: uint8_t st=0,countpause=0,rewers=0; // for key dat=0,
+                           5451 ;	main.c:105: uint8_t st=0,countpause=0,rewers=0; // for key dat=0,
    16CA 90 00 C4      [24] 5452 	mov	dptr,#_main_st_1_256
-                           5453 ;	main.c:102: unsigned long statesend=0;
+                           5453 ;	main.c:106: unsigned long statesend=0;
    16CD E4            [12] 5454 	clr	a
    16CE F0            [24] 5455 	movx	@dptr,a
    16CF 90 00 C5      [24] 5456 	mov	dptr,#_main_countpause_1_256
@@ -5468,7 +5468,7 @@
    16E1 E4            [12] 5468 	clr	a
    16E2 A3            [24] 5469 	inc	dptr
    16E3 F0            [24] 5470 	movx	@dptr,a
-                           5471 ;	main.c:103: unsigned long radiosend=0;
+                           5471 ;	main.c:107: unsigned long radiosend=0;
    16E4 90 00 CB      [24] 5472 	mov	dptr,#_main_radiosend_1_256
    16E7 E4            [12] 5473 	clr	a
    16E8 F0            [24] 5474 	movx	@dptr,a
@@ -5481,9 +5481,9 @@
    16EF E4            [12] 5481 	clr	a
    16F0 A3            [24] 5482 	inc	dptr
    16F1 F0            [24] 5483 	movx	@dptr,a
-                           5484 ;	main.c:106: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
+                           5484 ;	main.c:110: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
    16F2 75 AD 01      [24] 5485 	mov	_CLKLFCTRL,#0x01
-                           5486 ;	main.c:107: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,8191); //65535=2 сек, 32767=1 сек,16383 = 0.250 сек ,8191 = 0.125 сек
+                           5486 ;	main.c:111: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
    16F5 90 00 7D      [24] 5487 	mov	dptr,#_rtc2_configure_PARM_2
    16F8 74 FF         [12] 5488 	mov	a,#0xFF
    16FA F0            [24] 5489 	movx	@dptr,a
@@ -5492,9 +5492,9 @@
    16FE F0            [24] 5492 	movx	@dptr,a
    16FF 75 82 06      [24] 5493 	mov	dpl,#0x06
    1702 12 12 E6      [24] 5494 	lcall	_rtc2_configure
-                           5495 ;	main.c:108: rtc2_run();
+                           5495 ;	main.c:112: rtc2_run();
    1705 43 B3 01      [24] 5496 	orl	_RTC2CON,#0x01
-                           5497 ;	main.c:109: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
+                           5497 ;	main.c:113: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
    1708 90 00 4E      [24] 5498 	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_PARM_2
    170B E4            [12] 5499 	clr	a
    170C F0            [24] 5500 	movx	@dptr,a
@@ -5503,88 +5503,88 @@
    170F F0            [24] 5503 	movx	@dptr,a
    1710 75 82 00      [24] 5504 	mov	dpl,#0x00
    1713 12 0A 68      [24] 5505 	lcall	_pwr_clk_mgmt_wakeup_configure
-                           5506 ;	main.c:110: interrupt_control_rtc2_enable();
+                           5506 ;	main.c:114: interrupt_control_rtc2_enable();
    1716 D2 BD         [12] 5507 	setb _IEN1_SB_TICK 
-                           5508 ;	main.c:112: gpio_pin_configure(BUTTON,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
-   1718 90 00 38      [24] 5509 	mov	dptr,#_gpio_pin_configure_PARM_2
-   171B 74 40         [12] 5510 	mov	a,#0x40
+                           5508 ;	main.c:117: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+   1718 90 00 59      [24] 5509 	mov	dptr,#_interrupt_configure_ifp_PARM_2
+   171B 74 81         [12] 5510 	mov	a,#0x81
    171D F0            [24] 5511 	movx	@dptr,a
-   171E 75 82 04      [24] 5512 	mov	dpl,#0x04
-   1721 12 05 8F      [24] 5513 	lcall	_gpio_pin_configure
-                           5514 ;	main.c:115: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
-   1724 90 00 38      [24] 5515 	mov	dptr,#_gpio_pin_configure_PARM_2
-   1727 74 01         [12] 5516 	mov	a,#0x01
-   1729 F0            [24] 5517 	movx	@dptr,a
-   172A 75 82 02      [24] 5518 	mov	dpl,#0x02
-   172D 12 05 8F      [24] 5519 	lcall	_gpio_pin_configure
-                           5520 ;	main.c:116: gpio_pin_val_set(DIMMPIN);
-   1730 75 82 02      [24] 5521 	mov	dpl,#0x02
-   1733 12 08 89      [24] 5522 	lcall	_gpio_pin_val_set
-                           5523 ;	main.c:117: delay_ms(500); 
-   1736 90 01 F4      [24] 5524 	mov	dptr,#0x01F4
-   1739 12 09 8C      [24] 5525 	lcall	_delay_ms
-                           5526 ;	main.c:118: gpio_pin_val_clear(DIMMPIN);
-   173C 75 82 02      [24] 5527 	mov	dpl,#0x02
-   173F 12 08 1E      [24] 5528 	lcall	_gpio_pin_val_clear
-                           5529 ;	main.c:119: delay_ms(500); 
-   1742 90 01 F4      [24] 5530 	mov	dptr,#0x01F4
-   1745 12 09 8C      [24] 5531 	lcall	_delay_ms
-                           5532 ;	main.c:122: radiobegin(); //
-   1748 12 13 16      [24] 5533 	lcall	_radiobegin
-                           5534 ;	main.c:123: openAllPipe(); // открываем прием/передачу
-   174B 12 14 9A      [24] 5535 	lcall	_openAllPipe
-                           5536 ;	main.c:125: setChannel(100);
-   174E 75 82 64      [24] 5537 	mov	dpl,#0x64
-   1751 12 13 3B      [24] 5538 	lcall	_setChannel
-                           5539 ;	main.c:126: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
-   1754 75 82 02      [24] 5540 	mov	dpl,#0x02
-   1757 12 13 5D      [24] 5541 	lcall	_setDataRate
-                           5542 ;	main.c:127: setAutoAck(false);
-   175A 75 82 00      [24] 5543 	mov	dpl,#0x00
-   175D 12 13 BF      [24] 5544 	lcall	_setAutoAck
-                           5545 ;	main.c:128: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
-   1760 75 82 02      [24] 5546 	mov	dpl,#0x02
-   1763 12 13 F2      [24] 5547 	lcall	_setCRCLength
-                           5548 ;	main.c:129: setPALevel(3) ; // мощность 0..3
-   1766 75 82 03      [24] 5549 	mov	dpl,#0x03
-   1769 12 14 5B      [24] 5550 	lcall	_setPALevel
-                           5551 ;	main.c:132: clientnf.identifier=chclient;
-   176C 90 00 8F      [24] 5552 	mov	dptr,#_clientnf
-   176F 74 01         [12] 5553 	mov	a,#0x01
-   1771 F0            [24] 5554 	movx	@dptr,a
-                           5555 ;	main.c:133: clientnf.countPWM=10;
-   1772 90 00 90      [24] 5556 	mov	dptr,#(_clientnf + 0x0001)
-   1775 74 0A         [12] 5557 	mov	a,#0x0A
-   1777 F0            [24] 5558 	movx	@dptr,a
-   1778 E4            [12] 5559 	clr	a
-   1779 A3            [24] 5560 	inc	dptr
-   177A F0            [24] 5561 	movx	@dptr,a
-                           5562 ;	main.c:136: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
-   177B 90 00 59      [24] 5563 	mov	dptr,#_interrupt_configure_ifp_PARM_2
-   177E 74 81         [12] 5564 	mov	a,#0x81
-   1780 F0            [24] 5565 	movx	@dptr,a
-   1781 75 82 08      [24] 5566 	mov	dpl,#0x08
-   1784 12 0B 54      [24] 5567 	lcall	_interrupt_configure_ifp
-                           5568 ;	main.c:137: interrupt_control_ifp_enable();
-   1787 D2 A8         [12] 5569 	setb _IEN0_SB_IFP 
-                           5570 ;	main.c:140: interrupt_control_t1_enable()	;
-   1789 D2 AB         [12] 5571 	setb _IEN0_SB_T1 
-                           5572 ;	main.c:141: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
-   178B 90 00 63      [24] 5573 	mov	dptr,#_timer1_configure_PARM_2
-   178E E4            [12] 5574 	clr	a
-   178F F0            [24] 5575 	movx	@dptr,a
-   1790 E4            [12] 5576 	clr	a
-   1791 A3            [24] 5577 	inc	dptr
-   1792 F0            [24] 5578 	movx	@dptr,a
-   1793 75 82 10      [24] 5579 	mov	dpl,#0x10
-   1796 12 0C 67      [24] 5580 	lcall	_timer1_configure
-                           5581 ;	main.c:142: timer1_run();
-   1799 D2 8E         [12] 5582 	setb _TCON_SB_TR1 
-                           5583 ;	main.c:144: sti();
-   179B D2 AF         [12] 5584 	setb _IEN0_SB_GLOBAL 
-                           5585 ;	main.c:149: while(1)
-   179D                    5586 00146$:
-                           5587 ;	main.c:156: if (countrtc-radiosend >=timesend) {
+   171E 75 82 08      [24] 5512 	mov	dpl,#0x08
+   1721 12 0B 54      [24] 5513 	lcall	_interrupt_configure_ifp
+                           5514 ;	main.c:118: interrupt_control_ifp_enable();
+   1724 D2 A8         [12] 5515 	setb _IEN0_SB_IFP 
+                           5516 ;	main.c:120: interrupt_control_t1_enable()	;
+   1726 D2 AB         [12] 5517 	setb _IEN0_SB_T1 
+                           5518 ;	main.c:121: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+   1728 90 00 63      [24] 5519 	mov	dptr,#_timer1_configure_PARM_2
+   172B E4            [12] 5520 	clr	a
+   172C F0            [24] 5521 	movx	@dptr,a
+   172D E4            [12] 5522 	clr	a
+   172E A3            [24] 5523 	inc	dptr
+   172F F0            [24] 5524 	movx	@dptr,a
+   1730 75 82 10      [24] 5525 	mov	dpl,#0x10
+   1733 12 0C 67      [24] 5526 	lcall	_timer1_configure
+                           5527 ;	main.c:122: timer1_run();
+   1736 D2 8E         [12] 5528 	setb _TCON_SB_TR1 
+                           5529 ;	main.c:124: sti();
+   1738 D2 AF         [12] 5530 	setb _IEN0_SB_GLOBAL 
+                           5531 ;	main.c:126: gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
+   173A 90 00 38      [24] 5532 	mov	dptr,#_gpio_pin_configure_PARM_2
+   173D 74 40         [12] 5533 	mov	a,#0x40
+   173F F0            [24] 5534 	movx	@dptr,a
+   1740 75 82 04      [24] 5535 	mov	dpl,#0x04
+   1743 12 05 8F      [24] 5536 	lcall	_gpio_pin_configure
+                           5537 ;	main.c:128: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+   1746 90 00 38      [24] 5538 	mov	dptr,#_gpio_pin_configure_PARM_2
+   1749 74 01         [12] 5539 	mov	a,#0x01
+   174B F0            [24] 5540 	movx	@dptr,a
+   174C 75 82 02      [24] 5541 	mov	dpl,#0x02
+   174F 12 05 8F      [24] 5542 	lcall	_gpio_pin_configure
+                           5543 ;	main.c:129: gpio_pin_val_set(DIMMPIN);
+   1752 75 82 02      [24] 5544 	mov	dpl,#0x02
+   1755 12 08 89      [24] 5545 	lcall	_gpio_pin_val_set
+                           5546 ;	main.c:130: delay_ms(500); 
+   1758 90 01 F4      [24] 5547 	mov	dptr,#0x01F4
+   175B 12 09 8C      [24] 5548 	lcall	_delay_ms
+                           5549 ;	main.c:131: gpio_pin_val_clear(DIMMPIN);
+   175E 75 82 02      [24] 5550 	mov	dpl,#0x02
+   1761 12 08 1E      [24] 5551 	lcall	_gpio_pin_val_clear
+                           5552 ;	main.c:132: delay_ms(500); 
+   1764 90 01 F4      [24] 5553 	mov	dptr,#0x01F4
+   1767 12 09 8C      [24] 5554 	lcall	_delay_ms
+                           5555 ;	main.c:135: radiobegin(); //
+   176A 12 13 16      [24] 5556 	lcall	_radiobegin
+                           5557 ;	main.c:136: openAllPipe(); // открываем прием/передачу
+   176D 12 14 9A      [24] 5558 	lcall	_openAllPipe
+                           5559 ;	main.c:138: setChannel(100);
+   1770 75 82 64      [24] 5560 	mov	dpl,#0x64
+   1773 12 13 3B      [24] 5561 	lcall	_setChannel
+                           5562 ;	main.c:139: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
+   1776 75 82 02      [24] 5563 	mov	dpl,#0x02
+   1779 12 13 5D      [24] 5564 	lcall	_setDataRate
+                           5565 ;	main.c:140: setAutoAck(false);
+   177C 75 82 00      [24] 5566 	mov	dpl,#0x00
+   177F 12 13 BF      [24] 5567 	lcall	_setAutoAck
+                           5568 ;	main.c:141: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
+   1782 75 82 02      [24] 5569 	mov	dpl,#0x02
+   1785 12 13 F2      [24] 5570 	lcall	_setCRCLength
+                           5571 ;	main.c:142: setPALevel(3) ; // мощность 0..3
+   1788 75 82 03      [24] 5572 	mov	dpl,#0x03
+   178B 12 14 5B      [24] 5573 	lcall	_setPALevel
+                           5574 ;	main.c:145: clientnf.identifier=chclient;
+   178E 90 00 8F      [24] 5575 	mov	dptr,#_clientnf
+   1791 74 01         [12] 5576 	mov	a,#0x01
+   1793 F0            [24] 5577 	movx	@dptr,a
+                           5578 ;	main.c:146: clientnf.countPWM=10;
+   1794 90 00 90      [24] 5579 	mov	dptr,#(_clientnf + 0x0001)
+   1797 74 0A         [12] 5580 	mov	a,#0x0A
+   1799 F0            [24] 5581 	movx	@dptr,a
+   179A E4            [12] 5582 	clr	a
+   179B A3            [24] 5583 	inc	dptr
+   179C F0            [24] 5584 	movx	@dptr,a
+                           5585 ;	main.c:154: while(1)
+   179D                    5586 00147$:
+                           5587 ;	main.c:161: if (countrtc-radiosend >=TIMESEND) {
    179D 90 00 CB      [24] 5588 	mov	dptr,#_main_radiosend_1_256
    17A0 E0            [24] 5589 	movx	a,@dptr
    17A1 FC            [12] 5590 	mov	r4,a
@@ -5631,10 +5631,10 @@
    17CE 94 00         [12] 5631 	subb	a,#0x00
    17D0 EF            [12] 5632 	mov	a,r7
    17D1 94 00         [12] 5633 	subb	a,#0x00
-   17D3 50 03         [24] 5634 	jnc	00215$
-   17D5 02 19 41      [24] 5635 	ljmp	00121$
-   17D8                    5636 00215$:
-                           5637 ;	main.c:158: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
+   17D3 50 03         [24] 5634 	jnc	00216$
+   17D5 02 19 3E      [24] 5635 	ljmp	00122$
+   17D8                    5636 00216$:
+                           5637 ;	main.c:163: rf_write_tx_payload((const uint8_t*)&clientnf, 32, true); //transmit received char over RF
    17D8 7E 8F         [12] 5638 	mov	r6,#_clientnf
    17DA 7F 00         [12] 5639 	mov	r7,#(_clientnf >> 8)
    17DC 7D 00         [12] 5640 	mov	r5,#0x00
@@ -5651,7 +5651,7 @@
    17EF 8F 83         [24] 5651 	mov	dph,r7
    17F1 8D F0         [24] 5652 	mov	b,r5
    17F3 12 01 CD      [24] 5653 	lcall	_rf_write_tx_payload
-                           5654 ;	main.c:161: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
+                           5654 ;	main.c:166: while(!(rf_irq_pin_active() && rf_irq_tx_ds_active()));
    17F6                    5655 00102$:
    17F6 30 C1 FD      [24] 5656 	jnb	_IRCON_SB_RFIRQ,00102$
    17F9 90 00 18      [24] 5657 	mov	dptr,#_rf_spi_execute_command_PARM_2
@@ -5676,19 +5676,19 @@
    1815 12 03 02      [24] 5676 	lcall	_rf_spi_execute_command
    1818 E5 82         [12] 5677 	mov	a,dpl
    181A 30 E5 D9      [24] 5678 	jnb	acc.5,00102$
-                           5679 ;	main.c:163: rf_irq_clear_all(); //clear all interrupts in the 24L01
+                           5679 ;	main.c:168: rf_irq_clear_all(); //clear all interrupts in the 24L01
    181D 12 02 93      [24] 5680 	lcall	_rf_irq_clear_all
-                           5681 ;	main.c:164: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
+                           5681 ;	main.c:169: rf_set_as_rx(true); //change the device to an RX to get the character back from the other 24L01
    1820 75 82 01      [24] 5682 	mov	dpl,#0x01
    1823 12 02 33      [24] 5683 	lcall	_rf_set_as_rx
-                           5684 ;	main.c:168: for(count = 0; count < 25000; count++)
+                           5684 ;	main.c:173: for(count = 0; count < 25000; count++)
    1826 7E 00         [12] 5685 	mov	r6,#0x00
    1828 7F 00         [12] 5686 	mov	r7,#0x00
-   182A                    5687 00148$:
-                           5688 ;	main.c:171: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
-   182A 20 C1 03      [24] 5689 	jb	_IRCON_SB_RFIRQ,00218$
+   182A                    5687 00149$:
+                           5688 ;	main.c:176: if((rf_irq_pin_active() && rf_irq_rx_dr_active()))
+   182A 20 C1 03      [24] 5689 	jb	_IRCON_SB_RFIRQ,00219$
    182D 02 18 BE      [24] 5690 	ljmp	00109$
-   1830                    5691 00218$:
+   1830                    5691 00219$:
    1830 90 00 18      [24] 5692 	mov	dptr,#_rf_spi_execute_command_PARM_2
    1833 E4            [12] 5693 	clr	a
    1834 F0            [24] 5694 	movx	@dptr,a
@@ -5715,7 +5715,7 @@
    1855 D0 06         [24] 5715 	pop	ar6
    1857 D0 07         [24] 5716 	pop	ar7
    1859 30 E6 62      [24] 5717 	jnb	acc.6,00109$
-                           5718 ;	main.c:174: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
+                           5718 ;	main.c:179: if (clientnf.count <= 2147483646) clientnf.count++;      /// счетчик передач для контроля качества канала
    185C 90 00 95      [24] 5719 	mov	dptr,#(_clientnf + 0x0006)
    185F E0            [24] 5720 	movx	a,@dptr
    1860 FA            [12] 5721 	mov	r2,a
@@ -5741,13 +5741,13 @@
    187B 95 F0         [12] 5741 	subb	a,b
    187D 40 1D         [24] 5742 	jc	00106$
    187F 0A            [12] 5743 	inc	r2
-   1880 BA 00 09      [24] 5744 	cjne	r2,#0x00,00221$
+   1880 BA 00 09      [24] 5744 	cjne	r2,#0x00,00222$
    1883 0B            [12] 5745 	inc	r3
-   1884 BB 00 05      [24] 5746 	cjne	r3,#0x00,00221$
+   1884 BB 00 05      [24] 5746 	cjne	r3,#0x00,00222$
    1887 0C            [12] 5747 	inc	r4
-   1888 BC 00 01      [24] 5748 	cjne	r4,#0x00,00221$
+   1888 BC 00 01      [24] 5748 	cjne	r4,#0x00,00222$
    188B 0D            [12] 5749 	inc	r5
-   188C                    5750 00221$:
+   188C                    5750 00222$:
    188C 90 00 95      [24] 5751 	mov	dptr,#(_clientnf + 0x0006)
    188F EA            [12] 5752 	mov	a,r2
    1890 F0            [24] 5753 	movx	@dptr,a
@@ -5762,7 +5762,7 @@
    1899 F0            [24] 5762 	movx	@dptr,a
    189A 80 0E         [24] 5763 	sjmp	00107$
    189C                    5764 00106$:
-                           5765 ;	main.c:175: else clientnf.count = 0;
+                           5765 ;	main.c:180: else clientnf.count = 0;
    189C 90 00 95      [24] 5766 	mov	dptr,#(_clientnf + 0x0006)
    189F E4            [12] 5767 	clr	a
    18A0 F0            [24] 5768 	movx	@dptr,a
@@ -5776,7 +5776,7 @@
    18A8 A3            [24] 5776 	inc	dptr
    18A9 F0            [24] 5777 	movx	@dptr,a
    18AA                    5778 00107$:
-                           5779 ;	main.c:177: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
+                           5779 ;	main.c:182: rf_read_rx_payload((const uint8_t*)&servernf, 32); //get the payload into data
    18AA 90 00 00      [24] 5780 	mov	dptr,#_rf_read_rx_payload_PARM_2
    18AD 74 20         [12] 5781 	mov	a,#0x20
    18AF F0            [24] 5782 	movx	@dptr,a
@@ -5786,12 +5786,12 @@
    18B3 90 00 A4      [24] 5786 	mov	dptr,#_servernf
    18B6 75 F0 00      [24] 5787 	mov	b,#0x00
    18B9 12 00 CD      [24] 5788 	lcall	_rf_read_rx_payload
-                           5789 ;	main.c:178: break;
+                           5789 ;	main.c:183: break;
    18BC 80 2C         [24] 5790 	sjmp	00113$
    18BE                    5791 00109$:
-                           5792 ;	main.c:185: if(count == 24999) clientnf.Error_Message++;
-   18BE BE A7 18      [24] 5793 	cjne	r6,#0xA7,00149$
-   18C1 BF 61 15      [24] 5794 	cjne	r7,#0x61,00149$
+                           5792 ;	main.c:190: if(count == 24999) clientnf.Error_Message++;
+   18BE BE A7 18      [24] 5793 	cjne	r6,#0xA7,00150$
+   18C1 BF 61 15      [24] 5794 	cjne	r7,#0x61,00150$
    18C4 90 00 93      [24] 5795 	mov	dptr,#(_clientnf + 0x0004)
    18C7 E0            [24] 5796 	movx	a,@dptr
    18C8 FC            [12] 5797 	mov	r4,a
@@ -5799,355 +5799,353 @@
    18CA E0            [24] 5799 	movx	a,@dptr
    18CB FD            [12] 5800 	mov	r5,a
    18CC 0C            [12] 5801 	inc	r4
-   18CD BC 00 01      [24] 5802 	cjne	r4,#0x00,00224$
+   18CD BC 00 01      [24] 5802 	cjne	r4,#0x00,00225$
    18D0 0D            [12] 5803 	inc	r5
-   18D1                    5804 00224$:
+   18D1                    5804 00225$:
    18D1 90 00 93      [24] 5805 	mov	dptr,#(_clientnf + 0x0004)
    18D4 EC            [12] 5806 	mov	a,r4
    18D5 F0            [24] 5807 	movx	@dptr,a
    18D6 ED            [12] 5808 	mov	a,r5
    18D7 A3            [24] 5809 	inc	dptr
    18D8 F0            [24] 5810 	movx	@dptr,a
-   18D9                    5811 00149$:
-                           5812 ;	main.c:168: for(count = 0; count < 25000; count++)
+   18D9                    5811 00150$:
+                           5812 ;	main.c:173: for(count = 0; count < 25000; count++)
    18D9 0E            [12] 5813 	inc	r6
-   18DA BE 00 01      [24] 5814 	cjne	r6,#0x00,00225$
+   18DA BE 00 01      [24] 5814 	cjne	r6,#0x00,00226$
    18DD 0F            [12] 5815 	inc	r7
-   18DE                    5816 00225$:
+   18DE                    5816 00226$:
    18DE C3            [12] 5817 	clr	c
    18DF EE            [12] 5818 	mov	a,r6
    18E0 94 A8         [12] 5819 	subb	a,#0xA8
    18E2 EF            [12] 5820 	mov	a,r7
    18E3 94 61         [12] 5821 	subb	a,#0x61
-   18E5 50 03         [24] 5822 	jnc	00226$
-   18E7 02 18 2A      [24] 5823 	ljmp	00148$
-   18EA                    5824 00226$:
+   18E5 50 03         [24] 5822 	jnc	00227$
+   18E7 02 18 2A      [24] 5823 	ljmp	00149$
+   18EA                    5824 00227$:
    18EA                    5825 00113$:
-                           5826 ;	main.c:190: rf_irq_clear_all(); //clear interrupts again
+                           5826 ;	main.c:195: rf_irq_clear_all(); //clear interrupts again
    18EA 12 02 93      [24] 5827 	lcall	_rf_irq_clear_all
-                           5828 ;	main.c:192: rf_set_as_tx(); //resume normal operation as a TX
+                           5828 ;	main.c:197: rf_set_as_tx(); //resume normal operation as a TX
    18ED 12 02 B8      [24] 5829 	lcall	_rf_set_as_tx
-                           5830 ;	main.c:195: if (servernf[0]==chclient){	
+                           5830 ;	main.c:200: if (servernf[0]==chclient){	
    18F0 90 00 A4      [24] 5831 	mov	dptr,#_servernf
    18F3 E0            [24] 5832 	movx	a,@dptr
    18F4 FF            [12] 5833 	mov	r7,a
-   18F5 BF 01 2D      [24] 5834 	cjne	r7,#0x01,00119$
-                           5835 ;	main.c:198: if (servernf[1]==10) {
+   18F5 BF 01 2A      [24] 5834 	cjne	r7,#0x01,00120$
+                           5835 ;	main.c:203: if (servernf[1]==10) { // включение/выключение по радио
    18F8 90 00 A5      [24] 5836 	mov	dptr,#(_servernf + 0x0001)
    18FB E0            [24] 5837 	movx	a,@dptr
    18FC FF            [12] 5838 	mov	r7,a
-   18FD BF 0A 09      [24] 5839 	cjne	r7,#0x0A,00115$
-                           5840 ;	main.c:199: dimmon(servernf[3]);
+   18FD BF 0A 0B      [24] 5839 	cjne	r7,#0x0A,00117$
+                           5840 ;	main.c:204: dimmon(servernf[3]);
    1900 90 00 A7      [24] 5841 	mov	dptr,#(_servernf + 0x0003)
    1903 E0            [24] 5842 	movx	a,@dptr
    1904 F5 82         [12] 5843 	mov	dpl,a
    1906 12 16 82      [24] 5844 	lcall	_dimmon
-   1909                    5845 00115$:
-                           5846 ;	main.c:202: if (servernf[1]==11) {
-   1909 90 00 A5      [24] 5847 	mov	dptr,#(_servernf + 0x0001)
-   190C E0            [24] 5848 	movx	a,@dptr
-   190D FF            [12] 5849 	mov	r7,a
-   190E BF 0B 14      [24] 5850 	cjne	r7,#0x0B,00119$
-                           5851 ;	main.c:203: clientnf.countPWM=servernf[3];
-   1911 90 00 A7      [24] 5852 	mov	dptr,#(_servernf + 0x0003)
-   1914 E0            [24] 5853 	movx	a,@dptr
-   1915 FF            [12] 5854 	mov	r7,a
-   1916 7E 00         [12] 5855 	mov	r6,#0x00
-   1918 90 00 90      [24] 5856 	mov	dptr,#(_clientnf + 0x0001)
-   191B EF            [12] 5857 	mov	a,r7
-   191C F0            [24] 5858 	movx	@dptr,a
-   191D EE            [12] 5859 	mov	a,r6
-   191E A3            [24] 5860 	inc	dptr
-   191F F0            [24] 5861 	movx	@dptr,a
-                           5862 ;	main.c:204: setdimmer(clientnf.countPWM);
-   1920 8F 82         [24] 5863 	mov	dpl,r7
-   1922 12 15 56      [24] 5864 	lcall	_setdimmer
-   1925                    5865 00119$:
-                           5866 ;	main.c:208: radiosend=countrtc;
-   1925 90 00 E4      [24] 5867 	mov	dptr,#_countrtc
-   1928 E0            [24] 5868 	movx	a,@dptr
-   1929 FC            [12] 5869 	mov	r4,a
-   192A A3            [24] 5870 	inc	dptr
-   192B E0            [24] 5871 	movx	a,@dptr
-   192C FD            [12] 5872 	mov	r5,a
-   192D A3            [24] 5873 	inc	dptr
-   192E E0            [24] 5874 	movx	a,@dptr
-   192F FE            [12] 5875 	mov	r6,a
-   1930 A3            [24] 5876 	inc	dptr
-   1931 E0            [24] 5877 	movx	a,@dptr
-   1932 FF            [12] 5878 	mov	r7,a
-   1933 90 00 CB      [24] 5879 	mov	dptr,#_main_radiosend_1_256
-   1936 EC            [12] 5880 	mov	a,r4
-   1937 F0            [24] 5881 	movx	@dptr,a
-   1938 ED            [12] 5882 	mov	a,r5
-   1939 A3            [24] 5883 	inc	dptr
-   193A F0            [24] 5884 	movx	@dptr,a
-   193B EE            [12] 5885 	mov	a,r6
-   193C A3            [24] 5886 	inc	dptr
-   193D F0            [24] 5887 	movx	@dptr,a
-   193E EF            [12] 5888 	mov	a,r7
-   193F A3            [24] 5889 	inc	dptr
-   1940 F0            [24] 5890 	movx	@dptr,a
-   1941                    5891 00121$:
-                           5892 ;	main.c:217: if (digitalRead(BUTTON)==0){
-   1941 75 82 04      [24] 5893 	mov	dpl,#0x04
-   1944 12 07 8A      [24] 5894 	lcall	_gpio_pin_val_read
-   1947 E5 82         [12] 5895 	mov	a,dpl
-   1949 60 03         [24] 5896 	jz	00233$
-   194B 02 1A 77      [24] 5897 	ljmp	00143$
-   194E                    5898 00233$:
-                           5899 ;	main.c:218: if (countrtc-statesend>=4) {
-   194E 90 00 C7      [24] 5900 	mov	dptr,#_main_statesend_1_256
-   1951 E0            [24] 5901 	movx	a,@dptr
-   1952 FC            [12] 5902 	mov	r4,a
-   1953 A3            [24] 5903 	inc	dptr
-   1954 E0            [24] 5904 	movx	a,@dptr
-   1955 FD            [12] 5905 	mov	r5,a
-   1956 A3            [24] 5906 	inc	dptr
-   1957 E0            [24] 5907 	movx	a,@dptr
-   1958 FE            [12] 5908 	mov	r6,a
-   1959 A3            [24] 5909 	inc	dptr
-   195A E0            [24] 5910 	movx	a,@dptr
-   195B FF            [12] 5911 	mov	r7,a
-   195C 90 00 E4      [24] 5912 	mov	dptr,#_countrtc
-   195F E0            [24] 5913 	movx	a,@dptr
-   1960 F8            [12] 5914 	mov	r0,a
-   1961 A3            [24] 5915 	inc	dptr
-   1962 E0            [24] 5916 	movx	a,@dptr
-   1963 F9            [12] 5917 	mov	r1,a
-   1964 A3            [24] 5918 	inc	dptr
-   1965 E0            [24] 5919 	movx	a,@dptr
-   1966 FA            [12] 5920 	mov	r2,a
-   1967 A3            [24] 5921 	inc	dptr
-   1968 E0            [24] 5922 	movx	a,@dptr
-   1969 FB            [12] 5923 	mov	r3,a
-   196A E8            [12] 5924 	mov	a,r0
-   196B C3            [12] 5925 	clr	c
-   196C 9C            [12] 5926 	subb	a,r4
-   196D FC            [12] 5927 	mov	r4,a
-   196E E9            [12] 5928 	mov	a,r1
-   196F 9D            [12] 5929 	subb	a,r5
-   1970 FD            [12] 5930 	mov	r5,a
-   1971 EA            [12] 5931 	mov	a,r2
-   1972 9E            [12] 5932 	subb	a,r6
-   1973 FE            [12] 5933 	mov	r6,a
-   1974 EB            [12] 5934 	mov	a,r3
-   1975 9F            [12] 5935 	subb	a,r7
-   1976 FF            [12] 5936 	mov	r7,a
-   1977 C3            [12] 5937 	clr	c
-   1978 EC            [12] 5938 	mov	a,r4
-   1979 94 04         [12] 5939 	subb	a,#0x04
-   197B ED            [12] 5940 	mov	a,r5
+   1909 80 17         [24] 5845 	sjmp	00120$
+   190B                    5846 00117$:
+                           5847 ;	main.c:207: if (servernf[1]==11) { // управление яркостью по радио
+   190B BF 0B 14      [24] 5848 	cjne	r7,#0x0B,00120$
+                           5849 ;	main.c:208: clientnf.countPWM=servernf[3];
+   190E 90 00 A7      [24] 5850 	mov	dptr,#(_servernf + 0x0003)
+   1911 E0            [24] 5851 	movx	a,@dptr
+   1912 FF            [12] 5852 	mov	r7,a
+   1913 7E 00         [12] 5853 	mov	r6,#0x00
+   1915 90 00 90      [24] 5854 	mov	dptr,#(_clientnf + 0x0001)
+   1918 EF            [12] 5855 	mov	a,r7
+   1919 F0            [24] 5856 	movx	@dptr,a
+   191A EE            [12] 5857 	mov	a,r6
+   191B A3            [24] 5858 	inc	dptr
+   191C F0            [24] 5859 	movx	@dptr,a
+                           5860 ;	main.c:209: setdimmer(clientnf.countPWM);
+   191D 8F 82         [24] 5861 	mov	dpl,r7
+   191F 12 15 56      [24] 5862 	lcall	_setdimmer
+   1922                    5863 00120$:
+                           5864 ;	main.c:213: radiosend=countrtc;
+   1922 90 00 E4      [24] 5865 	mov	dptr,#_countrtc
+   1925 E0            [24] 5866 	movx	a,@dptr
+   1926 FC            [12] 5867 	mov	r4,a
+   1927 A3            [24] 5868 	inc	dptr
+   1928 E0            [24] 5869 	movx	a,@dptr
+   1929 FD            [12] 5870 	mov	r5,a
+   192A A3            [24] 5871 	inc	dptr
+   192B E0            [24] 5872 	movx	a,@dptr
+   192C FE            [12] 5873 	mov	r6,a
+   192D A3            [24] 5874 	inc	dptr
+   192E E0            [24] 5875 	movx	a,@dptr
+   192F FF            [12] 5876 	mov	r7,a
+   1930 90 00 CB      [24] 5877 	mov	dptr,#_main_radiosend_1_256
+   1933 EC            [12] 5878 	mov	a,r4
+   1934 F0            [24] 5879 	movx	@dptr,a
+   1935 ED            [12] 5880 	mov	a,r5
+   1936 A3            [24] 5881 	inc	dptr
+   1937 F0            [24] 5882 	movx	@dptr,a
+   1938 EE            [12] 5883 	mov	a,r6
+   1939 A3            [24] 5884 	inc	dptr
+   193A F0            [24] 5885 	movx	@dptr,a
+   193B EF            [12] 5886 	mov	a,r7
+   193C A3            [24] 5887 	inc	dptr
+   193D F0            [24] 5888 	movx	@dptr,a
+   193E                    5889 00122$:
+                           5890 ;	main.c:222: if (digitalRead(BUTTONPIN)==0){
+   193E 75 82 04      [24] 5891 	mov	dpl,#0x04
+   1941 12 07 8A      [24] 5892 	lcall	_gpio_pin_val_read
+   1944 E5 82         [12] 5893 	mov	a,dpl
+   1946 60 03         [24] 5894 	jz	00234$
+   1948 02 1A 74      [24] 5895 	ljmp	00144$
+   194B                    5896 00234$:
+                           5897 ;	main.c:223: if (countrtc-statesend>=TIMEKEY) {
+   194B 90 00 C7      [24] 5898 	mov	dptr,#_main_statesend_1_256
+   194E E0            [24] 5899 	movx	a,@dptr
+   194F FC            [12] 5900 	mov	r4,a
+   1950 A3            [24] 5901 	inc	dptr
+   1951 E0            [24] 5902 	movx	a,@dptr
+   1952 FD            [12] 5903 	mov	r5,a
+   1953 A3            [24] 5904 	inc	dptr
+   1954 E0            [24] 5905 	movx	a,@dptr
+   1955 FE            [12] 5906 	mov	r6,a
+   1956 A3            [24] 5907 	inc	dptr
+   1957 E0            [24] 5908 	movx	a,@dptr
+   1958 FF            [12] 5909 	mov	r7,a
+   1959 90 00 E4      [24] 5910 	mov	dptr,#_countrtc
+   195C E0            [24] 5911 	movx	a,@dptr
+   195D F8            [12] 5912 	mov	r0,a
+   195E A3            [24] 5913 	inc	dptr
+   195F E0            [24] 5914 	movx	a,@dptr
+   1960 F9            [12] 5915 	mov	r1,a
+   1961 A3            [24] 5916 	inc	dptr
+   1962 E0            [24] 5917 	movx	a,@dptr
+   1963 FA            [12] 5918 	mov	r2,a
+   1964 A3            [24] 5919 	inc	dptr
+   1965 E0            [24] 5920 	movx	a,@dptr
+   1966 FB            [12] 5921 	mov	r3,a
+   1967 E8            [12] 5922 	mov	a,r0
+   1968 C3            [12] 5923 	clr	c
+   1969 9C            [12] 5924 	subb	a,r4
+   196A FC            [12] 5925 	mov	r4,a
+   196B E9            [12] 5926 	mov	a,r1
+   196C 9D            [12] 5927 	subb	a,r5
+   196D FD            [12] 5928 	mov	r5,a
+   196E EA            [12] 5929 	mov	a,r2
+   196F 9E            [12] 5930 	subb	a,r6
+   1970 FE            [12] 5931 	mov	r6,a
+   1971 EB            [12] 5932 	mov	a,r3
+   1972 9F            [12] 5933 	subb	a,r7
+   1973 FF            [12] 5934 	mov	r7,a
+   1974 C3            [12] 5935 	clr	c
+   1975 EC            [12] 5936 	mov	a,r4
+   1976 94 04         [12] 5937 	subb	a,#0x04
+   1978 ED            [12] 5938 	mov	a,r5
+   1979 94 00         [12] 5939 	subb	a,#0x00
+   197B EE            [12] 5940 	mov	a,r6
    197C 94 00         [12] 5941 	subb	a,#0x00
-   197E EE            [12] 5942 	mov	a,r6
+   197E EF            [12] 5942 	mov	a,r7
    197F 94 00         [12] 5943 	subb	a,#0x00
-   1981 EF            [12] 5944 	mov	a,r7
-   1982 94 00         [12] 5945 	subb	a,#0x00
-   1984 50 03         [24] 5946 	jnc	00234$
-   1986 02 17 9D      [24] 5947 	ljmp	00146$
-   1989                    5948 00234$:
-                           5949 ;	main.c:220: if (st){
-   1989 90 00 C4      [24] 5950 	mov	dptr,#_main_st_1_256
-   198C E0            [24] 5951 	movx	a,@dptr
-   198D FF            [12] 5952 	mov	r7,a
-   198E 60 1F         [24] 5953 	jz	00138$
-                           5954 ;	main.c:221: st=0;
-   1990 90 00 C4      [24] 5955 	mov	dptr,#_main_st_1_256
-   1993 E4            [12] 5956 	clr	a
-   1994 F0            [24] 5957 	movx	@dptr,a
-                           5958 ;	main.c:222: dat=!dat;
-   1995 90 00 92      [24] 5959 	mov	dptr,#(_clientnf + 0x0003)
-   1998 E0            [24] 5960 	movx	a,@dptr
-   1999 FF            [12] 5961 	mov	r7,a
-   199A B4 01 00      [24] 5962 	cjne	a,#0x01,00236$
-   199D                    5963 00236$:
-   199D E4            [12] 5964 	clr	a
-   199E 33            [12] 5965 	rlc	a
-   199F 90 00 92      [24] 5966 	mov	dptr,#(_clientnf + 0x0003)
-   19A2 F0            [24] 5967 	movx	@dptr,a
-                           5968 ;	main.c:224: dimmon (dat);
-   19A3 90 00 92      [24] 5969 	mov	dptr,#(_clientnf + 0x0003)
-   19A6 E0            [24] 5970 	movx	a,@dptr
-   19A7 F5 82         [12] 5971 	mov	dpl,a
-   19A9 12 16 82      [24] 5972 	lcall	_dimmon
-   19AC 02 1A 58      [24] 5973 	ljmp	00139$
-   19AF                    5974 00138$:
-                           5975 ;	main.c:227: if (countpause>=3){
-   19AF 90 00 C5      [24] 5976 	mov	dptr,#_main_countpause_1_256
-   19B2 E0            [24] 5977 	movx	a,@dptr
-   19B3 FF            [12] 5978 	mov	r7,a
-   19B4 BF 03 00      [24] 5979 	cjne	r7,#0x03,00237$
-   19B7                    5980 00237$:
-   19B7 50 03         [24] 5981 	jnc	00238$
-   19B9 02 1A 52      [24] 5982 	ljmp	00135$
-   19BC                    5983 00238$:
-                           5984 ;	main.c:229: if (!dat) dimmon(1);
-   19BC 90 00 92      [24] 5985 	mov	dptr,#(_clientnf + 0x0003)
-   19BF E0            [24] 5986 	movx	a,@dptr
-   19C0 70 09         [24] 5987 	jnz	00132$
-   19C2 75 82 01      [24] 5988 	mov	dpl,#0x01
-   19C5 12 16 82      [24] 5989 	lcall	_dimmon
-   19C8 02 1A 58      [24] 5990 	ljmp	00139$
-   19CB                    5991 00132$:
-                           5992 ;	main.c:232: if(rewers) {
-   19CB 90 00 C6      [24] 5993 	mov	dptr,#_main_rewers_1_256
-   19CE E0            [24] 5994 	movx	a,@dptr
-   19CF FE            [12] 5995 	mov	r6,a
-   19D0 60 34         [24] 5996 	jz	00129$
-                           5997 ;	main.c:233: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
-   19D2 90 00 90      [24] 5998 	mov	dptr,#(_clientnf + 0x0001)
-   19D5 E0            [24] 5999 	movx	a,@dptr
-   19D6 FD            [12] 6000 	mov	r5,a
-   19D7 A3            [24] 6001 	inc	dptr
-   19D8 E0            [24] 6002 	movx	a,@dptr
-   19D9 FE            [12] 6003 	mov	r6,a
-   19DA ED            [12] 6004 	mov	a,r5
-   19DB 24 FB         [12] 6005 	add	a,#0xFB
-   19DD FD            [12] 6006 	mov	r5,a
-   19DE EE            [12] 6007 	mov	a,r6
-   19DF 34 FF         [12] 6008 	addc	a,#0xFF
-   19E1 FE            [12] 6009 	mov	r6,a
-   19E2 20 E7 1A      [24] 6010 	jb	acc.7,00123$
-   19E5 90 00 90      [24] 6011 	mov	dptr,#(_clientnf + 0x0001)
-   19E8 E0            [24] 6012 	movx	a,@dptr
-   19E9 FD            [12] 6013 	mov	r5,a
-   19EA A3            [24] 6014 	inc	dptr
-   19EB E0            [24] 6015 	movx	a,@dptr
-   19EC FE            [12] 6016 	mov	r6,a
-   19ED ED            [12] 6017 	mov	a,r5
-   19EE 24 FB         [12] 6018 	add	a,#0xFB
-   19F0 FD            [12] 6019 	mov	r5,a
-   19F1 EE            [12] 6020 	mov	a,r6
-   19F2 34 FF         [12] 6021 	addc	a,#0xFF
-   19F4 FE            [12] 6022 	mov	r6,a
-   19F5 90 00 90      [24] 6023 	mov	dptr,#(_clientnf + 0x0001)
-   19F8 ED            [12] 6024 	mov	a,r5
-   19F9 F0            [24] 6025 	movx	@dptr,a
-   19FA EE            [12] 6026 	mov	a,r6
-   19FB A3            [24] 6027 	inc	dptr
-   19FC F0            [24] 6028 	movx	@dptr,a
-   19FD 80 45         [24] 6029 	sjmp	00130$
-   19FF                    6030 00123$:
-                           6031 ;	main.c:234: else rewers=0;
-   19FF 90 00 C6      [24] 6032 	mov	dptr,#_main_rewers_1_256
-   1A02 E4            [12] 6033 	clr	a
-   1A03 F0            [24] 6034 	movx	@dptr,a
-   1A04 80 3E         [24] 6035 	sjmp	00130$
-   1A06                    6036 00129$:
-                           6037 ;	main.c:236: if(dimm+stepdimm<=MAXSTEP) dimm=dimm+stepdimm;
-   1A06 90 00 90      [24] 6038 	mov	dptr,#(_clientnf + 0x0001)
-   1A09 E0            [24] 6039 	movx	a,@dptr
-   1A0A FD            [12] 6040 	mov	r5,a
-   1A0B A3            [24] 6041 	inc	dptr
-   1A0C E0            [24] 6042 	movx	a,@dptr
-   1A0D FE            [12] 6043 	mov	r6,a
-   1A0E 74 05         [12] 6044 	mov	a,#0x05
-   1A10 2D            [12] 6045 	add	a,r5
-   1A11 FD            [12] 6046 	mov	r5,a
-   1A12 E4            [12] 6047 	clr	a
-   1A13 3E            [12] 6048 	addc	a,r6
-   1A14 FE            [12] 6049 	mov	r6,a
-   1A15 C3            [12] 6050 	clr	c
-   1A16 74 64         [12] 6051 	mov	a,#0x64
-   1A18 9D            [12] 6052 	subb	a,r5
-   1A19 E4            [12] 6053 	clr	a
-   1A1A 64 80         [12] 6054 	xrl	a,#0x80
-   1A1C 8E F0         [24] 6055 	mov	b,r6
-   1A1E 63 F0 80      [24] 6056 	xrl	b,#0x80
-   1A21 95 F0         [12] 6057 	subb	a,b
-   1A23 40 19         [24] 6058 	jc	00126$
-   1A25 90 00 90      [24] 6059 	mov	dptr,#(_clientnf + 0x0001)
-   1A28 E0            [24] 6060 	movx	a,@dptr
-   1A29 FD            [12] 6061 	mov	r5,a
-   1A2A A3            [24] 6062 	inc	dptr
-   1A2B E0            [24] 6063 	movx	a,@dptr
-   1A2C FE            [12] 6064 	mov	r6,a
-   1A2D 74 05         [12] 6065 	mov	a,#0x05
-   1A2F 2D            [12] 6066 	add	a,r5
-   1A30 FD            [12] 6067 	mov	r5,a
-   1A31 E4            [12] 6068 	clr	a
-   1A32 3E            [12] 6069 	addc	a,r6
-   1A33 FE            [12] 6070 	mov	r6,a
-   1A34 90 00 90      [24] 6071 	mov	dptr,#(_clientnf + 0x0001)
-   1A37 ED            [12] 6072 	mov	a,r5
-   1A38 F0            [24] 6073 	movx	@dptr,a
-   1A39 EE            [12] 6074 	mov	a,r6
-   1A3A A3            [24] 6075 	inc	dptr
-   1A3B F0            [24] 6076 	movx	@dptr,a
-   1A3C 80 06         [24] 6077 	sjmp	00130$
-   1A3E                    6078 00126$:
-                           6079 ;	main.c:237: else rewers=1;
-   1A3E 90 00 C6      [24] 6080 	mov	dptr,#_main_rewers_1_256
-   1A41 74 01         [12] 6081 	mov	a,#0x01
-   1A43 F0            [24] 6082 	movx	@dptr,a
-   1A44                    6083 00130$:
-                           6084 ;	main.c:239: setdimmer(dimm);
-   1A44 90 00 90      [24] 6085 	mov	dptr,#(_clientnf + 0x0001)
-   1A47 E0            [24] 6086 	movx	a,@dptr
-   1A48 FD            [12] 6087 	mov	r5,a
-   1A49 A3            [24] 6088 	inc	dptr
-   1A4A E0            [24] 6089 	movx	a,@dptr
-   1A4B 8D 82         [24] 6090 	mov	dpl,r5
-   1A4D 12 15 56      [24] 6091 	lcall	_setdimmer
-   1A50 80 06         [24] 6092 	sjmp	00139$
-   1A52                    6093 00135$:
-                           6094 ;	main.c:241: } else countpause++;
-   1A52 90 00 C5      [24] 6095 	mov	dptr,#_main_countpause_1_256
-   1A55 EF            [12] 6096 	mov	a,r7
-   1A56 04            [12] 6097 	inc	a
-   1A57 F0            [24] 6098 	movx	@dptr,a
-   1A58                    6099 00139$:
-                           6100 ;	main.c:242: statesend=countrtc;
-   1A58 90 00 E4      [24] 6101 	mov	dptr,#_countrtc
-   1A5B E0            [24] 6102 	movx	a,@dptr
-   1A5C FC            [12] 6103 	mov	r4,a
-   1A5D A3            [24] 6104 	inc	dptr
-   1A5E E0            [24] 6105 	movx	a,@dptr
-   1A5F FD            [12] 6106 	mov	r5,a
-   1A60 A3            [24] 6107 	inc	dptr
-   1A61 E0            [24] 6108 	movx	a,@dptr
-   1A62 FE            [12] 6109 	mov	r6,a
-   1A63 A3            [24] 6110 	inc	dptr
-   1A64 E0            [24] 6111 	movx	a,@dptr
-   1A65 FF            [12] 6112 	mov	r7,a
-   1A66 90 00 C7      [24] 6113 	mov	dptr,#_main_statesend_1_256
-   1A69 EC            [12] 6114 	mov	a,r4
-   1A6A F0            [24] 6115 	movx	@dptr,a
-   1A6B ED            [12] 6116 	mov	a,r5
-   1A6C A3            [24] 6117 	inc	dptr
-   1A6D F0            [24] 6118 	movx	@dptr,a
-   1A6E EE            [12] 6119 	mov	a,r6
-   1A6F A3            [24] 6120 	inc	dptr
-   1A70 F0            [24] 6121 	movx	@dptr,a
-   1A71 EF            [12] 6122 	mov	a,r7
-   1A72 A3            [24] 6123 	inc	dptr
-   1A73 F0            [24] 6124 	movx	@dptr,a
-   1A74 02 17 9D      [24] 6125 	ljmp	00146$
-   1A77                    6126 00143$:
-                           6127 ;	main.c:246: st=1;
-   1A77 90 00 C4      [24] 6128 	mov	dptr,#_main_st_1_256
-   1A7A 74 01         [12] 6129 	mov	a,#0x01
-   1A7C F0            [24] 6130 	movx	@dptr,a
-                           6131 ;	main.c:247: countpause=0;
-   1A7D 90 00 C5      [24] 6132 	mov	dptr,#_main_countpause_1_256
-   1A80 E4            [12] 6133 	clr	a
-   1A81 F0            [24] 6134 	movx	@dptr,a
-                           6135 ;	main.c:248: rewers=!rewers;
-   1A82 90 00 C6      [24] 6136 	mov	dptr,#_main_rewers_1_256
-   1A85 E0            [24] 6137 	movx	a,@dptr
-   1A86 FF            [12] 6138 	mov	r7,a
-   1A87 90 00 C6      [24] 6139 	mov	dptr,#_main_rewers_1_256
-   1A8A B4 01 00      [24] 6140 	cjne	a,#0x01,00243$
-   1A8D                    6141 00243$:
-   1A8D E4            [12] 6142 	clr	a
-   1A8E 33            [12] 6143 	rlc	a
-   1A8F F0            [24] 6144 	movx	@dptr,a
-   1A90 02 17 9D      [24] 6145 	ljmp	00146$
-                           6146 	.area CSEG    (CODE)
-                           6147 	.area CONST   (CODE)
-                           6148 	.area XINIT   (CODE)
-   1C68                    6149 __xinit__valuepwm:
-   1C68 00 00              6150 	.byte #0x00,#0x00	; 0
-   1C6A                    6151 __xinit__countrtc:
-   1C6A 00 00 00 00        6152 	.byte #0x00,#0x00,#0x00,#0x00	; 0
-                           6153 	.area CABS    (ABS,CODE)
+   1981 50 03         [24] 5944 	jnc	00235$
+   1983 02 17 9D      [24] 5945 	ljmp	00147$
+   1986                    5946 00235$:
+                           5947 ;	main.c:225: if (st){
+   1986 90 00 C4      [24] 5948 	mov	dptr,#_main_st_1_256
+   1989 E0            [24] 5949 	movx	a,@dptr
+   198A FF            [12] 5950 	mov	r7,a
+   198B 60 1F         [24] 5951 	jz	00139$
+                           5952 ;	main.c:226: st=0;
+   198D 90 00 C4      [24] 5953 	mov	dptr,#_main_st_1_256
+   1990 E4            [12] 5954 	clr	a
+   1991 F0            [24] 5955 	movx	@dptr,a
+                           5956 ;	main.c:227: dat=!dat;
+   1992 90 00 92      [24] 5957 	mov	dptr,#(_clientnf + 0x0003)
+   1995 E0            [24] 5958 	movx	a,@dptr
+   1996 FF            [12] 5959 	mov	r7,a
+   1997 B4 01 00      [24] 5960 	cjne	a,#0x01,00237$
+   199A                    5961 00237$:
+   199A E4            [12] 5962 	clr	a
+   199B 33            [12] 5963 	rlc	a
+   199C 90 00 92      [24] 5964 	mov	dptr,#(_clientnf + 0x0003)
+   199F F0            [24] 5965 	movx	@dptr,a
+                           5966 ;	main.c:229: dimmon (dat);
+   19A0 90 00 92      [24] 5967 	mov	dptr,#(_clientnf + 0x0003)
+   19A3 E0            [24] 5968 	movx	a,@dptr
+   19A4 F5 82         [12] 5969 	mov	dpl,a
+   19A6 12 16 82      [24] 5970 	lcall	_dimmon
+   19A9 02 1A 55      [24] 5971 	ljmp	00140$
+   19AC                    5972 00139$:
+                           5973 ;	main.c:232: if (countpause>=TIMELONGKEY){
+   19AC 90 00 C5      [24] 5974 	mov	dptr,#_main_countpause_1_256
+   19AF E0            [24] 5975 	movx	a,@dptr
+   19B0 FF            [12] 5976 	mov	r7,a
+   19B1 BF 03 00      [24] 5977 	cjne	r7,#0x03,00238$
+   19B4                    5978 00238$:
+   19B4 50 03         [24] 5979 	jnc	00239$
+   19B6 02 1A 4F      [24] 5980 	ljmp	00136$
+   19B9                    5981 00239$:
+                           5982 ;	main.c:234: if (!dat) dimmon(1);
+   19B9 90 00 92      [24] 5983 	mov	dptr,#(_clientnf + 0x0003)
+   19BC E0            [24] 5984 	movx	a,@dptr
+   19BD 70 09         [24] 5985 	jnz	00133$
+   19BF 75 82 01      [24] 5986 	mov	dpl,#0x01
+   19C2 12 16 82      [24] 5987 	lcall	_dimmon
+   19C5 02 1A 55      [24] 5988 	ljmp	00140$
+   19C8                    5989 00133$:
+                           5990 ;	main.c:237: if(rewers) {
+   19C8 90 00 C6      [24] 5991 	mov	dptr,#_main_rewers_1_256
+   19CB E0            [24] 5992 	movx	a,@dptr
+   19CC FE            [12] 5993 	mov	r6,a
+   19CD 60 34         [24] 5994 	jz	00130$
+                           5995 ;	main.c:238: if(dimm-stepdimm>=0)  dimm=dimm-stepdimm;
+   19CF 90 00 90      [24] 5996 	mov	dptr,#(_clientnf + 0x0001)
+   19D2 E0            [24] 5997 	movx	a,@dptr
+   19D3 FD            [12] 5998 	mov	r5,a
+   19D4 A3            [24] 5999 	inc	dptr
+   19D5 E0            [24] 6000 	movx	a,@dptr
+   19D6 FE            [12] 6001 	mov	r6,a
+   19D7 ED            [12] 6002 	mov	a,r5
+   19D8 24 F6         [12] 6003 	add	a,#0xF6
+   19DA FD            [12] 6004 	mov	r5,a
+   19DB EE            [12] 6005 	mov	a,r6
+   19DC 34 FF         [12] 6006 	addc	a,#0xFF
+   19DE FE            [12] 6007 	mov	r6,a
+   19DF 20 E7 1A      [24] 6008 	jb	acc.7,00124$
+   19E2 90 00 90      [24] 6009 	mov	dptr,#(_clientnf + 0x0001)
+   19E5 E0            [24] 6010 	movx	a,@dptr
+   19E6 FD            [12] 6011 	mov	r5,a
+   19E7 A3            [24] 6012 	inc	dptr
+   19E8 E0            [24] 6013 	movx	a,@dptr
+   19E9 FE            [12] 6014 	mov	r6,a
+   19EA ED            [12] 6015 	mov	a,r5
+   19EB 24 F6         [12] 6016 	add	a,#0xF6
+   19ED FD            [12] 6017 	mov	r5,a
+   19EE EE            [12] 6018 	mov	a,r6
+   19EF 34 FF         [12] 6019 	addc	a,#0xFF
+   19F1 FE            [12] 6020 	mov	r6,a
+   19F2 90 00 90      [24] 6021 	mov	dptr,#(_clientnf + 0x0001)
+   19F5 ED            [12] 6022 	mov	a,r5
+   19F6 F0            [24] 6023 	movx	@dptr,a
+   19F7 EE            [12] 6024 	mov	a,r6
+   19F8 A3            [24] 6025 	inc	dptr
+   19F9 F0            [24] 6026 	movx	@dptr,a
+   19FA 80 45         [24] 6027 	sjmp	00131$
+   19FC                    6028 00124$:
+                           6029 ;	main.c:239: else rewers=0;
+   19FC 90 00 C6      [24] 6030 	mov	dptr,#_main_rewers_1_256
+   19FF E4            [12] 6031 	clr	a
+   1A00 F0            [24] 6032 	movx	@dptr,a
+   1A01 80 3E         [24] 6033 	sjmp	00131$
+   1A03                    6034 00130$:
+                           6035 ;	main.c:241: if(dimm+stepdimm<=MAXSTEP) dimm=dimm+stepdimm;
+   1A03 90 00 90      [24] 6036 	mov	dptr,#(_clientnf + 0x0001)
+   1A06 E0            [24] 6037 	movx	a,@dptr
+   1A07 FD            [12] 6038 	mov	r5,a
+   1A08 A3            [24] 6039 	inc	dptr
+   1A09 E0            [24] 6040 	movx	a,@dptr
+   1A0A FE            [12] 6041 	mov	r6,a
+   1A0B 74 0A         [12] 6042 	mov	a,#0x0A
+   1A0D 2D            [12] 6043 	add	a,r5
+   1A0E FD            [12] 6044 	mov	r5,a
+   1A0F E4            [12] 6045 	clr	a
+   1A10 3E            [12] 6046 	addc	a,r6
+   1A11 FE            [12] 6047 	mov	r6,a
+   1A12 C3            [12] 6048 	clr	c
+   1A13 74 64         [12] 6049 	mov	a,#0x64
+   1A15 9D            [12] 6050 	subb	a,r5
+   1A16 E4            [12] 6051 	clr	a
+   1A17 64 80         [12] 6052 	xrl	a,#0x80
+   1A19 8E F0         [24] 6053 	mov	b,r6
+   1A1B 63 F0 80      [24] 6054 	xrl	b,#0x80
+   1A1E 95 F0         [12] 6055 	subb	a,b
+   1A20 40 19         [24] 6056 	jc	00127$
+   1A22 90 00 90      [24] 6057 	mov	dptr,#(_clientnf + 0x0001)
+   1A25 E0            [24] 6058 	movx	a,@dptr
+   1A26 FD            [12] 6059 	mov	r5,a
+   1A27 A3            [24] 6060 	inc	dptr
+   1A28 E0            [24] 6061 	movx	a,@dptr
+   1A29 FE            [12] 6062 	mov	r6,a
+   1A2A 74 0A         [12] 6063 	mov	a,#0x0A
+   1A2C 2D            [12] 6064 	add	a,r5
+   1A2D FD            [12] 6065 	mov	r5,a
+   1A2E E4            [12] 6066 	clr	a
+   1A2F 3E            [12] 6067 	addc	a,r6
+   1A30 FE            [12] 6068 	mov	r6,a
+   1A31 90 00 90      [24] 6069 	mov	dptr,#(_clientnf + 0x0001)
+   1A34 ED            [12] 6070 	mov	a,r5
+   1A35 F0            [24] 6071 	movx	@dptr,a
+   1A36 EE            [12] 6072 	mov	a,r6
+   1A37 A3            [24] 6073 	inc	dptr
+   1A38 F0            [24] 6074 	movx	@dptr,a
+   1A39 80 06         [24] 6075 	sjmp	00131$
+   1A3B                    6076 00127$:
+                           6077 ;	main.c:242: else rewers=1;
+   1A3B 90 00 C6      [24] 6078 	mov	dptr,#_main_rewers_1_256
+   1A3E 74 01         [12] 6079 	mov	a,#0x01
+   1A40 F0            [24] 6080 	movx	@dptr,a
+   1A41                    6081 00131$:
+                           6082 ;	main.c:244: setdimmer(dimm);
+   1A41 90 00 90      [24] 6083 	mov	dptr,#(_clientnf + 0x0001)
+   1A44 E0            [24] 6084 	movx	a,@dptr
+   1A45 FD            [12] 6085 	mov	r5,a
+   1A46 A3            [24] 6086 	inc	dptr
+   1A47 E0            [24] 6087 	movx	a,@dptr
+   1A48 8D 82         [24] 6088 	mov	dpl,r5
+   1A4A 12 15 56      [24] 6089 	lcall	_setdimmer
+   1A4D 80 06         [24] 6090 	sjmp	00140$
+   1A4F                    6091 00136$:
+                           6092 ;	main.c:246: } else countpause++;
+   1A4F 90 00 C5      [24] 6093 	mov	dptr,#_main_countpause_1_256
+   1A52 EF            [12] 6094 	mov	a,r7
+   1A53 04            [12] 6095 	inc	a
+   1A54 F0            [24] 6096 	movx	@dptr,a
+   1A55                    6097 00140$:
+                           6098 ;	main.c:247: statesend=countrtc;
+   1A55 90 00 E4      [24] 6099 	mov	dptr,#_countrtc
+   1A58 E0            [24] 6100 	movx	a,@dptr
+   1A59 FC            [12] 6101 	mov	r4,a
+   1A5A A3            [24] 6102 	inc	dptr
+   1A5B E0            [24] 6103 	movx	a,@dptr
+   1A5C FD            [12] 6104 	mov	r5,a
+   1A5D A3            [24] 6105 	inc	dptr
+   1A5E E0            [24] 6106 	movx	a,@dptr
+   1A5F FE            [12] 6107 	mov	r6,a
+   1A60 A3            [24] 6108 	inc	dptr
+   1A61 E0            [24] 6109 	movx	a,@dptr
+   1A62 FF            [12] 6110 	mov	r7,a
+   1A63 90 00 C7      [24] 6111 	mov	dptr,#_main_statesend_1_256
+   1A66 EC            [12] 6112 	mov	a,r4
+   1A67 F0            [24] 6113 	movx	@dptr,a
+   1A68 ED            [12] 6114 	mov	a,r5
+   1A69 A3            [24] 6115 	inc	dptr
+   1A6A F0            [24] 6116 	movx	@dptr,a
+   1A6B EE            [12] 6117 	mov	a,r6
+   1A6C A3            [24] 6118 	inc	dptr
+   1A6D F0            [24] 6119 	movx	@dptr,a
+   1A6E EF            [12] 6120 	mov	a,r7
+   1A6F A3            [24] 6121 	inc	dptr
+   1A70 F0            [24] 6122 	movx	@dptr,a
+   1A71 02 17 9D      [24] 6123 	ljmp	00147$
+   1A74                    6124 00144$:
+                           6125 ;	main.c:251: st=1;
+   1A74 90 00 C4      [24] 6126 	mov	dptr,#_main_st_1_256
+   1A77 74 01         [12] 6127 	mov	a,#0x01
+   1A79 F0            [24] 6128 	movx	@dptr,a
+                           6129 ;	main.c:252: countpause=0;
+   1A7A 90 00 C5      [24] 6130 	mov	dptr,#_main_countpause_1_256
+   1A7D E4            [12] 6131 	clr	a
+   1A7E F0            [24] 6132 	movx	@dptr,a
+                           6133 ;	main.c:253: rewers=!rewers;
+   1A7F 90 00 C6      [24] 6134 	mov	dptr,#_main_rewers_1_256
+   1A82 E0            [24] 6135 	movx	a,@dptr
+   1A83 FF            [12] 6136 	mov	r7,a
+   1A84 90 00 C6      [24] 6137 	mov	dptr,#_main_rewers_1_256
+   1A87 B4 01 00      [24] 6138 	cjne	a,#0x01,00244$
+   1A8A                    6139 00244$:
+   1A8A E4            [12] 6140 	clr	a
+   1A8B 33            [12] 6141 	rlc	a
+   1A8C F0            [24] 6142 	movx	@dptr,a
+   1A8D 02 17 9D      [24] 6143 	ljmp	00147$
+                           6144 	.area CSEG    (CODE)
+                           6145 	.area CONST   (CODE)
+                           6146 	.area XINIT   (CODE)
+   1C65                    6147 __xinit__valuepwm:
+   1C65 00 00              6148 	.byte #0x00,#0x00	; 0
+   1C67                    6149 __xinit__countrtc:
+   1C67 00 00 00 00        6150 	.byte #0x00,#0x00,#0x00,#0x00	; 0
+                           6151 	.area CABS    (ABS,CODE)
