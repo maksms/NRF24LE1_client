@@ -442,7 +442,8 @@ Symbol Table
     __sdcc_gsinit_startup                                          **** GX
   F __sdcc_program_startup                                         006E GR
   7 __start__stack                                                 0000 GR
- 1A __xinit__countrtc                                              0000 R
+ 1A __xinit__countrtc                                              0002 R
+ 1A __xinit__valuepwm                                              0000 R
  18 _adc_configure                                                 0AF9 GR
   C _adc_configure_adc_config_options_1_181                        005B R
  18 _adc_set_input_channel                                         0B19 GR
@@ -452,15 +453,15 @@ Symbol Table
  18 _adc_start_single_conversion_get_value                         0B4B GR
   C _adc_start_single_conversion_get_value_adc_channel_1_187       005F R
   C _clientnf                                                      008F GR
-  E _countrtc                                                      0000 GR
+  E _countrtc                                                      0002 GR
  18 _delay_ms                                                      08BF GR
   C _delay_ms_milliseconds_1_138                                   0044 R
  18 _delay_s                                                       0883 GR
   C _delay_s_seconds_1_135                                         0042 R
  18 _delay_us                                                      0842 GR
   C _delay_us_microseconds_1_132                                   0040 R
- 18 _dimmon                                                        1579 GR
-  C _dimmon_mode_1_249                                             00A2 R
+ 18 _dimmon                                                        15B5 GR
+  C _dimmon_mode_1_252                                             00A3 R
  18 _gpio_pin_configure                                            04C2 GR
   C _gpio_pin_configure_PARM_2                                     0038 GR
   C _gpio_pin_configure_gpio_pin_id_1_86                           0039 R
@@ -477,14 +478,19 @@ Symbol Table
  18 _interrupt_configure_ifp                                       0A87 GR
   C _interrupt_configure_ifp_PARM_2                                0059 GR
   C _interrupt_configure_ifp_interrupt_ifp_input_1_167             005A R
- 18 _isr_ifp                                                       1489 GR
 ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 9.
 
 Symbol Table
 
- 18 _isr_rtc2                                                      159A GR
- 18 _isr_t1                                                        151D GR
- 18 _main                                                          15C1 GR
+ 18 _isr_ifp                                                       14F6 GR
+ 18 _isr_rtc2                                                      15D6 GR
+ 18 _isr_t1                                                        1559 GR
+ 18 _main                                                          15FD GR
+  C _main_countpause_1_256                                         00C5 R
+  C _main_radiosend_1_256                                          00CB R
+  C _main_rewers_1_256                                             00C6 R
+  C _main_st_1_256                                                 00C4 R
+  C _main_statesend_1_256                                          00C7 R
  18 _openAllPipe                                                   13CD GR
   C _openAllPipe_buffer_1_244                                      0089 R
   C _openAllPipe_setup_1_244                                       008E R
@@ -532,16 +538,16 @@ Symbol Table
   C _rf_set_rx_addr_PARM_2                                         002F GR
   C _rf_set_rx_addr_PARM_3                                         0031 GR
   C _rf_set_rx_addr_address_1_73                                   0032 R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
+
+Symbol Table
+
  18 _rf_spi_configure_enable                                       00F9 GR
  18 _rf_spi_execute_command                                        0235 GR
   C _rf_spi_execute_command_PARM_2                                 0018 GR
   C _rf_spi_execute_command_PARM_3                                 001B GR
   C _rf_spi_execute_command_PARM_4                                 001D GR
   C _rf_spi_execute_command_instruction_1_57                       001E R
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 10.
-
-Symbol Table
-
   C _rf_spi_execute_command_status_1_58                            001F R
  18 _rf_spi_send_read                                              0291 GR
   C _rf_spi_send_read_PARM_2                                       0020 GR
@@ -563,7 +569,7 @@ Symbol Table
  18 _rtc2_configure                                                1219 GR
   C _rtc2_configure_PARM_2                                         007D GR
   C _rtc2_configure_rtc2_config_options_1_230                      007F R
-  C _servernf                                                      00A3 GR
+  C _servernf                                                      00A4 GR
  18 _setAutoAck                                                    12F2 GR
   C _setAutoAck_buffer_1_239                                       0085 R
   C _setAutoAck_enable_1_238                                       0084 R
@@ -577,7 +583,9 @@ Symbol Table
   C _setDataRate_speed_1_236                                       0082 R
  18 _setPALevel                                                    138E GR
   C _setPALevel_setup_1_243                                        0088 R
-  C _stdimm                                                        00A1 GR
+ 18 _setdimmer                                                     1489 GR
+  C _setdimmer_value_1_245                                         00A1 R
+  C _stdimm                                                        00A2 GR
  18 _timer0_configure                                              0B67 GR
   C _timer0_configure_PARM_2                                       0060 GR
   C _timer0_configure_timer0_config_options_1_190                  0062 R
@@ -590,6 +598,10 @@ Symbol Table
  18 _uart_calc_actual_baud_rate_from_th1                           0CE4 GR
   C _uart_calc_actual_baud_rate_from_th1_PARM_2                    006C GR
   C _uart_calc_actual_baud_rate_from_th1_th1_reg_value_1_214       006D R
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
+
+Symbol Table
+
  18 _uart_calc_s0rel_value                                         0DA8 GR
   C _uart_calc_s0rel_value_PARM_2                                  006E GR
   C _uart_calc_s0rel_value_desired_baud_rate_1_216                 006F R
@@ -598,10 +610,6 @@ Symbol Table
   C _uart_calc_th1_value_desired_baud_rate_1_218                   0074 R
  18 _uart_configure_auto_baud_calc                                 0F67 GR
   C _uart_configure_auto_baud_calc_PARM_2                          0078 GR
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 11.
-
-Symbol Table
-
   6 _uart_configure_auto_baud_calc_sloc0_1_0                       0004 R
   6 _uart_configure_auto_baud_calc_sloc1_1_0                       0006 R
   6 _uart_configure_auto_baud_calc_sloc2_1_0                       000A R
@@ -610,6 +618,7 @@ Symbol Table
  18 _uart_configure_manual_baud_calc                               0BCD GR
   C _uart_configure_manual_baud_calc_PARM_2                        0066 GR
   C _uart_configure_manual_baud_calc_uart_config_options_1_205     0068 R
+  E _valuepwm                                                      0000 GR
  18 _watchdog_set_wdsv_count                                       09B4 GR
   C _watchdog_set_wdsv_count_wdsv_value_1_161                      0051 R
  18 _watchdog_start_and_set_timeout_in_ms                          09CC GR
@@ -649,6 +658,10 @@ Symbol Table
     b.3                                                         =  00F3 L
     b.4                                                         =  00F4 L
     b.5                                                         =  00F5 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
+
+Symbol Table
+
     b.6                                                         =  00F6 L
     b.7                                                         =  00F7 L
   5 b0                                                          =  8000 R
@@ -658,10 +671,6 @@ Symbol Table
   5 b4                                                          =  8400 R
   5 b5                                                          =  8500 R
   5 b6                                                          =  8600 R
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 12.
-
-Symbol Table
-
   5 b7                                                          =  8700 R
   5 bits                                                           0000 R
     cprl2                                                       =  00C8 L
@@ -709,6 +718,10 @@ Symbol Table
     p0.3                                                        =  0083 L
     p0.4                                                        =  0084 L
     p0.5                                                        =  0085 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
+
+Symbol Table
+
     p0.6                                                        =  0086 L
     p0.7                                                        =  0087 L
     p1                                                          =  0090 L
@@ -718,10 +731,6 @@ Symbol Table
     p1.3                                                        =  0093 L
     p1.4                                                        =  0094 L
     p1.5                                                        =  0095 L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 13.
-
-Symbol Table
-
     p1.6                                                        =  0096 L
     p1.7                                                        =  0097 L
     p2                                                          =  00A0 L
@@ -769,6 +778,10 @@ Symbol Table
     rxd                                                         =  00B0 L
     sbuf                                                        =  0099 L
     scon                                                        =  0098 L
+ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
+
+Symbol Table
+
     scon.0                                                      =  0098 L
     scon.1                                                      =  0099 L
     scon.2                                                      =  009A L
@@ -778,10 +791,6 @@ Symbol Table
     scon.6                                                      =  009E L
     scon.7                                                      =  009F L
     sm0                                                         =  009F L
-ASxxxx Assembler V02.00 + NoICE + SDCC mods  (Intel 8051), page 14.
-
-Symbol Table
-
     sm1                                                         =  009E L
     sm2                                                         =  009D L
     sp                                                          =  0081 L
@@ -838,9 +847,9 @@ Area Table
    9 IABS                                       size    0   flags    8
    A BSEG                                       size    0   flags   80
    B PSEG                                       size    0   flags   50
-   C XSEG                                       size   C3   flags   40
+   C XSEG                                       size   CF   flags   40
    D XABS                                       size    0   flags   48
-   E XISEG                                      size    4   flags   40
+   E XISEG                                      size    6   flags   40
    F HOME                                       size   71   flags   20
   10 GSINIT0                                    size    0   flags   20
   11 GSINIT1                                    size    0   flags   20
@@ -850,8 +859,8 @@ Area Table
   15 GSINIT5                                    size    0   flags   20
   16 GSINIT                                     size    0   flags   20
   17 GSFINAL                                    size    3   flags   20
-  18 CSEG                                       size 17D9   flags   20
+  18 CSEG                                       size 19CD   flags   20
   19 CONST                                      size    0   flags   20
-  1A XINIT                                      size    4   flags   20
+  1A XINIT                                      size    6   flags   20
   1B CABS                                       size    0   flags   28
 
