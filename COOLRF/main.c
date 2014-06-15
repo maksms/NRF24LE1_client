@@ -1,4 +1,4 @@
-// модификация 14.06.14
+// модификация 15.06.14
 
 #define chclient 1 // номер клиента 1...
 
@@ -9,9 +9,10 @@
 #define TIMEKEY 4 // пауза кнопки для защиты от дребезга. (0.125*4=0.5с)
 #define TIMELONGKEY 3 // долгое нажатие кнопки,вычисляется как TIMEKEY*TIMELONGKEY*0.125. 3*4*0.125=1.5с
 
+#define BUTTONPIN 4 // пин, к которому подключена кнопка.
+#define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор.
+
 #define stepdimm 10 // шаг управления яркостью используя кнопку
-#define BUTTONPIN 4 // пин, к которому подключена кнопка
-#define DIMMPIN GPIO_PIN_ID_P0_2 // пин, к которому подключен симистор
 #define MAXSTEP 100 // количество шагов диммирования
 
 #include "../libs.h"
@@ -90,7 +91,7 @@ unsigned long countrtc=0;
 unsigned char servernf[32];
 
 
-interrupt_isr_rtc2()
+interrupt_isr_rtc2() // счетчик ртс импульсов используя прерывание.
 {
 countrtc++;
 }
@@ -102,9 +103,8 @@ void main()
 int state=0;
 
 unsigned int count=0; //counter for loop
-uint8_t st=0,countpause=0,rewers=0; // for key dat=0,
-unsigned long statesend=0;
-unsigned long radiosend=0;
+uint8_t st=0,countpause=0,rewers=0; // for key
+unsigned long statesend=0,radiosend=0;
 
 // конфигурация RTC--> 
 CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
@@ -126,14 +126,16 @@ sti();
 gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
 
 gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+
+// Тестовое мигание при запуске -->
 	 gpio_pin_val_set(DIMMPIN);
 	 delay_ms(500); 
 	 gpio_pin_val_clear(DIMMPIN);
 	 delay_ms(500); 
-
+//<-- Тестовое мигание при запуске
 	 
 	 	radiobegin(); //
-		openAllPipe(); // открываем прием/передачу
+		openAllPipe(); // открываем прием/передачу, назначаем адреса.
 		
 		setChannel(100);
 		setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
