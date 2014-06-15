@@ -22,7 +22,7 @@ typedef struct{
   unsigned char identifier;// номер передатчика.МЕНЯТЬ НЕЛЬЗЯ
 
   int countPWM;
-  unsigned char test_data;
+  unsigned char keymode;
   int Error_Message; // счетчик ошибок
   long count;// счетчик передач для контроля качества канала
 #if nofloat
@@ -43,7 +43,7 @@ nf1 clientnf;
 uint16_t valuepwm=0;
 void setdimmer(uint8_t value){
   valuepwm=65535-DIMSTART*(MAXSTEP-value);
-if(value ==0 | clientnf.test_data==0) {
+if(value ==0 | clientnf.keymode==0) {
   interrupt_control_ifp_disable();
   gpio_pin_val_clear(DIMMPIN);
 } else interrupt_control_ifp_enable();
@@ -84,7 +84,7 @@ interrupt_control_ifp_disable();
 timer1_stop();
 gpio_pin_val_clear(DIMMPIN);
 }
-clientnf.test_data=mode;
+clientnf.keymode=mode;
 }  
 
 unsigned long countrtc=0;
@@ -95,6 +95,7 @@ interrupt_isr_rtc2() // счетчик ртс импульсов использ�
 {
 countrtc++;
 }
+
 //====================main========================
 
 
@@ -128,10 +129,12 @@ gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OP
 gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 
 // Тестовое мигание при запуске -->
+#if 1
 	 gpio_pin_val_set(DIMMPIN);
 	 delay_ms(500); 
 	 gpio_pin_val_clear(DIMMPIN);
-	 delay_ms(500); 
+	 delay_ms(500);
+#endif
 //<-- Тестовое мигание при запуске
 	 
 	 	radiobegin(); //
@@ -145,7 +148,7 @@ gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 		
 		
 		clientnf.identifier=chclient;
-		clientnf.countPWM=10;
+		clientnf.countPWM=30;
 
 
 
@@ -155,9 +158,6 @@ gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 
 	while(1)
 	{
-	  
-
-
 
 	  // ---
 if (countrtc-radiosend >=TIMESEND) {
@@ -218,7 +218,7 @@ radiosend=countrtc;
 
 #if 1
 #define dimm clientnf.countPWM
-#define dat clientnf.test_data
+#define keymode clientnf.keymode
 
 
 if (digitalRead(BUTTONPIN)==0){
@@ -226,14 +226,14 @@ if (countrtc-statesend>=TIMEKEY) {
    
    if (st){
    st=0;
-    dat=!dat;
+    keymode=!keymode;
     
-    dimmon (dat);
+    dimmon (keymode);
     
    } else 
 if (countpause>=TIMELONGKEY){
  
-if (!dat) dimmon(1);
+if (!keymode) dimmon(1); // если было выключено,то включим
 else {
   
 if(rewers) {

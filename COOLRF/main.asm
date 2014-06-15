@@ -1,7 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-; This file was generated Sun Jun 15 20:29:03 2014
+; This file was generated Sun Jun 15 20:52:41 2014
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-large
@@ -5209,7 +5209,7 @@ _setdimmer:
 	mov	a,r4
 	inc	dptr
 	movx	@dptr,a
-;	main.c:46: if(value ==0 | clientnf.test_data==0) {
+;	main.c:46: if(value ==0 | clientnf.keymode==0) {
 	mov	a,r7
 	cjne	a,#0x01,00109$
 00109$:
@@ -5391,7 +5391,7 @@ _dimmon:
 	lcall	_gpio_pin_val_clear
 	pop	ar7
 00103$:
-;	main.c:87: clientnf.test_data=mode;
+;	main.c:87: clientnf.keymode=mode;
 	mov	dptr,#(_clientnf + 0x0003)
 	mov	a,r7
 	movx	@dptr,a
@@ -5443,14 +5443,14 @@ _isr_rtc2:
 ;statesend                 Allocated with name '_main_statesend_1_256'
 ;radiosend                 Allocated with name '_main_radiosend_1_256'
 ;------------------------------------------------------------
-;	main.c:101: void main()
+;	main.c:102: void main()
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	main.c:106: uint8_t st=0,countpause=0,rewers=0; // for key
+;	main.c:107: uint8_t st=0,countpause=0,rewers=0; // for key
 	mov	dptr,#_main_st_1_256
-;	main.c:107: unsigned long statesend=0,radiosend=0;
+;	main.c:108: unsigned long statesend=0,radiosend=0;
 	clr	a
 	movx	@dptr,a
 	mov	dptr,#_main_countpause_1_256
@@ -5480,9 +5480,9 @@ _main:
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	main.c:110: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
+;	main.c:111: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
 	mov	_CLKLFCTRL,#0x01
-;	main.c:111: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
+;	main.c:112: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
 	mov	dptr,#_rtc2_configure_PARM_2
 	mov	a,#0xFF
 	movx	@dptr,a
@@ -5491,9 +5491,9 @@ _main:
 	movx	@dptr,a
 	mov	dpl,#0x06
 	lcall	_rtc2_configure
-;	main.c:112: rtc2_run();
+;	main.c:113: rtc2_run();
 	orl	_RTC2CON,#0x01
-;	main.c:113: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
+;	main.c:114: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
 	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5502,19 +5502,19 @@ _main:
 	movx	@dptr,a
 	mov	dpl,#0x00
 	lcall	_pwr_clk_mgmt_wakeup_configure
-;	main.c:114: interrupt_control_rtc2_enable();
+;	main.c:115: interrupt_control_rtc2_enable();
 	setb _IEN1_SB_TICK 
-;	main.c:117: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+;	main.c:118: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
 	mov	dptr,#_interrupt_configure_ifp_PARM_2
 	mov	a,#0x81
 	movx	@dptr,a
 	mov	dpl,#0x08
 	lcall	_interrupt_configure_ifp
-;	main.c:118: interrupt_control_ifp_enable();
+;	main.c:119: interrupt_control_ifp_enable();
 	setb _IEN0_SB_IFP 
-;	main.c:120: interrupt_control_t1_enable()	;
+;	main.c:121: interrupt_control_t1_enable()	;
 	setb _IEN0_SB_T1 
-;	main.c:121: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+;	main.c:122: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
 	mov	dptr,#_timer1_configure_PARM_2
 	clr	a
 	movx	@dptr,a
@@ -5523,65 +5523,65 @@ _main:
 	movx	@dptr,a
 	mov	dpl,#0x10
 	lcall	_timer1_configure
-;	main.c:122: timer1_run();
+;	main.c:123: timer1_run();
 	setb _TCON_SB_TR1 
-;	main.c:124: sti();
+;	main.c:125: sti();
 	setb _IEN0_SB_GLOBAL 
-;	main.c:126: gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
+;	main.c:127: gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
 	mov	dptr,#_gpio_pin_configure_PARM_2
 	mov	a,#0x40
 	movx	@dptr,a
 	mov	dpl,#0x04
 	lcall	_gpio_pin_configure
-;	main.c:128: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+;	main.c:129: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
 	mov	dptr,#_gpio_pin_configure_PARM_2
 	mov	a,#0x01
 	movx	@dptr,a
 	mov	dpl,#0x02
 	lcall	_gpio_pin_configure
-;	main.c:131: gpio_pin_val_set(DIMMPIN);
+;	main.c:133: gpio_pin_val_set(DIMMPIN);
 	mov	dpl,#0x02
 	lcall	_gpio_pin_val_set
-;	main.c:132: delay_ms(500); 
-	mov	dptr,#0x01F4
-	lcall	_delay_ms
-;	main.c:133: gpio_pin_val_clear(DIMMPIN);
-	mov	dpl,#0x02
-	lcall	_gpio_pin_val_clear
 ;	main.c:134: delay_ms(500); 
 	mov	dptr,#0x01F4
 	lcall	_delay_ms
-;	main.c:137: radiobegin(); //
+;	main.c:135: gpio_pin_val_clear(DIMMPIN);
+	mov	dpl,#0x02
+	lcall	_gpio_pin_val_clear
+;	main.c:136: delay_ms(500);
+	mov	dptr,#0x01F4
+	lcall	_delay_ms
+;	main.c:140: radiobegin(); //
 	lcall	_radiobegin
-;	main.c:138: openAllPipe(); // открываем прием/передачу, назначаем адреса.
+;	main.c:141: openAllPipe(); // открываем прием/передачу, назначаем адреса.
 	lcall	_openAllPipe
-;	main.c:140: setChannel(100);
+;	main.c:143: setChannel(100);
 	mov	dpl,#0x64
 	lcall	_setChannel
-;	main.c:141: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
+;	main.c:144: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
 	mov	dpl,#0x02
 	lcall	_setDataRate
-;	main.c:142: setAutoAck(false);
+;	main.c:145: setAutoAck(false);
 	mov	dpl,#0x00
 	lcall	_setAutoAck
-;	main.c:143: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
+;	main.c:146: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
 	mov	dpl,#0x02
 	lcall	_setCRCLength
-;	main.c:144: setPALevel(3) ; // мощность 0..3
+;	main.c:147: setPALevel(3) ; // мощность 0..3
 	mov	dpl,#0x03
 	lcall	_setPALevel
-;	main.c:147: clientnf.identifier=chclient;
+;	main.c:150: clientnf.identifier=chclient;
 	mov	dptr,#_clientnf
 	mov	a,#0x01
 	movx	@dptr,a
-;	main.c:148: clientnf.countPWM=10;
+;	main.c:151: clientnf.countPWM=30;
 	mov	dptr,#(_clientnf + 0x0001)
-	mov	a,#0x0A
+	mov	a,#0x1E
 	movx	@dptr,a
 	clr	a
 	inc	dptr
 	movx	@dptr,a
-;	main.c:156: while(1)
+;	main.c:159: while(1)
 00147$:
 ;	main.c:163: if (countrtc-radiosend >=TIMESEND) {
 	mov	dptr,#_main_radiosend_1_256
@@ -5952,7 +5952,7 @@ _main:
 	mov	dptr,#_main_st_1_256
 	clr	a
 	movx	@dptr,a
-;	main.c:229: dat=!dat;
+;	main.c:229: keymode=!keymode;
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	mov	r7,a
@@ -5962,7 +5962,7 @@ _main:
 	rlc	a
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	@dptr,a
-;	main.c:231: dimmon (dat);
+;	main.c:231: dimmon (keymode);
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	mov	dpl,a
@@ -5978,7 +5978,7 @@ _main:
 	jnc	00239$
 	ljmp	00136$
 00239$:
-;	main.c:236: if (!dat) dimmon(1);
+;	main.c:236: if (!keymode) dimmon(1); // если было выключено,то включим
 	mov	dptr,#(_clientnf + 0x0003)
 	movx	a,@dptr
 	jnz	00133$

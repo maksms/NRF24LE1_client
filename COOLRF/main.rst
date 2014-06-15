@@ -1,7 +1,7 @@
                               1 ;--------------------------------------------------------
                               2 ; File Created by SDCC : free open source ANSI-C Compiler
                               3 ; Version 3.3.0 #8604 (May 11 2013) (Linux)
-                              4 ; This file was generated Sun Jun 15 20:29:03 2014
+                              4 ; This file was generated Sun Jun 15 20:52:41 2014
                               5 ;--------------------------------------------------------
                               6 	.module main
                               7 	.optsdcc -mmcs51 --model-large
@@ -5209,7 +5209,7 @@
    15A0 EC            [12] 5209 	mov	a,r4
    15A1 A3            [24] 5210 	inc	dptr
    15A2 F0            [24] 5211 	movx	@dptr,a
-                           5212 ;	main.c:46: if(value ==0 | clientnf.test_data==0) {
+                           5212 ;	main.c:46: if(value ==0 | clientnf.keymode==0) {
    15A3 EF            [12] 5213 	mov	a,r7
    15A4 B4 01 00      [24] 5214 	cjne	a,#0x01,00109$
    15A7                    5215 00109$:
@@ -5391,7 +5391,7 @@
    1698 12 08 1E      [24] 5391 	lcall	_gpio_pin_val_clear
    169B D0 07         [24] 5392 	pop	ar7
    169D                    5393 00103$:
-                           5394 ;	main.c:87: clientnf.test_data=mode;
+                           5394 ;	main.c:87: clientnf.keymode=mode;
    169D 90 00 92      [24] 5395 	mov	dptr,#(_clientnf + 0x0003)
    16A0 EF            [12] 5396 	mov	a,r7
    16A1 F0            [24] 5397 	movx	@dptr,a
@@ -5443,14 +5443,14 @@
                            5443 ;statesend                 Allocated with name '_main_statesend_1_256'
                            5444 ;radiosend                 Allocated with name '_main_radiosend_1_256'
                            5445 ;------------------------------------------------------------
-                           5446 ;	main.c:101: void main()
+                           5446 ;	main.c:102: void main()
                            5447 ;	-----------------------------------------
                            5448 ;	 function main
                            5449 ;	-----------------------------------------
    16CA                    5450 _main:
-                           5451 ;	main.c:106: uint8_t st=0,countpause=0,rewers=0; // for key
+                           5451 ;	main.c:107: uint8_t st=0,countpause=0,rewers=0; // for key
    16CA 90 00 C4      [24] 5452 	mov	dptr,#_main_st_1_256
-                           5453 ;	main.c:107: unsigned long statesend=0,radiosend=0;
+                           5453 ;	main.c:108: unsigned long statesend=0,radiosend=0;
    16CD E4            [12] 5454 	clr	a
    16CE F0            [24] 5455 	movx	@dptr,a
    16CF 90 00 C5      [24] 5456 	mov	dptr,#_main_countpause_1_256
@@ -5480,9 +5480,9 @@
    16EF E4            [12] 5480 	clr	a
    16F0 A3            [24] 5481 	inc	dptr
    16F1 F0            [24] 5482 	movx	@dptr,a
-                           5483 ;	main.c:110: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
+                           5483 ;	main.c:111: CLKLFCTRL=1; // 0 -внешний кварц на P0.1 и P0.0. 1 - внутренний генератор.
    16F2 75 AD 01      [24] 5484 	mov	_CLKLFCTRL,#0x01
-                           5485 ;	main.c:111: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
+                           5485 ;	main.c:112: rtc2_configure(RTC2_CONFIG_OPTION_COMPARE_MODE_0_RESET_AT_IRQ ,RTCDEC);
    16F5 90 00 7D      [24] 5486 	mov	dptr,#_rtc2_configure_PARM_2
    16F8 74 FF         [12] 5487 	mov	a,#0xFF
    16FA F0            [24] 5488 	movx	@dptr,a
@@ -5491,9 +5491,9 @@
    16FE F0            [24] 5491 	movx	@dptr,a
    16FF 75 82 06      [24] 5492 	mov	dpl,#0x06
    1702 12 12 E6      [24] 5493 	lcall	_rtc2_configure
-                           5494 ;	main.c:112: rtc2_run();
+                           5494 ;	main.c:113: rtc2_run();
    1705 43 B3 01      [24] 5495 	orl	_RTC2CON,#0x01
-                           5496 ;	main.c:113: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
+                           5496 ;	main.c:114: pwr_clk_mgmt_wakeup_configure(PWR_CLK_MGMT_WAKEUP_CONFIG_OPTION_WAKEUP_ON_RTC2_TICK_IF_INT_ENABLED,0);
    1708 90 00 4E      [24] 5497 	mov	dptr,#_pwr_clk_mgmt_wakeup_configure_PARM_2
    170B E4            [12] 5498 	clr	a
    170C F0            [24] 5499 	movx	@dptr,a
@@ -5502,19 +5502,19 @@
    170F F0            [24] 5502 	movx	@dptr,a
    1710 75 82 00      [24] 5503 	mov	dpl,#0x00
    1713 12 0A 68      [24] 5504 	lcall	_pwr_clk_mgmt_wakeup_configure
-                           5505 ;	main.c:114: interrupt_control_rtc2_enable();
+                           5505 ;	main.c:115: interrupt_control_rtc2_enable();
    1716 D2 BD         [12] 5506 	setb _IEN1_SB_TICK 
-                           5507 ;	main.c:117: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
+                           5507 ;	main.c:118: interrupt_configure_ifp(INTERRUPT_IFP_INPUT_GPINT0,INTERRUPT_IFP_CONFIG_OPTION_ENABLE | INTERRUPT_IFP_CONFIG_OPTION_TYPE_FALLING_EDGE);
    1718 90 00 59      [24] 5508 	mov	dptr,#_interrupt_configure_ifp_PARM_2
    171B 74 81         [12] 5509 	mov	a,#0x81
    171D F0            [24] 5510 	movx	@dptr,a
    171E 75 82 08      [24] 5511 	mov	dpl,#0x08
    1721 12 0B 54      [24] 5512 	lcall	_interrupt_configure_ifp
-                           5513 ;	main.c:118: interrupt_control_ifp_enable();
+                           5513 ;	main.c:119: interrupt_control_ifp_enable();
    1724 D2 A8         [12] 5514 	setb _IEN0_SB_IFP 
-                           5515 ;	main.c:120: interrupt_control_t1_enable()	;
+                           5515 ;	main.c:121: interrupt_control_t1_enable()	;
    1726 D2 AB         [12] 5516 	setb _IEN0_SB_T1 
-                           5517 ;	main.c:121: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
+                           5517 ;	main.c:122: timer1_configure(TIMER1_CONFIG_OPTION_MODE_1_16_BIT_CTR_TMR,0);
    1728 90 00 63      [24] 5518 	mov	dptr,#_timer1_configure_PARM_2
    172B E4            [12] 5519 	clr	a
    172C F0            [24] 5520 	movx	@dptr,a
@@ -5523,65 +5523,65 @@
    172F F0            [24] 5523 	movx	@dptr,a
    1730 75 82 10      [24] 5524 	mov	dpl,#0x10
    1733 12 0C 67      [24] 5525 	lcall	_timer1_configure
-                           5526 ;	main.c:122: timer1_run();
+                           5526 ;	main.c:123: timer1_run();
    1736 D2 8E         [12] 5527 	setb _TCON_SB_TR1 
-                           5528 ;	main.c:124: sti();
+                           5528 ;	main.c:125: sti();
    1738 D2 AF         [12] 5529 	setb _IEN0_SB_GLOBAL 
-                           5530 ;	main.c:126: gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
+                           5530 ;	main.c:127: gpio_pin_configure(BUTTONPIN,GPIO_PIN_CONFIG_OPTION_DIR_INPUT|GPIO_PIN_CONFIG_OPTION_PIN_MODE_INPUT_BUFFER_ON_PULL_UP_RESISTOR); // для кнопки на вход и подтянуть резистором. 
    173A 90 00 38      [24] 5531 	mov	dptr,#_gpio_pin_configure_PARM_2
    173D 74 40         [12] 5532 	mov	a,#0x40
    173F F0            [24] 5533 	movx	@dptr,a
    1740 75 82 04      [24] 5534 	mov	dpl,#0x04
    1743 12 05 8F      [24] 5535 	lcall	_gpio_pin_configure
-                           5536 ;	main.c:128: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
+                           5536 ;	main.c:129: gpio_pin_configure(DIMMPIN,GPIO_PIN_CONFIG_OPTION_DIR_OUTPUT);
    1746 90 00 38      [24] 5537 	mov	dptr,#_gpio_pin_configure_PARM_2
    1749 74 01         [12] 5538 	mov	a,#0x01
    174B F0            [24] 5539 	movx	@dptr,a
    174C 75 82 02      [24] 5540 	mov	dpl,#0x02
    174F 12 05 8F      [24] 5541 	lcall	_gpio_pin_configure
-                           5542 ;	main.c:131: gpio_pin_val_set(DIMMPIN);
+                           5542 ;	main.c:133: gpio_pin_val_set(DIMMPIN);
    1752 75 82 02      [24] 5543 	mov	dpl,#0x02
    1755 12 08 89      [24] 5544 	lcall	_gpio_pin_val_set
-                           5545 ;	main.c:132: delay_ms(500); 
+                           5545 ;	main.c:134: delay_ms(500); 
    1758 90 01 F4      [24] 5546 	mov	dptr,#0x01F4
    175B 12 09 8C      [24] 5547 	lcall	_delay_ms
-                           5548 ;	main.c:133: gpio_pin_val_clear(DIMMPIN);
+                           5548 ;	main.c:135: gpio_pin_val_clear(DIMMPIN);
    175E 75 82 02      [24] 5549 	mov	dpl,#0x02
    1761 12 08 1E      [24] 5550 	lcall	_gpio_pin_val_clear
-                           5551 ;	main.c:134: delay_ms(500); 
+                           5551 ;	main.c:136: delay_ms(500);
    1764 90 01 F4      [24] 5552 	mov	dptr,#0x01F4
    1767 12 09 8C      [24] 5553 	lcall	_delay_ms
-                           5554 ;	main.c:137: radiobegin(); //
+                           5554 ;	main.c:140: radiobegin(); //
    176A 12 13 16      [24] 5555 	lcall	_radiobegin
-                           5556 ;	main.c:138: openAllPipe(); // открываем прием/передачу, назначаем адреса.
+                           5556 ;	main.c:141: openAllPipe(); // открываем прием/передачу, назначаем адреса.
    176D 12 14 9A      [24] 5557 	lcall	_openAllPipe
-                           5558 ;	main.c:140: setChannel(100);
+                           5558 ;	main.c:143: setChannel(100);
    1770 75 82 64      [24] 5559 	mov	dpl,#0x64
    1773 12 13 3B      [24] 5560 	lcall	_setChannel
-                           5561 ;	main.c:141: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
+                           5561 ;	main.c:144: setDataRate(2); // 1 - 250кб , 2 - 1 мб , 3 -2 мб.
    1776 75 82 02      [24] 5562 	mov	dpl,#0x02
    1779 12 13 5D      [24] 5563 	lcall	_setDataRate
-                           5564 ;	main.c:142: setAutoAck(false);
+                           5564 ;	main.c:145: setAutoAck(false);
    177C 75 82 00      [24] 5565 	mov	dpl,#0x00
    177F 12 13 BF      [24] 5566 	lcall	_setAutoAck
-                           5567 ;	main.c:143: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
+                           5567 ;	main.c:146: setCRCLength(2); // 0 - crc off ,1 - 8bit ,2 - 16bit
    1782 75 82 02      [24] 5568 	mov	dpl,#0x02
    1785 12 13 F2      [24] 5569 	lcall	_setCRCLength
-                           5570 ;	main.c:144: setPALevel(3) ; // мощность 0..3
+                           5570 ;	main.c:147: setPALevel(3) ; // мощность 0..3
    1788 75 82 03      [24] 5571 	mov	dpl,#0x03
    178B 12 14 5B      [24] 5572 	lcall	_setPALevel
-                           5573 ;	main.c:147: clientnf.identifier=chclient;
+                           5573 ;	main.c:150: clientnf.identifier=chclient;
    178E 90 00 8F      [24] 5574 	mov	dptr,#_clientnf
    1791 74 01         [12] 5575 	mov	a,#0x01
    1793 F0            [24] 5576 	movx	@dptr,a
-                           5577 ;	main.c:148: clientnf.countPWM=10;
+                           5577 ;	main.c:151: clientnf.countPWM=30;
    1794 90 00 90      [24] 5578 	mov	dptr,#(_clientnf + 0x0001)
-   1797 74 0A         [12] 5579 	mov	a,#0x0A
+   1797 74 1E         [12] 5579 	mov	a,#0x1E
    1799 F0            [24] 5580 	movx	@dptr,a
    179A E4            [12] 5581 	clr	a
    179B A3            [24] 5582 	inc	dptr
    179C F0            [24] 5583 	movx	@dptr,a
-                           5584 ;	main.c:156: while(1)
+                           5584 ;	main.c:159: while(1)
    179D                    5585 00147$:
                            5586 ;	main.c:163: if (countrtc-radiosend >=TIMESEND) {
    179D 90 00 CB      [24] 5587 	mov	dptr,#_main_radiosend_1_256
@@ -5952,7 +5952,7 @@
    198D 90 00 C4      [24] 5952 	mov	dptr,#_main_st_1_256
    1990 E4            [12] 5953 	clr	a
    1991 F0            [24] 5954 	movx	@dptr,a
-                           5955 ;	main.c:229: dat=!dat;
+                           5955 ;	main.c:229: keymode=!keymode;
    1992 90 00 92      [24] 5956 	mov	dptr,#(_clientnf + 0x0003)
    1995 E0            [24] 5957 	movx	a,@dptr
    1996 FF            [12] 5958 	mov	r7,a
@@ -5962,7 +5962,7 @@
    199B 33            [12] 5962 	rlc	a
    199C 90 00 92      [24] 5963 	mov	dptr,#(_clientnf + 0x0003)
    199F F0            [24] 5964 	movx	@dptr,a
-                           5965 ;	main.c:231: dimmon (dat);
+                           5965 ;	main.c:231: dimmon (keymode);
    19A0 90 00 92      [24] 5966 	mov	dptr,#(_clientnf + 0x0003)
    19A3 E0            [24] 5967 	movx	a,@dptr
    19A4 F5 82         [12] 5968 	mov	dpl,a
@@ -5978,7 +5978,7 @@
    19B4 50 03         [24] 5978 	jnc	00239$
    19B6 02 1A 4F      [24] 5979 	ljmp	00136$
    19B9                    5980 00239$:
-                           5981 ;	main.c:236: if (!dat) dimmon(1);
+                           5981 ;	main.c:236: if (!keymode) dimmon(1); // если было выключено,то включим
    19B9 90 00 92      [24] 5982 	mov	dptr,#(_clientnf + 0x0003)
    19BC E0            [24] 5983 	movx	a,@dptr
    19BD 70 09         [24] 5984 	jnz	00133$
