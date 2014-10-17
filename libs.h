@@ -15,7 +15,7 @@
 
 // rf
 #include "src/rf/src/rf_read_rx_payload.c"
-#include "src/rf/src/rf_configure_debug_lite.c"
+//#include "src/rf/src/rf_configure_debug_lite.c"
 #include "src/rf/src/rf_write_register.c"
 #include "src/rf/src/rf_spi_configure_enable.c"
 #include "src/rf/src/rf_write_tx_payload.c"
@@ -73,7 +73,7 @@
 #include "src/timer1/src/timer1_configure.c"
 
 // uart
-#if 1
+#if 0
 #include "src/uart/src/uart_configure_manual_baud_calc.c"
 #include "src/uart/src/uart_calc_actual_baud_rate_from_s0rel.c"
 #include "src/uart/src/uart_calc_actual_baud_rate_from_th1.c"
@@ -98,6 +98,15 @@
 #include "src/w2/src/w2_wait_for_byte_tx_or_rx.c"
 #endif
 
-
+// flash memory read/write
+#if 0
+#include "src/memory/src/memory_flash_does_address_exist_in_flash.c"
+#include "src/memory/src/memory_flash_erase_page.c"
+#include "src/memory/src/memory_flash_get_page_num_from_address.c"
+#include "src/memory/src/memory_flash_read_byte.c"
+#include "src/memory/src/memory_flash_read_bytes.c"
+#include "src/memory/src/memory_flash_write_byte.c"
+#include "src/memory/src/memory_flash_write_bytes.c"
+#endif
 
 #include "src/rtc2/src/rtc2_configure.c"
