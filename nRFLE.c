@@ -86,9 +86,9 @@ void setPALevel(unsigned char level)
 uint8_t setup;
  
 rf_read_register(RF_RF_SETUP,&setup,1) ;
-  
+
 setup &= ~(_BV(RF_PWR_LOW) | _BV(RF_PWR_HIGH)) ;
-setup  | (level&3)<<RF_PWR_LOW;
+setup|= ((level&3)<<RF_PWR_LOW);
 
 rf_write_register(RF_RF_SETUP,&setup,1);
 
@@ -190,3 +190,37 @@ rf_write_register(RF_EN_RXADDR,&setup ,1);
 //
 
 #endif
+
+// analog "available" of RF24 for replace "rf_irq_pin_active() && rf_irq_rx_dr_active()"
+#define STATUS      0x07
+#define RX_DR       6
+#define TX_DS       5
+#define RX_P_NO     1
+
+unsigned char available(uint8_t* pipe_num)
+{
+  unsigned char buffer;
+  uint8_t status = rf_get_status();
+
+
+ uint8_t result = ( status & _BV(RX_DR) );
+
+  if (result)
+  {
+    // If the caller wants the pipe number, include that
+  //  if ( pipe_num )
+      *pipe_num = ( status >> RX_P_NO ) & 7;
+
+    buffer=64;// _BV(RX_DR);
+    rf_write_register(STATUS,&buffer,1 ); 
+
+    // Handle ack payload receipt
+    if ( status & _BV(TX_DS) )
+    {
+    buffer=32;// _BV(TX_DS);
+    rf_write_register(STATUS,&buffer,1 );
+    }
+  }
+
+  return result;
+}
